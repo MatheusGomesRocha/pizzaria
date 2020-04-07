@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+#formLogin {
+    width: 650px;
+    height: 480px;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+#container-login100 {
+    margin-top: 70px;
+}
+
+#userPass, #userLogin{
+    border: 1px solid #ccc !important;
+}
+
+#userLogin:focus, #userPass:focus {
+    outline: 0;
+    border-color: #e5e500;
+    box-shadow: 0 0 2px 2px #e5e500;
+}
+
+
+#btn {
+    width: 100%;
+    border-radius: 15px !important;
+    background-color: #ca7f00 !important;
+    color: #fff;
+}
+
+#btn:hover {
+    background-color: #b46d00 !important;
+}
+
+#btn:focus, #btn1:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+#btn1 {
+    width: 100%;
+    border-radius: 15px !important;
+    background-color: #C4161C;
+    color: #fff;
+}
+
+#btn1:hover {
+    background-color: #aa1318;
+}
+
+#btnCadastro {
+    margin-top: 15px;
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.form-title {
+    color: #C4161C;
+    font-size: 40px;
+    font-family: 'Roboto Condensed', sans-serif;
+}

@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+#footer { /* Rodapé */
+    margin-top: 350px;
+    background-color: #d0c600 !important;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+#logo {
+    color: #fff;
+}
+
+#navbarTemplate { /* Div pai */
+    background-color: #121618 !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#toggleButton { /* Botão mobile para abrir menu */
+    border: none;
+}
+
+#toggleButton:focus { /* Botão mobile para abrir menu (ao clicar) */
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important
+}
+
+#search { /* Input text */
+    height: 45px;
+}
+
+#search:focus::-webkit-input-placeholder { /* Input text (tirar placeholder ao clicar no input) */
+    color: transparent;
+}
+
+#search:focus { /* input text (ao clicar) */
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+#append { /* Botão de buscar  */
+    cursor: pointer;
+}
+
+#appendIcon { /* Ícone dentro do botão de buscar */
+    background-color: #ae2536 !important;
+    color: #fff;
+    font-size: 16px !important;
+    border: none;
+}
+
+#dropdownAccount { /* Ícone dropdown do usuário */
+    font-size: 36px;
+    color: #fff;
+}
+
+#navbarDropdown {
+    color: #fff;
+}
+
+#userDropdown { /* Dropdown do usuário */
+    background-color: #ae2536 !important;
+}
+
+#myOrders, #logout, #myAccount { /* Links dentro do dropdown */
+    color: #fff;
+}
+
+#myOrders:hover, #logout:hover, #myAccount:hover { /* Links dentro do dropdown (ao passar o mouse por cima) */
+    background-color: #8a202a !important;
+}
+
+#home, #about, #local, #staff, #login { /* Links home, sobre, localização e funcionários */
+    margin-top: -15px;
+    color: #d02000 !important;
+    font-size: 18px;
+}
+
+#home:hover, #about:hover, #local:hover, #staff:hover, #login:hover { /* Links home, sobre, localização e funcionários (ao passar mouse em cima */
+    color: #a51d00 !important;
+}
+
+.dropdown-menu:hover { /* Div com links dentro do Dropdown (ao passar mouse em cima) */
+    background-color: #891e2b !important;
+}
+
+@media (min-width: 360px) {
+    /* Responsividade para mobile */
+    #cartDesktop { /* Ícone carrinho em lg e xl */
+        display: none;
+    }
+
+    #countIcon { /* Número que veio da variável count (Posição diferente da que está na responsividade 998px */
+        color: #d02000 !important;
+        font-weight: bold;
+        font-size: 22px;
+        position: absolute;
+        left: 324px;
+        top: 8px;
+    }
+
+    #logoMobile {
+        display: block;
+    }
+}
+
+@media (min-width: 998px) {
+    /* Responsividade para desktop */
+    #search { /* Input text */
+        width: 950px;
+    }
+
+    #divTop { /* Div com Input text e append */
+        display: inline-block;
+        margin-left: 150px;
+    }
+
+    .dropdown-menu { /* Div dentro do dropdown */
+        margin-left: -25px !important;
+    }
+
+    #countIcon { /* Número que veio da variável count */
+        color: #d02000 !important;
+        font-weight: bold;
+        font-size: 22px;
+        position: absolute;
+        left: 1307px;
+        top: 25px;
+    }
+
+    #cartMobile { /* PNG do carrinho na versão mobile */
+        display: none;
+    }
+
+    #cartDesktop { /* PNG do carrinho na versão desktop */
+        display: block;
+    }
+
+    #logoMobile { /* LOGO na versão mobile */
+        display: none;
+    }
+
+}

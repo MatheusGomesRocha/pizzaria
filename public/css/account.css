@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+#accountAll { /* Div pai */
+    margin-top: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#accountUser, #accountName, #accountEmail, #accountPhone, #accountPass { /* Divs com conteúdo */
+    border: 1px solid #d2d2d2;
+    border-bottom: none;
+    padding: 20px;
+}
+
+#accountPass { /* Apenas adicionando a borda embaixo da div password */
+    border-bottom: 1px solid #d2d2d2;
+}
+
+#btnEdit { /* Botão de ditar */
+    height: 40px !important;
+}
+
+#btnEdit:focus { /* Botão de editar (ao clicar) */
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important
+}

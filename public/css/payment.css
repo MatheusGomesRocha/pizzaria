@@ -1,0 +1,26 @@
+.form-title, #newTitle {
+    color: #c4161c;
+    font-size: 32px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+}
+
+#formCard {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 10px;
+    border: 1px solid;
+}
+
+#btnAdd {
+    margin-top: 10px;
+    background-color: #ac2331 !important;
+    color: #fff;
+}
+
+#btnAdd:hover {
+    background-color: #821d29 !important;
+}
+
+#tableCard {
+    border: 1px solid #dbdbdb;
+}

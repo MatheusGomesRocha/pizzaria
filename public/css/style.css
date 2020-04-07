@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+#imgMark {
+    height: 730px ;
+    background-color: #ccc ;
+}
+
+#divResAcc {
+    height: 100px;
+    color: #fff;
+}
+
+#infoRes {
+    background-color: #000;
+    padding: 20px;
+}
+
+#accounts {
+    background-color: #ae2536;
+    padding: 20px;
+}
