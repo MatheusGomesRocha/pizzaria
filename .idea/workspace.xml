@@ -122,10 +122,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Auth" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
       <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
       <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
       <recent name="C:\wamp64\www\pizzaria\database\migrations" />
