@@ -460,12 +460,6 @@
                     </li>
                 </ul>
             </ul>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item" id="cartDesktop">
-                    <a class="nav-link" href="{{ route('cart') }}"><img src="{{ asset('img/shopping-cart.png') }}"></a>
-                </li>
-            </ul>
-
         </div>
     </nav>
 @endif
