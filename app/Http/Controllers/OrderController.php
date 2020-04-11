@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
 
-    public function index()                 // CART
+    public function index()                 // CART VIEW
     {
         $user = User::get_user();
         $query = Order::get_orders();
@@ -30,7 +30,7 @@ class OrderController extends Controller
         return view('orders.cart')->with('subtotal', $subtotal)->with('orders', $query)->with('count', $count)->with('user', $user);
     }
 
-    public function insert_cart(Request $request)
+    public function insert_cart(Request $request)  // FUNÇÃO PARA FAZER O PEDIDO E SE JÁ TIVER O PEDIDO IGUAL, AUMENTA A QUANTIDADE
     {
         $select = DB::table('orders')
             ->where('product_id', '=', $request->input('product_id'))
@@ -72,14 +72,14 @@ class OrderController extends Controller
         }
     }
 
-    public function delete_order($id)
+    public function delete_order($id)   // DELETANDO PEDIDO
     {
         Order::delete_order($id);
 
         return redirect()->back();
     }
 
-    public function adress()
+    public function adress()    // ENDEREÇO VIEW
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -88,7 +88,7 @@ class OrderController extends Controller
         return view('orders.adress')->with('query', $query)->with('count', $count)->with('user', $user);
     }
 
-    public function add_adress(Request $request1)
+    public function add_adress(Request $request1)   // ADICIONANDO QUANTOS ENDEREÇOS O USUÁRIO QUISER
     {
         $validation1 = $this->validation1($request1->all());
 
@@ -119,7 +119,7 @@ class OrderController extends Controller
         return redirect()->back();
     }
 
-    public function delivery(request $request)
+    public function delivery(request $request)  // FAZENDO EDIT CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "DELIVERY"
     {
         if (Auth::check()) {
             $id = Auth::user()->id;
@@ -140,7 +140,7 @@ class OrderController extends Controller
         return redirect('/payment');
     }
 
-    public function restaurant(request $request)
+    public function restaurant(request $request)  // FAZENDO UPDATE CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "RETIRAR NO RESTAURANTE"
     {
         if (Auth::check()) {
             $id = Auth::user()->id;
@@ -161,7 +161,7 @@ class OrderController extends Controller
         return redirect('/payment');
     }
 
-    public function payment()
+    public function payment()   // PAGAMENTO VIEW
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -170,7 +170,7 @@ class OrderController extends Controller
         return view('orders.payment')->with('count', $count)->with('cards', $cards)->with('user', $user);
     }
 
-    public function finish_order()
+    public function finish_order()  // FINALIZAR O PEDIDO VIEW
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -187,43 +187,7 @@ class OrderController extends Controller
             ->with('orders', $order)->with('adress', $adress)->with('user', $user);
     }
 
-    public function orders_pendent()
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_orders_pendent();
-
-            return view('orders.pendent')->with('count', $count)->with('query', $query);
-        } else {
-            return redirect('/');
-        }
-    }
-
-    public function orders_delivery()
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_orders_delivery();
-
-            return view('orders.delivery')->with('count', $count)->with('query', $query);
-        } else {
-            return redirect('/');
-        }
-    }
-
-    public function ingredients_all()
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_ingredients();
-
-            return view('products.view_ingredient')->with('count', $count)->with('query', $query);
-        } else {
-            return redirect('/');
-        }
-    }
-
-    public function quantidade($id)
+    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
     {
         if (Auth::user()->nivel == 2) {
             $count = User::count_orders();
@@ -237,7 +201,7 @@ class OrderController extends Controller
         }
     }
 
-    public function quantidade_post(Request $request)
+    public function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
     {
         $query = DB::table('orders')
             ->where('order_id', '=', $request->input('order_id'))
@@ -248,7 +212,7 @@ class OrderController extends Controller
         }
     }
 
-    public function add_card(Request $request)
+    public function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
     {
         $validation2 = $this->validation2($request->all());
 
@@ -274,6 +238,47 @@ class OrderController extends Controller
             return redirect()->back();
         }
     }
+
+
+
+    // A PARTIR DAQUI É ÁREA APENAS DO ADM
+
+    public function orders_pendent()    // PEDIDOS PENDENTES VIEW
+    {
+        if (Auth::user()->nivel == 1) {
+            $count = User::count_orders();
+            $query = Order::get_orders_pendent();
+
+            return view('orders.pendent')->with('count', $count)->with('query', $query);
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function orders_delivery()   // PEDIDOS JÁ ENTREGUES
+    {
+        if (Auth::user()->nivel == 1) {
+            $count = User::count_orders();
+            $query = Order::get_orders_delivery();
+
+            return view('orders.delivery')->with('count', $count)->with('query', $query);
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function ingredients_all()   // INGREDIENTES VIEW
+    {
+        if (Auth::user()->nivel == 1) {
+            $count = User::count_orders();
+            $query = Order::get_ingredients();
+
+            return view('products.view_ingredient')->with('count', $count)->with('query', $query);
+        } else {
+            return redirect('/');
+        }
+    }
+
 
     private function validation1($data1)
     {
