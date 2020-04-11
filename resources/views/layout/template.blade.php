@@ -428,20 +428,7 @@
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <div class="navbar-brand">Logo</div>
-            <ul class="navbar-nav mr-auto justify-content-center" id="divTop">
-                <form class="form-inline my-2 my-lg-0">
-                    <div class="input-group mb-3">
-                        <input type="search" class="form-control" autocomplete="off"
-                               placeholder="Pesquise aqui o sabor da pizza, sanduíche..." id="search"
-                               aria-label="Pesquise aqui o sabor da pizza, sanduíche..."
-                               aria-describedby="basic-addon2">
-                        <div class="input-group-append" id="append">
-                            <span class="input-group-text" id="appendIcon"><i class="fas fa-search"></i></span>
-                        </div>
-                    </div>
-                </form>
-
-                <ul class="navbar-nav mr-auto justify-content-center" id="divBottom">
+                <ul class="navbar-nav mr-auto d-flex justify-content-end" id="divBottom">
                     <li class="nav-item">
                         <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
                                 class="sr-only">(página atual)</span></a>
@@ -459,7 +446,6 @@
                         <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
                     </li>
                 </ul>
-            </ul>
         </div>
     </nav>
 @endif

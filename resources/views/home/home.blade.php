@@ -61,6 +61,26 @@
             </div>
         </div>
     </div>
+
+    <div class="container-fluid" id="all2">
+        <div class="row" id="divImgText">
+            <div class="col-md-6" id="divImgRestaurant">
+                <img class="img-fluid" id="imgRestaurant" src="{{ asset('img/restaurante.jpg') }}">
+            </div>
+            <div class="col-md-6" id="divTextRestaurant">
+                <h3 id="title" class="d-flex justify-content-center col-md-12 animated">WELCOME TO PIZZA A RESTAURANT</h3>
+                    <span class="d-flex justify-content-center col-md-12 animated" id="textRestaurant">
+                        On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</span>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="services">
+                <span> Nossos Serviços </span>
+            </div>
+        </div>
+    </div>
+
+
 @endsection
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"

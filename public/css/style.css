@@ -8,6 +8,7 @@
 #divResAcc {
     height: 100px;
     color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 #infoRes {
@@ -19,3 +20,32 @@
     background-color: #ae2536;
     padding: 20px;
 }
+
+
+#divImgText {
+    background-image: url("../img/black.jpg");
+    background-size: cover;
+    background-size: cover;
+}
+
+#imgRestaurant {
+    margin-left: -15px;
+}
+
+#divTextRestaurant {
+    padding: 70px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#textRestaurant {
+    color: #fff;
+    padding: 15px;
+    visibility: hidden;
+}
+
+#title {
+    padding: 15px;
+    color: #fff;
+    visibility: hidden;
+}
+

@@ -6,4 +6,12 @@ $(window).scroll(function(){ // função para pegar o movimento do scroll (barra
         $('#textSocial').css('visibility', 'visible');
         $("#textSocial").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
+    if(top > 300) {
+        $('#textRestaurant').css('visibility', 'visible');
+        $('#textRestaurant').addClass('fadeInUp');
+    }
+    if(top > 350) {
+        $('#title').css('visibility', 'visible');
+        $('#title').addClass('fadeInUp');
+    }
 });
