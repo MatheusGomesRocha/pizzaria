@@ -4,16 +4,13 @@
     margin-top: 350px;
     background-color: #d0c600 !important;
     font-family: 'Roboto Condensed', sans-serif;
-
-}
-
-#logo {
-    color: #fff;
 }
 
 #navbarTemplate { /* Div pai */
     background-color: #121618 !important;
     font-family: 'Roboto Condensed', sans-serif;
+    height: 70px;
+    padding: 50px;
 }
 
 #toggleButton { /* Botão mobile para abrir menu */
@@ -76,12 +73,13 @@
 
 #home, #about, #local, #staff, #login { /* Links home, sobre, localização e funcionários */
     margin-top: -15px;
-    color: #d02000 !important;
+    color: #fff !important;
     font-size: 18px;
 }
 
 #home:hover, #about:hover, #local:hover, #staff:hover, #login:hover { /* Links home, sobre, localização e funcionários (ao passar mouse em cima */
-    color: #a51d00 !important;
+    color: #fa6545 !important;
+    transition: all 0.5s;
 }
 
 .dropdown-menu:hover { /* Div com links dentro do Dropdown (ao passar mouse em cima) */

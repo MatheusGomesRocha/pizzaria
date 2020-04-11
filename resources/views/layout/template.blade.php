@@ -15,7 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -417,18 +416,17 @@
 
 @if(Auth::check() == false)
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbarTemplate">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="color: #fff;">
+                Logo
+            </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
                 aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-brand" id="logoMobile">Logo</div>
-        <a id="cartMobile" class="nav-link" href="{{ route('cart') }}">
-            <img src="{{ asset('img/shopping-cart.png') }}">
-        </a>
 
-        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-            <div class="navbar-brand">Logo</div>
-                <ul class="navbar-nav mr-auto d-flex justify-content-end" id="divBottom">
+        <div class="collapse navbar-collapse  d-lg-flex justify-content-end" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav" id="divBottom">
                     <li class="nav-item">
                         <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
                                 class="sr-only">(página atual)</span></a>
@@ -446,6 +444,7 @@
                         <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
                     </li>
                 </ul>
+        </div>
         </div>
     </nav>
 @endif

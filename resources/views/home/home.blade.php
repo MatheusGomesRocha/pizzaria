@@ -6,9 +6,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
@@ -47,8 +45,8 @@
                 </div>
                 <div class="col-md-4" id="accounts">
                     <div class="d-flex justify-content-center animated" id="textSocial" style="visibility: hidden">
-                        <div class="col-md-3">
-                            <a>Intagram</a>
+                        <div class="col-md-3" id="insta">
+                            <a id="instagram">Intagram</a>
                         </div>
                         <div class="col-md-3">
                             <a>Facebook</a>
