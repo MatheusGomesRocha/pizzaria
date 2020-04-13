@@ -66,14 +66,48 @@
                 <img class="img-fluid" id="imgRestaurant" src="{{ asset('img/restaurante.jpg') }}">
             </div>
             <div class="col-md-6" id="divTextRestaurant">
-                <h3 id="title" class="d-flex justify-content-center col-md-12 animated">WELCOME TO PIZZA A RESTAURANT</h3>
-                    <span class="d-flex justify-content-center col-md-12 animated" id="textRestaurant">
+                <h3 id="title" class="d-flex justify-content-center col-md-12 animated">WELCOME TO PIZZA A
+                    RESTAURANT</h3>
+                <span class="d-flex justify-content-center col-md-12 animated" id="textRestaurant">
                         On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</span>
             </div>
         </div>
-        <div class="container-fluid">
-            <div id="services">
-                <span> Nossos Serviços </span>
+
+        <!-- ÁREA DE SERVIÇOS -->
+
+        <div class="row" id="services">
+            <h1 id="servTitle" class="col-md-12 d-flex justify-content-center"> Nossos Serviços </h1>
+            <div id="servText" class="col-md-12 d-flex justify-content-center">Far far away, behind the word mountains,
+                far from the countries Vokalia and Consonantia, there live the blind texts.
+            </div>
+            <div id="pizza" class="col-md-4 d-flex justify-content-center">
+                <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
+            </div>
+            <div id="chips" class="col-md-4 d-flex justify-content-center">
+                <div><i class="fas fa-hamburger" id="iChips"> </i></div>
+            </div>
+            <div id="drink" class="col-md-4 d-flex justify-content-center">
+                <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
+            </div>
+
+            <div id="pizzaTitle" class="col-md-4 d-flex justify-content-center">
+                <h2> A melhor pizza da região </h2>
+            </div>
+            <div id="chipsTitle" class="col-md-4 d-flex justify-content-center">
+                <h2> Salgados variados </h2>
+            </div>
+            <div id="drinkTitle" class="col-md-4 d-flex justify-content-center">
+                <h2> Bebidas </h2>
+            </div>
+
+            <div id="pizzaText" class="col-md-4 d-flex justify-content-center">
+                <p> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </p>
+            </div>
+            <div id="chipsText" class="col-md-4 d-flex justify-content-center">
+                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </div>
+            </div>
+            <div id="drinkText" class="col-md-4 d-flex justify-content-center">
+                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </div>
             </div>
         </div>
     </div>

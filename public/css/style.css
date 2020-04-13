@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #imgMark {
-    height: 730px ;
-    background-color: #ccc ;
+    height: 730px;
+    background-color: #ccc;
 }
+
+/* DIV COM AS INFOS DO RESTAURANTE E REDES SOCIAIS */
 
 #divResAcc {
     height: 100px;
@@ -17,10 +19,11 @@
 }
 
 #accounts {
-    background-color: #fa6545;
+    background-color: #FAC564;
     padding: 20px;
 }
 
+/* DIV COM A IMAGEM DO RESTAURANTE E FALANDO SOBRE ELE */
 
 #divImgText {
     background-image: url("../img/black.jpg");
@@ -49,3 +52,58 @@
     visibility: hidden;
 }
 
+/* DIV DE SERVIÇOS */
+
+#services {
+    background-color: #FAC564;
+}
+
+#servTitle {
+    padding: 50px;
+}
+
+#servText {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 26px;
+    text-align: center;
+    color: #7E5B18;
+}
+
+#textRestaurant {
+
+}
+
+#pizza, #chips, #drink {
+    margin-top: 100px;
+    height: 100px;
+}
+
+#iPizza, #iChips, #iDrink {
+    font-size: 70px;
+    text-align: center;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+}
+
+#iPizza:hover, #iChips:hover, #iDrink:hover {
+    border: none;
+    color: #fff;
+    background-color: #000;
+    transform: rotateZ(360deg);
+    transition: 0.5s;
+}
+
+#pizzaTitle, #chipsTitle, #drikTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 26px;
+}
+
+#pizzaText, #chipsText, #drinkText {
+    padding: 70px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #7E5B18;
+}

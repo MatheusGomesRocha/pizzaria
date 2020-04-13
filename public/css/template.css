@@ -78,8 +78,8 @@
 }
 
 #home:hover, #about:hover, #local:hover, #staff:hover, #login:hover { /* Links home, sobre, localização e funcionários (ao passar mouse em cima */
-    color: #fa6545 !important;
-    transition: all 0.5s;
+    color: #FAC564 !important;
+    transition: all 0.3s;
 }
 
 .dropdown-menu:hover { /* Div com links dentro do Dropdown (ao passar mouse em cima) */

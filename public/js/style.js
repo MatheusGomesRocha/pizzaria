@@ -15,3 +15,4 @@ $(window).scroll(function(){ // função para pegar o movimento do scroll (barra
         $('#title').addClass('fadeInUp');
     }
 });
+
