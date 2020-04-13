@@ -16,9 +16,8 @@ use App\Product_img;
 
 class ProductController extends Controller
 {
-    // view products
 
-    public function index()
+    public function index()     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
     {
         $user = User::get_user();
         $query = Product::all();
@@ -37,9 +36,7 @@ class ProductController extends Controller
         }
     }
 
-// view ingredients register
-
-    public function ingredient_register()
+    public function ingredient_register()       // INGREDIENTES VIEW
     {
         if (Auth::user()->nivel == 1) {
             $user = User::get_user();
@@ -52,7 +49,7 @@ class ProductController extends Controller
 
     }
 
-    public function product_info($id)
+    public function product_info($id)       // INFO DOS PRODUTOS VIEW
     {
         $user = User::get_user();
         $query = Product::all()->where('id', '=', $id)->first();
@@ -61,9 +58,7 @@ class ProductController extends Controller
         return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
     }
 
-// product register validation
-
-    public function validation_product_register(Request $request)
+    public function validation_product_register(Request $request)   // VALIDAÇÃO DE CADASTRO DE PRODUTO
     {
         if (Auth::user()->nivel == 1) {
             $validation = $this->validation($request->all());
@@ -118,7 +113,7 @@ class ProductController extends Controller
 
     }
 
-    public function validation_ingredient_register(Request $request)
+    public function validation_ingredient_register(Request $request)        // VALIDAÇÃO DE CADASTRO DE INGREDIENTE
     {
         if (Auth::user()->nivel == 1) {
             $select = DB::table('ingredients')->where('ingredients', '=', $request->input('ingredient'))->count();
@@ -139,7 +134,9 @@ class ProductController extends Controller
         }
     }
 
-    public function products_all()
+    /* A PARTIR DAQUI É ÁREA DO ADMIN */
+
+    public function products_all()      // TABELA DE PEDIDOS
     {
         if (Auth::user()->nivel == 1) {
             $ing = Ingredient::all();
@@ -153,7 +150,7 @@ class ProductController extends Controller
 
     }
 
-    public function delete_product($id)
+    public function delete_product($id)     // DELETAR PRODUTOS
     {
         if(Auth::user()->nivel == 1) {
             $delete = Product::delete_product($id);
@@ -164,7 +161,7 @@ class ProductController extends Controller
         }
     }
 
-    public function delete_ing($id)
+    public function delete_ing($id)     // DELETEAR INGREDIENTES
     {
         if (Auth::user()->nivel == 1) {
             $delete = Product::delete_ing($id);
