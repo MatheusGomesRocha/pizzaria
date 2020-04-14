@@ -59,10 +59,12 @@
 }
 
 #servTitle {
+    visibility: hidden;
     padding: 50px;
 }
 
 #servText {
+    visibility: hidden;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
     text-align: center;
@@ -91,8 +93,8 @@
     border: none;
     color: #fff;
     background-color: #000;
-    transform: rotateZ(360deg);
-    transition: 0.5s;
+    transform: rotateY(360deg);
+    transition: 0.7s;
 }
 
 #pizzaTitle, #chipsTitle, #drikTitle {
@@ -106,4 +108,8 @@
     font-size: 20px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #7E5B18;
+}
+
+.content1 {
+    visibility: hidden;
 }
