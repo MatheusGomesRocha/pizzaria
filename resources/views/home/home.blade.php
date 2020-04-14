@@ -76,41 +76,46 @@
 
     <!-- ÁREA DE SERVIÇOS -->
 
-    <div class="row" id="services">
-        <h1 id="servTitle" class="col-md-12 d-flex justify-content-center animated"> Nossos Serviços </h1>
-        <div id="servText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word
-            mountains,
-            far from the countries Vokalia and Consonantia, there live the blind texts.
-        </div>
-        <div id="pizza" class="content1 col-md-4 d-flex justify-content-center animated">
-            <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
-        </div>
-        <div id="chips" class="content1 col-md-4 d-flex justify-content-center animated">
-            <div><i class="fas fa-hamburger" id="iChips"> </i></div>
-        </div>
-        <div id="drink" class="content1 col-md-4 d-flex justify-content-center animated">
-            <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
-        </div>
-
-        <div id="pizzaTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-            <h2> A melhor pizza da região </h2>
-        </div>
-        <div id="chipsTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-            <h2> Salgados variados </h2>
-        </div>
-        <div id="drinkTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-            <h2> Bebidas </h2>
-        </div>
-
-        <div id="pizzaText" class="content1 col-md-4 d-flex justify-content-center animated">
-            <p> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </p>
-        </div>
-        <div id="chipsText" class="content1 col-md-4 d-flex justify-content-center animated">
-            <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
+    <div class="container-fluid" id="services">
+        <div class="row">
+            <h1 id="servTitle" class="col-md-12 d-flex justify-content-center animated"> Nossos Serviços </h1>
+            <div id="servText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word
+                mountains,
+                far from the countries Vokalia and Consonantia, there live the blind texts.
             </div>
-        </div>
-        <div id="drinkText" class="content1 col-md-4 d-flex justify-content-center animated">
-            <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
+            <div id="pizza" class="content1 col-md-4 d-flex justify-content-center animated">
+                <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
+            </div>
+            <div id="chips" class="content1 col-md-4 d-flex justify-content-center animated">
+                <div><i class="fas fa-hamburger" id="iChips"> </i></div>
+            </div>
+            <div id="drink" class="content1 col-md-4 d-flex justify-content-center animated">
+                <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
+            </div>
+
+            <div id="pizzaTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+                <h2> A melhor pizza da região </h2>
+            </div>
+            <div id="chipsTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+                <h2> Salgados variados </h2>
+            </div>
+            <div id="drinkTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+                <h2> Bebidas </h2>
+            </div>
+
+            <div id="pizzaText" class="content1 col-md-4 d-flex justify-content-center animated">
+                <p> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                    unorthographic. </p>
+            </div>
+            <div id="chipsText" class="content1 col-md-4 d-flex justify-content-center animated">
+                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                    unorthographic.
+                </div>
+            </div>
+            <div id="drinkText" class="content1 col-md-4 d-flex justify-content-center animated">
+                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                    unorthographic.
+                </div>
             </div>
         </div>
     </div>
@@ -133,7 +138,8 @@
                     </div>
                     <div class="col-md-6" id="productText">
                         <span class="col-md-12" id="productName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="productComment">Far far away, behind the word mountains, far from the countries Vokalia
+                        <p class="col-md-12" id="productComment">Far far away, behind the word mountains, far from the
+                            countries Vokalia
                             and
                             Consonantia</p>
                         <div class="col-md-12">
