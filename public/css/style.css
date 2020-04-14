@@ -27,8 +27,6 @@
 
 #divImgText {
     background-image: url("../img/black.jpg");
-    background-size: cover;
-    background-size: cover;
 }
 
 #imgRestaurant {
@@ -71,10 +69,6 @@
     color: #7E5B18;
 }
 
-#textRestaurant {
-
-}
-
 #pizza, #chips, #drink {
     margin-top: 100px;
     height: 100px;
@@ -112,4 +106,78 @@
 
 .content1 {
     visibility: hidden;
+}
+
+/* ÁREA DE PRODUTOS */
+
+#all3 {
+    background: url("../img/black.jpg");
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#menu {
+    margin-top: 100px;
+}
+
+
+#menuTitle {
+    visibility: hidden;
+    padding: 80px;
+}
+
+#menuText {
+    visibility: hidden;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 26px;
+    text-align: center;
+    text-justify: auto;
+    color: #757576;
+}
+
+#divImg {
+    border: 1px solid #757576;
+}
+
+#imgProduct {
+    width: 250px;
+    height: 240px;
+    padding: 15px;
+}
+
+#productText {
+    width: 250px;
+    height: 240px;
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+#productName {
+    padding: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#productComment {
+    padding: 20px;
+    text-align: left;
+    color: #757576;
+}
+
+#productPrice {
+    color: #FAC564;
+    padding: 15px;
+    font-size: 20px;
+}
+
+#btnPedir {
+    margin-left: 10px;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 18px;
+    width: 100px;
+}
+
+#btnPedir:hover {
+    background-color: #FAC564;
+    color: #000;
 }

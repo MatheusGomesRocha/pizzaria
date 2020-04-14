@@ -72,46 +72,79 @@
                         On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</span>
             </div>
         </div>
+    </div>
 
-        <!-- ÁREA DE SERVIÇOS -->
+    <!-- ÁREA DE SERVIÇOS -->
 
-        <div class="row" id="services">
-            <h1 id="servTitle" class="col-md-12 d-flex justify-content-center animated"> Nossos Serviços </h1>
-            <div id="servText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word mountains,
-                far from the countries Vokalia and Consonantia, there live the blind texts.
-            </div>
-            <div id="pizza" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
-            </div>
-            <div id="chips" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-hamburger" id="iChips"> </i></div>
-            </div>
-            <div id="drink" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
-            </div>
+    <div class="row" id="services">
+        <h1 id="servTitle" class="col-md-12 d-flex justify-content-center animated"> Nossos Serviços </h1>
+        <div id="servText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word
+            mountains,
+            far from the countries Vokalia and Consonantia, there live the blind texts.
+        </div>
+        <div id="pizza" class="content1 col-md-4 d-flex justify-content-center animated">
+            <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
+        </div>
+        <div id="chips" class="content1 col-md-4 d-flex justify-content-center animated">
+            <div><i class="fas fa-hamburger" id="iChips"> </i></div>
+        </div>
+        <div id="drink" class="content1 col-md-4 d-flex justify-content-center animated">
+            <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
+        </div>
 
-            <div id="pizzaTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> A melhor pizza da região </h2>
-            </div>
-            <div id="chipsTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> Salgados variados </h2>
-            </div>
-            <div id="drinkTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> Bebidas </h2>
-            </div>
+        <div id="pizzaTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+            <h2> A melhor pizza da região </h2>
+        </div>
+        <div id="chipsTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+            <h2> Salgados variados </h2>
+        </div>
+        <div id="drinkTitle" class="content1 col-md-4 d-flex justify-content-center animated">
+            <h2> Bebidas </h2>
+        </div>
 
-            <div id="pizzaText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <p> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </p>
+        <div id="pizzaText" class="content1 col-md-4 d-flex justify-content-center animated">
+            <p> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </p>
+        </div>
+        <div id="chipsText" class="content1 col-md-4 d-flex justify-content-center animated">
+            <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
             </div>
-            <div id="chipsText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </div>
-            </div>
-            <div id="drinkText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. </div>
+        </div>
+        <div id="drinkText" class="content1 col-md-4 d-flex justify-content-center animated">
+            <div> Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.
             </div>
         </div>
     </div>
 
+    <!-- ÁREA DE PRODUTOS -->
+
+    <div id="all3" class="container-fluid">
+
+        <h1 id="menuTitle" class="col-md-12 d-flex justify-content-center animated"> HOT PIZZA MEALS </h1>
+        <div id="menuText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word
+            mountains, far
+            from the countries Vokalia and Consonantia, there live the blind texts.
+        </div>
+
+        <div id="menu" class="row animated">
+            @foreach($products as $row)
+                <div class="row col-md-4">
+                    <div class="col-md-6" id="divImg">
+                        <img src="{{ url("storage/products/{$row->img}") }}" id="imgProduct">
+                    </div>
+                    <div class="col-md-6" id="productText">
+                        <span class="col-md-12" id="productName">{{ $row->type }} {{ $row->name }}</span>
+                        <p class="col-md-12" id="productComment">Far far away, behind the word mountains, far from the countries Vokalia
+                            and
+                            Consonantia</p>
+                        <div class="col-md-12">
+                            <span class="col-md-6" id="productPrice"> R$ {{ $row->price_md }}</span>
+                            <button class="btn col-md-6" id="btnPedir"> Pedir</button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
 @endsection
 

@@ -24,5 +24,14 @@ $(window).scroll(function(){ // função para pegar o movimento do scroll (barra
         $('.content1').css('visibility', 'visible');
         $(".content1").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
+
+    if(top > 1400) {
+        $('#menuTitle').css('visibility', 'visible');
+        $("#menuTitle").addClass('fadeInUp'); // aqui vc aplica o fade no menu
+    }
+    if(top > 1350) {
+        $('#menuText').css('visibility', 'visible');
+        $("#menuText").addClass('fadeInUp'); // aqui vc aplica o fade no menu
+    }
 });
 
