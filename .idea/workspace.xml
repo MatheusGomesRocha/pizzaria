@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,15 +136,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pizzaria\storage\app\public\products" />
+      <recent name="C:\wamp64\www\pizzaria" />
+      <recent name="C:\wamp64\www\pizzaria\storage\app\public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\pizzaria\app\Auth" />
       <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
       <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
       <recent name="C:\wamp64\www\pizzaria\database\migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\pizzaria" />
-      <recent name="C:\wamp64\www\pizzaria\storage\app\public" />
     </key>
   </component>
   <component name="RunManager">

@@ -83,38 +83,42 @@
                 mountains,
                 far from the countries Vokalia and Consonantia, there live the blind texts.
             </div>
-            <div id="pizza" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
-            </div>
-            <div id="chips" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-hamburger" id="iChips"> </i></div>
-            </div>
-            <div id="drink" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
-            </div>
-
-            <div id="pizzaTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> A melhor pizza da região </h2>
-            </div>
-            <div id="chipsTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> Salgados variados </h2>
-            </div>
-            <div id="drinkTitle" class="content1 col-md-4 d-flex justify-content-center animated">
-                <h2> Bebidas </h2>
-            </div>
-
-            <div id="pizzaText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <p> Even the all-powerful Pointing has no control about the blind texts it is an almost
-                    unorthographic. </p>
-            </div>
-            <div id="chipsText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
-                    unorthographic.
+            <div class="col-md-4">
+                <div id="pizza" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <div><i class="fas fa-pizza-slice" id="iPizza"> </i></div>
+                </div>
+                <div id="pizzaTitle" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <h2> A melhor pizza da região </h2>
+                </div>
+                <div id="pizzaText" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <p> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                        unorthographic. </p>
                 </div>
             </div>
-            <div id="drinkText" class="content1 col-md-4 d-flex justify-content-center animated">
-                <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
-                    unorthographic.
+            <div class="col-md-4">
+                <div id="chips" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <div><i class="fas fa-hamburger" id="iChips"> </i></div>
+                </div>
+                <div id="chipsTitle" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <h2> Sanduíches variados </h2>
+                </div>
+                <div id="chipsText" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                        unorthographic.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="drink" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <div><i class="fas fa-cocktail" id="iDrink"> </i></div>
+                </div>
+                <div id="drinkTitle" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <h2> Bebidas </h2>
+                </div>
+                <div id="drinkText" class="content1 col-md-12 d-flex justify-content-center animated">
+                    <div> Even the all-powerful Pointing has no control about the blind texts it is an almost
+                        unorthographic.
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,7 +128,7 @@
 
     <div id="all3" class="container-fluid">
 
-        <h1 id="menuTitle" class="col-md-12 d-flex justify-content-center animated"> HOT PIZZA MEALS </h1>
+        <h1 id="menuTitle" class="col-md-12 d-flex justify-content-center animated"> PIZZAS MAIS PEDIDAS </h1>
         <div id="menuText" class="col-md-12 d-flex justify-content-center animated">Far far away, behind the word
             mountains, far
             from the countries Vokalia and Consonantia, there live the blind texts.
@@ -134,21 +138,47 @@
             @foreach($products as $row)
                 <div class="row col-md-4">
                     <div class="col-md-6" id="divImg">
-                        <img src="{{ url("storage/products/{$row->img}") }}" id="imgProduct">
+                        <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgProduct">
                     </div>
                     <div class="col-md-6" id="productText">
                         <span class="col-md-12" id="productName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="productComment">Far far away, behind the word mountains, far from the
-                            countries Vokalia
-                            and
-                            Consonantia</p>
+                        <p class="col-md-12" id="productComment">{{ $row->description }}</p>
                         <div class="col-md-12">
-                            <span class="col-md-6" id="productPrice"> R$ {{ $row->price_md }}</span>
+                            <span class="col-md-6" id="productPrice"> R$
+                                @if($row->price_md)
+                                    {{ $row->price_md }}
+                                @endif
+                                @if($row->price_md == false)
+                                    @if($row->price_sm)
+                                        {{ $row->price_sm }}
+                                    @endif
+                                    @if($row->price_sm == false)
+                                        {{ $row->price_lg }}
+                                    @endif
+                                @endif
+                            </span>
                             <button class="btn col-md-6" id="btnPedir"> Pedir</button>
                         </div>
                     </div>
                 </div>
             @endforeach
+        </div>
+    </div>
+
+    <!-- ÁREA DO CARDÁPIO -->
+
+    <div id="all4" class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-fluid" src="{{ asset('img/restaurante.jpg') }}" id="imgRestaurant2">
+            </div>
+            <div class="col-md-8">
+                @foreach($products as $row)
+                   <img class="img-fluid col-md-3" src="{{ url("storage/products/{$row->img}") }}" id="imgPizza">
+                    @endforeach
+            </div>
+
+
         </div>
     </div>
 

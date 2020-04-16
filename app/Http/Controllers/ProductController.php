@@ -77,7 +77,7 @@ class ProductController extends Controller
                     $extensao = $request->img->extension();
                     $file = "$img.$extensao";
                     $data['img'] = $file;
-                    $upload = $request->img->storeAs('products', $file);
+                    $upload = $request->img->storeAs('public/products', $file);
 
                     $product = Product::create([
                         'name' => $request->input('name'),

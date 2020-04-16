@@ -165,18 +165,27 @@
                     <td> {{ $row->name }}</td>
                     <td> {{ $row->type }}</td>
                     <td class="text-success">
-                        @if($row->sm = '1') P - @endif
-                        @if($row->md = '1') M - @endif
-                        @if($row->lg = '1') G @endif
+                        @if($row->sm) P  @endif
+                        @if($row->md) - M  @endif
+                        @if($row->lg) - G @endif
                     </td>
                     @if($row->price_sm)
                         <td class="text-danger"> R$ {{ $row->price_sm }}</td>
                     @endif
+                    @if($row->price_sm == false)
+                        <td class="text-danger"> # </td>
+                    @endif
                     @if($row->price_md)
                         <td class="text-danger"> R$ {{ $row->price_md }}</td>
                     @endif
-                    @if($row->price_lg)
+                    @if($row->price_sm == false)
+                        <td class="text-danger"> # </td>
+                    @endif
+                    @if($row->price_md)
                         <td class="text-danger"> R$ {{ $row->price_lg }}</td>
+                    @endif
+                    @if($row->price_lg == false)
+                        <td class="text-danger"> # </td>
                     @endif
                     <td> <a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> </a> </td>
                 </tr>
