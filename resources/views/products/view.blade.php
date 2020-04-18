@@ -61,11 +61,21 @@
                                            class="form-control" autocomplete="no">
                                 </div>
                             </div>
+
+                            <div class="col-md-12 mb-2" style="margin-left: 5px; display: none;" id="labelImg">
+
+                            </div>
                             <div class="col-md-12" id="image" style="display: none">
-                                <div class="input-group mb-2">
-                                    <input type="file" class="btn btn-primary" name="img" placeholder="Foto do produto">
+                                <div id="fileDiv" class="input-group mb-2">
+                                    <label for="fileImg" style="padding: 5px">
+                                            Nunca esqueça de cortar a imagem para ficar apenas o produto
+                                            (deixamos um exemplo de cada para você no Cardápio e na Home)
+                                    </label>
+                                    <input type="file" id="fileImg" name="img">
+
                                 </div>
                             </div>
+
                             <!-- TAMANHO TEM QUE SER CHECKBOX PARA P, M E G -->
                             <div class="col-md-12 mb-2" style="margin-left: 5px; display: none;" id="tamanhoLabel">
                                 <label> Marque os tamanhos de pizza disponíveis </label>
@@ -142,8 +152,9 @@
                         </div>
                         <div class="col-md-12">
                             <div class="input-group mb-2">
-                                <button type="submit" name="submit" class="btn" id="btnFormSubmit">Finalizar Cadastro
-                                </button>
+                                <input type="submit" name="submit" class="btn" id="btnFormSubmit"
+                                       value="Finalizar Cadastro">
+
                             </div>
                         </div>
                     </form>
@@ -173,21 +184,22 @@
                         <td class="text-danger"> R$ {{ $row->price_sm }}</td>
                     @endif
                     @if($row->price_sm == false)
-                        <td class="text-danger"> # </td>
+                        <td class="text-danger"> #</td>
                     @endif
                     @if($row->price_md)
                         <td class="text-danger"> R$ {{ $row->price_md }}</td>
                     @endif
                     @if($row->price_sm == false)
-                        <td class="text-danger"> # </td>
+                        <td class="text-danger"> #</td>
                     @endif
                     @if($row->price_md)
                         <td class="text-danger"> R$ {{ $row->price_lg }}</td>
                     @endif
                     @if($row->price_lg == false)
-                        <td class="text-danger"> # </td>
+                        <td class="text-danger"> #</td>
                     @endif
-                    <td> <a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> </a> </td>
+                    <td><a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i
+                                class="fas fa-trash"></i> </a></td>
                 </tr>
             @endforeach
         </table>

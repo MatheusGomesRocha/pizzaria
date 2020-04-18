@@ -136,17 +136,16 @@
 }
 
 #divImg {
-    border: 1px solid #757576;
 }
 
 #imgProduct {
     width: 250px;
     height: 240px;
-    padding: 15px;
+    margin-left: -6px;
 }
 
 #productText {
-    width: 250px;
+    width: 280px;
     height: 240px;
     background-color: rgba(0, 0, 0, 0.53);
 }

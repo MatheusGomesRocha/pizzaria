@@ -136,11 +136,10 @@
 
         <div id="menu" class="row animated">
             @foreach($products as $row)
-                <div class="row col-md-4">
-                    <div class="col-md-6" id="divImg">
+                    <div class="col-md-2" id="divImg">
                         <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgProduct">
                     </div>
-                    <div class="col-md-6" id="productText">
+                    <div class="col-md-2" id="productText">
                         <span class="col-md-12" id="productName">{{ $row->type }} {{ $row->name }}</span>
                         <p class="col-md-12" id="productComment">{{ $row->description }}</p>
                         <div class="col-md-12">
@@ -160,7 +159,6 @@
                             <button class="btn col-md-6" id="btnPedir"> Pedir</button>
                         </div>
                     </div>
-                </div>
             @endforeach
         </div>
     </div>

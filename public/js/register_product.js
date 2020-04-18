@@ -11,6 +11,7 @@ function verify_select() {
      */
 
     if (select == 'bebida' || select == 'salgado') {
+        document.getElementById('labelImg').style.display = "block";
         document.getElementById('image').style.display = "none";
         document.getElementById('ing').style.display = "none";
         document.getElementById('tamanhoLabel').style.display = "none";
@@ -40,6 +41,7 @@ function verify_select() {
     }
 
     if (select == 'sanduiche') {
+        document.getElementById('labelImg').style.display = "block";
         document.getElementById('image').style.display = "block";
         document.getElementById('ing').style.display = "block";
         document.getElementById('tamanhoLabel').style.display = "none";
@@ -68,6 +70,7 @@ function verify_select() {
         document.getElementById('inlineRadio3').disabled = true;
     }
     if (select == 'pizza') {
+        document.getElementById('labelImg').style.display = "block";
         document.getElementById('image').style.display = "block";
         document.getElementById('ing').style.display = "block";
         document.getElementById('tamanhoLabel').style.display = "block";
