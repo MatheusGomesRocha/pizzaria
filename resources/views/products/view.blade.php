@@ -68,11 +68,15 @@
                             <div class="col-md-12" id="image" style="display: none">
                                 <div id="fileDiv" class="input-group mb-2">
                                     <label for="fileImg" style="padding: 5px">
-                                            Nunca esqueça de cortar a imagem para ficar apenas o produto
-                                            (deixamos um exemplo de cada para você no Cardápio e na Home)
+                                        Nunca esqueça de cortar a imagem para ficar apenas o produto
+                                        (deixamos um exemplo de cada para você no Cardápio e na Home)
                                     </label>
-                                    <input type="file" id="fileImg" name="img">
 
+                                    <input id="uploadFile" placeholder="Escolha um arquivo" disabled="disabled"/>
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Enviar</span>
+                                        <input type="file" id="fileImg" name="img">
+                                    </div>
                                 </div>
                             </div>
 

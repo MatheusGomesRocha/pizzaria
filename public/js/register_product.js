@@ -158,3 +158,7 @@ $(document).ready(function(){
         }
     });
 });
+
+document.getElementById("fileImg").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
