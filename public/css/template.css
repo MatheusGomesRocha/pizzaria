@@ -2,15 +2,14 @@
 
 #footer { /* Rodapé */
     margin-top: 350px;
-    background-color: #d0c600 !important;
+    background-color: #121618 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 
 #navbarTemplate { /* Div pai */
     background-color: #121618 !important;
     font-family: 'Roboto Condensed', sans-serif;
-    height: 70px;
-    padding: 50px;
 }
 
 #toggleButton { /* Botão mobile para abrir menu */
@@ -72,7 +71,6 @@
 }
 
 #home, #about, #local, #staff, #login { /* Links home, sobre, localização e funcionários */
-    margin-top: -15px;
     color: #fff !important;
     font-size: 18px;
 }
@@ -107,6 +105,11 @@
 }
 
 @media (min-width: 998px) {
+    #navbarTemplate { /* Tamanho do Navbar */
+        height: 70px;
+        padding: 50px;
+    }
+
     /* Responsividade para desktop */
     #search { /* Input text */
         width: 950px;
@@ -118,7 +121,7 @@
     }
 
     .dropdown-menu { /* Div dentro do dropdown */
-        margin-left: -25px !important;
+        margin-left: -35px !important;
     }
 
     #countIcon { /* Número que veio da variável count */
@@ -126,8 +129,8 @@
         font-weight: bold;
         font-size: 22px;
         position: absolute;
-        left: 1307px;
-        top: 25px;
+        left: 1349px;
+        top: 22px;
     }
 
     #cartMobile { /* PNG do carrinho na versão mobile */

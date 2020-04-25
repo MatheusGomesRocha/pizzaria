@@ -171,6 +171,11 @@
                 <img class="img-fluid" src="{{ asset('img/restaurante.jpg') }}" id="imgRestaurant2">
             </div>
             <div class="col-md-8">
+                <div id="btns" class="col-md-12">
+                <button class="btn active" id="btnPizza"> Pizzas </button>
+                <button class="btn" id="btnBurger"> Burgers </button>
+                <button class="btn" id="btnDrink"> Drinks </button>
+                </div>
                 @foreach($products as $row)
                    <img class="img-fluid col-md-3" src="{{ url("storage/products/{$row->img}") }}" id="imgPizza">
                     @endforeach

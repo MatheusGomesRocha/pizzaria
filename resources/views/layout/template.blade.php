@@ -44,51 +44,31 @@
 @if(Auth::check())
     @if(Auth::user()->nivel == 2)
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarTemplate">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação"
-                    id="toggleButton">
+            <div class="navbar-brand" id="logo">Logo</div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-brand" id="logo">Logo</div>
 
             <a id="cartMobile" class="nav-link" href="{{ route('cart') }}">
                 <span id="countIcon"> {{ $count }}</span>
                 <img src="{{ asset('img/shopping-cart.png') }}">
             </a>
 
-            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-
-                <ul class="navbar-nav mr-auto justify-content-center" id="divTop">
-                    <form class="form-inline my-2 my-lg-0">
-
-                        <div class="input-group mb-3">
-                            <input type="search" class="form-control" autocomplete="off"
-                                   placeholder="Pesquise aqui o sabor da pizza, sanduíche..." id="search"
-                                   aria-label="Pesquise aqui o sabor da pizza, sanduíche..."
-                                   aria-describedby="basic-addon2">
-                            <div class="input-group-append" id="append">
-                                <span class="input-group-text" id="appendIcon"><i class="fas fa-search"></i></span>
-                            </div>
-                        </div>
-                    </form>
-
-                    <ul class="navbar-nav mr-auto justify-content-center" id="divBottom">
-                        <li class="nav-item">
-                            <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
-                                    class="sr-only">(página atual)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="local" href="#">Localização</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="about" href="#">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="staff" href="#">Funcionários</a>
-                        </li>
-                    </ul>
-                </ul>
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
+                                class="sr-only">(página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="local" href="#">Localização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="about" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="staff" href="#">Funcionários</a>
+                    </li>
                     <li class="nav-item" id="cartDesktop">
                         <a class="nav-link" href="{{ route('cart') }}">
                             <span id="countIcon"> {{ $count }}</span>
