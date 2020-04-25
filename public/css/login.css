@@ -17,8 +17,8 @@
 
 #userLogin:focus, #userPass:focus {
     outline: 0;
-    border-color: #e5e500;
-    box-shadow: 0 0 2px 2px #e5e500;
+    border-color: #121618;
+    box-shadow: 0 0 2px 2px #121618;
 }
 
 
@@ -61,4 +61,8 @@
     color: #C4161C;
     font-size: 40px;
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+#showPassword {
+
 }

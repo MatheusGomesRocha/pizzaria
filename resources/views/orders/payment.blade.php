@@ -160,7 +160,7 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="{{ asset('js/payment.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/login.js') }}" type="text/javascript"></script>
 @endsection
 </body>
 </htmL>

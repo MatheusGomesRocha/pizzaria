@@ -62,6 +62,13 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12" id="ing" style="display: none">
+                                <div class="input-group mb-2">
+                                    <input type="text" name="description" id="description"
+                                           placeholder="Adicione uma pequena descrição" class="form-control"
+                                           autocomplete="no">
+                                </div>
+                            </div>
                             <div class="col-md-12 mb-2" style="margin-left: 5px; display: none;" id="labelImg">
 
                             </div>
@@ -69,7 +76,7 @@
                                 <div id="fileDiv" class="input-group mb-2">
                                     <label for="fileImg" style="padding: 5px">
                                         Nunca esqueça de cortar a imagem para ficar apenas o produto
-                                        (deixamos um exemplo de cada para você no Cardápio e na Home)
+                                        (deixamos alguns exemplo de cada para você no Cardápio e na Home)
                                     </label>
 
                                     <input id="uploadFile" placeholder="Escolha um arquivo" disabled="disabled"/>
@@ -129,17 +136,8 @@
                                            class="form-control" autocomplete="no">
                                 </div>
                             </div>
-                            <!-- Esconder TODOS os ingredients com display none depois mostrar com js -->
-                            <div class="col-md-12 mb-2" style="display: none" id="ing">
-                                <div class="col-md-12" id="tamanho5">
-                                    <div class="input-group mb-2">
-                                        <input type="text" name="description" id="description"
-                                               placeholder="Adicione uma pequena descrição" class="form-control"
-                                               autocomplete="no">
-                                    </div>
-                                </div>
+
                             </div>
-                        </div>
                         <div class="col-md-12 mb-2">
                             <div class="input-group mb-2">
                                 <select class="form-control" autocomplete="off" name="type" id="select"
@@ -180,9 +178,9 @@
                     <td> {{ $row->name }}</td>
                     <td> {{ $row->type }}</td>
                     <td class="text-success">
-                        @if($row->sm) P  @endif
-                        @if($row->md) - M  @endif
-                        @if($row->lg) - G @endif
+                        @if($row->sm) P -  @endif
+                        @if($row->md) M -  @endif
+                        @if($row->lg) G @endif
                     </td>
                     @if($row->price_sm)
                         <td class="text-danger"> R$ {{ $row->price_sm }}</td>
@@ -193,10 +191,10 @@
                     @if($row->price_md)
                         <td class="text-danger"> R$ {{ $row->price_md }}</td>
                     @endif
-                    @if($row->price_sm == false)
+                    @if($row->price_md == false)
                         <td class="text-danger"> #</td>
                     @endif
-                    @if($row->price_md)
+                    @if($row->price_lg)
                         <td class="text-danger"> R$ {{ $row->price_lg }}</td>
                     @endif
                     @if($row->price_lg == false)
