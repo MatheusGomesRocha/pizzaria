@@ -50,6 +50,20 @@
     margin-top: 70px
 }
 
+#textPrice {
+    border: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+#textPrice:disabled {
+}
+
+#textPrice::placeholder {
+    color: #000;
+}
+
 #priceDiv {
     margin-top: 40px;
 }

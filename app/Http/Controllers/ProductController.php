@@ -21,13 +21,16 @@ class ProductController extends Controller
     {
         $user = User::get_user();
         $query = Product::all();
+        $pizza_limit = Product::pizza_limit();
+        $burger_limit = Product::burger_limit();
         $count = Order::get_count();
         $countAdmin = Order::get_count_admin();
         $order = Order::all();
 
         if (Auth::check()) {
             if (Auth::user()->nivel == 2) {
-                return view('home.home')->with('products', $query)->with('count', $count)->with('user', $user);
+                return view('home.home')->with('products', $query)->with('count', $count)->with('user', $user)
+                    ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit);
             } else {
                 return view('home.admin_index')->with('count', $countAdmin)->with('order', $order);
             }

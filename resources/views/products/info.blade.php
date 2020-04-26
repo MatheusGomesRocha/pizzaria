@@ -61,7 +61,7 @@
                                     @if($products->md)
                                         <label for="m" class="btn btn-default" id="labelM" data-toggle="tooltip"
                                                data-placement="top" title="(6 pedaços)"> M </label>
-                                        <input type="radio" id="m" name="size" value="M">
+                                        <input type="radio" id="m" name="size" value="M" checked>
                                     @endif
                                     @if($products->lg)
                                         <label for="g" class="btn btn-default" id="labelG" data-toggle="tooltip"
@@ -69,6 +69,7 @@
                                         <input type="radio" id="g" name="size" value="G">
                                     @endif
                                 </div>
+
                                 <span class="col-md-12"> Escolha a fração </span>
                                 <br>
                                 <div class="btn-group col-md-12" id="btnFraction">
@@ -86,12 +87,8 @@
                                     <button data-action="increase" id="qtdPlus" class="btn btn-info"> +</button>
                                 </div>
                                 <div class="col-md-12" id="priceDiv">
-                                    <span id="price_sm" style="display: none">R$ {{ $products->price_sm }} +frete</span>
-                                    <span id="price_md"> R$ {{ $products->price_md }} + frete</span>
-                                    <span id="price_lg" style="display: none">R$ {{ $products->price_lg }} +frete</span>
-                                    <input type="hidden" name="price" id="input_sm" disabled value="{{ $products->price_sm }}">
-                                    <input type="hidden" name="price" id="input_md" value="{{ $products->price_md }}">
-                                    <input type="hidden" name="price" id="input_lg" disabled value="{{ $products->price_lg }}">
+                                    <input type="text" placeholder="{{ $products->price_md }} + frete" name="textPrice" id="textPrice" disabled>
+                                    <input type="hidden" name="price" id="price" value="{{ $products->price_md }}">
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-group mb-2">
@@ -106,6 +103,33 @@
         </div>
     </div>
 
+    <script>
+        $('#btn').click(function() {
+            if ($('#p').prop('checked')) {
+                $('#labelP').css('background-color', '#d7dadd');
+                $('#labelM').css('background-color', '#f6f9fc');
+                $('#labelG').css('background-color', '#f6f9fc');
+                $('#price').val({{ $products->price_sm }})
+                $('#textPrice').attr({placeholder: '{{ $products->price_sm }} + frete' })
+            }
+
+            if ($('#m').prop('checked')) {
+                $('#labelM').css('background-color', '#d7dadd');
+                $('#labelP').css('background-color', '#f6f9fc');
+                $('#labelG').css('background-color', '#f6f9fc');
+                $('#price').val({{ $products->price_md }})
+                $('#textPrice').attr({placeholder: '{{ $products->price_md }} + frete' })
+            }
+
+            if ($('#g').prop('checked')) {
+                $('#labelG').css('background-color', '#d7dadd');
+                $('#labelP').css('background-color', '#f6f9fc');
+                $('#labelM').css('background-color', '#f6f9fc');
+                $('#price').val({{ $products->price_lg }})
+                $('#textPrice').attr({placeholder: '{{ $products->price_lg }} + frete' })
+            }
+        });
+    </script>
     <script src="{{ asset('js/product_info.js') }}" type="text/javascript"></script>
 @endsection
 
