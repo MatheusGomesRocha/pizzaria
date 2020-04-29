@@ -35,7 +35,8 @@ class ProductController extends Controller
                 return view('home.admin_index')->with('count', $countAdmin)->with('order', $order);
             }
         } else {
-            return view('home.home')->with('products', $query)->with('user', $user);
+            return view('home.home')->with('products', $query)->with('user', $user)
+                ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit);
         }
     }
 
@@ -54,11 +55,17 @@ class ProductController extends Controller
 
     public function product_info($id)       // INFO DOS PRODUTOS VIEW
     {
-        $user = User::get_user();
-        $query = Product::all()->where('id', '=', $id)->first();
-        $count = Order::get_count();
 
-        return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
+        $query = Product::all()->where('id', '=', $id)->first();
+        if ($query) {
+            $user = User::get_user();
+            $count = Order::get_count();
+            return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
+        } else {
+            return redirect()->back();
+        }
+
+
     }
 
     public function validation_product_register(Request $request)   // VALIDAÇÃO DE CADASTRO DE PRODUTO

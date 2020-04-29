@@ -50,18 +50,14 @@
                 @foreach($orders as $row)
                     <tbody>
                     <tr id="body">
-                        <td> {{ $row->type }} {{ $row->product_name }}
+                        <td id="tdProduct"> {{ $row->type }} {{ $row->product_name }}
                             <br><small><strong>Tamanho: {{$row->size}}</strong></small>
-                            <br><small><strong>Fração: {{$row->fraction}}</strong></small>
-                            @if($row->borda)
-                                <br><small><strong>Borda: {{$row->borda}}</strong></small>
-                            @endif
                         </td>
                             <td> {{ $row->quantidade }} </td>
-                            <td> R$ {{ $row->price }}</td>
+                            <td> R$ {{ number_format($row->price, '2', ',', '0') }}</td>
                             <td> Calcular com CEP</td>
                             <td>
-                                R$ {{ $valor = number_format(intval($row->price) * $row->quantidade, '2', ',', '0') }}</td>
+                                R$ {{ number_format(intval($row->price) * $row->quantidade, '2', ',', '0') }}</td>
                             <td>
                                 <a class="btn btn-danger" href="/delete_order/{{$row->order_id}}"> Remover</a>
                             </td>

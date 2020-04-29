@@ -70,14 +70,6 @@
                                     @endif
                                 </div>
 
-                                <span class="col-md-12"> Escolha a fração </span>
-                                <br>
-                                <div class="btn-group col-md-12" id="btnFraction">
-                                    <label for="meia" class="btn btn-default" id="labelMeia"> Meia </label>
-                                    <input type="radio" id="meia" name="fraction" value="meia">
-                                    <label for="inteira" class="btn btn-default" id="labelInteira"> Inteira </label>
-                                    <input type="radio" id="inteira" name="fraction" value="inteira">
-                                </div>
                                 <span class="col-md-12"> Escolha a quantidade </span>
                                 <br>
                                 <div class="col-md-12" id="qtdDiv">

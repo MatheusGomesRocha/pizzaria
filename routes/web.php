@@ -13,6 +13,7 @@
 
 Route::get('/', 'ProductController@index')->name('home');
 Route::get('/product_info/{id}', 'ProductController@product_info')->middleware('auth');
+
 /* ****** LOGIN ******* */
 Route::get('/login', 'UserController@login')->name('login');
 Route::get('/logout', 'UserController@logout')->name('logout');

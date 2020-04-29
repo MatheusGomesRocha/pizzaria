@@ -45,12 +45,8 @@ class OrderController extends Controller
                 'product_name' => $request->input('product_name'),
                 'type' => $request->input('type'),
                 'size' => $request->input('size'),
-                'fraction' => $request->input('fraction'),
                 'quantidade' => $request->input('qtd_hidden'),
                 'price' => $request->input('price'),
-                'forma_pagamento' => 1,
-                'entregue' => 0,
-                'confirmed' => 0,
             ];
             Order::create($data);
 

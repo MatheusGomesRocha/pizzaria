@@ -53,3 +53,6 @@ tr {
     color: #000;
 }
 
+#tdProduct {
+    text-transform: uppercase;
+}

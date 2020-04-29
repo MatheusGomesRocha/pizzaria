@@ -49,22 +49,18 @@ class Product extends Authenticatable
 
     public static function pizza_limit()
     {
-        if(Auth::check()) {
             return DB::table('products')
                 ->where('type', '=', 'pizza')
                 ->limit('3')
                 ->get();
-        }
     }
 
     public static function burger_limit()
     {
-        if(Auth::check()) {
             return DB::table('products')
                 ->where('type', '=', 'sanduiche')
                 ->limit('3')
                 ->get();
-        }
     }
 
 }
