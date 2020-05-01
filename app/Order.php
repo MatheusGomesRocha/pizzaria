@@ -50,13 +50,16 @@ class Order extends Authenticatable
     public static function get_count()
     {
         if (Auth::check()) {
-            return DB::table('orders')
-                ->where('user_id', '=', Auth::user()->id)
-                ->sum('quantidade');
+            if (Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->sum('quantidade');
+            }
         }
     }
 
-    public static function get_count_admin()
+    public
+    static function get_count_admin()
     {
         if (Auth::check()) {
             if (Auth::user()->nivel == 1) {
@@ -66,10 +69,11 @@ class Order extends Authenticatable
         }
     }
 
-    public static function get_count_created()
+    public
+    static function get_count_created()
     {
-        if(Auth::check()) {
-            if(Auth::user()->nivel == 1) {
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
                 return DB::table('orders')
                     ->where('created_at', '=', '1')
                     ->count();
@@ -77,7 +81,8 @@ class Order extends Authenticatable
         }
     }
 
-    public static function delete_order($id)
+    public
+    static function delete_order($id)
     {
         if (Auth::check()) {
             return DB::table('orders')
@@ -86,7 +91,8 @@ class Order extends Authenticatable
         }
     }
 
-    public static function get_orders_pendent()
+    public
+    static function get_orders_pendent()
     {
         return DB::table('orders')
             ->join('users', 'users.id', '=', 'orders.user_id')
@@ -95,7 +101,8 @@ class Order extends Authenticatable
             ->get();
     }
 
-    public static function get_orders_delivery()
+    public
+    static function get_orders_delivery()
     {
         return DB::table('orders')
             ->join('users', 'users.id', '=', 'orders.user_id')
@@ -104,25 +111,26 @@ class Order extends Authenticatable
             ->get();
     }
 
-    public static function get_products()
+    public
+    static function get_products()
     {
         return DB::table('products')
             ->get();
     }
 
-    public static function get_ingredients()
+    public
+    static function get_ingredients()
     {
         return DB::table('ingredients')
             ->get();
     }
 
-    public static function get_products_info()
+    public
+    static function get_products_info()
     {
         return DB::table('products')
             ->first();
     }
-
-
 
 
 }

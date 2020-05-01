@@ -6,9 +6,13 @@
     <meta content="" name="description">
     <title>Pizzaria - @yield('title')</title>
     <link href="{{asset('css/template.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet"> <!-- HOME.HOME VIEW -->
+    <link href="{{asset('css/product_info.css')}}" rel="stylesheet"> <!-- PRODUCTS.INFO VIEW -->
+
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
 
     <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -43,9 +47,10 @@
 <body>
 @if(Auth::check())
     @if(Auth::user()->nivel == 2)
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarTemplate">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbarTemplate">
             <div class="navbar-brand" id="logo">Logo</div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -232,7 +237,8 @@
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="index3.html" class="brand-link">
-                    <img src="{{ asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    <img src="{{ asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+                         class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">AdminLTE 3</span>
                 </a>
@@ -242,7 +248,8 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+                            <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
+                                 alt="User Image">
                         </div>
                         <div class="info">
                             <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
@@ -400,12 +407,12 @@
             <a class="navbar-brand" href="#" style="color: #fff;">
                 Logo
             </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse  d-lg-flex justify-content-end" id="conteudoNavbarSuportado">
+            <div class="collapse navbar-collapse  d-lg-flex justify-content-end" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav" id="divBottom">
                     <li class="nav-item">
                         <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
@@ -424,12 +431,14 @@
                         <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
                     </li>
                 </ul>
-        </div>
+            </div>
         </div>
     </nav>
 @endif
 
-@yield('content')
+<section id="sectionContent">
+    @yield('content')
+</section>
 
 <footer id="footer">
     <div class="text-center py-3 col-md-12">

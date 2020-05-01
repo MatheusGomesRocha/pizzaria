@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #footer { /* Rodapé */
-    margin-top: 350px;
     background-color: #121618 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
-
 
 #navbarTemplate { /* Div pai */
     background-color: #121618 !important;

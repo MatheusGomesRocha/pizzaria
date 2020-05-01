@@ -8,7 +8,6 @@
     <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
-    <link href="{{asset('css/product_info.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -27,7 +26,7 @@
 @extends('layout.template')
 
 @section('content')
-    <div class="container">
+    <div class="container" id="divAllProduct">
         <div class="row">
             <div id="left" class="col-md-9">
                 <div class="row">

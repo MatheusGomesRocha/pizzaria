@@ -62,7 +62,7 @@ class ProductController extends Controller
             $count = Order::get_count();
             return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
         } else {
-            return redirect()->back();
+            return redirect('/');
         }
 
 

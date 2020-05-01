@@ -26,12 +26,12 @@ $(window).scroll(function(){ // função para pegar o movimento do scroll (barra
     }
 
     if(top > 1400) {
-        $('#menuTitle').css('visibility', 'visible');
-        $("#menuTitle").addClass('fadeInUp'); // aqui vc aplica o fade no menu
+        $('#home3Title').css('visibility', 'visible');
+        $("#home3Title").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
     if(top > 1350) {
-        $('#menuText').css('visibility', 'visible');
-        $("#menuText").addClass('fadeInUp'); // aqui vc aplica o fade no menu
+        $('#home3Text').css('visibility', 'visible');
+        $("#home3Text").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
 });
 
