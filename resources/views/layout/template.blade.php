@@ -224,11 +224,7 @@
                             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                            <i class="fas fa-th-large"></i>
-                        </a>
-                    </li>
+
                 </ul>
             </nav>
             <!-- /.navbar -->
@@ -454,6 +450,9 @@
         <br>
         Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
             href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+        <br>
+        <br>
+        Licensed by CC BY 3.0
         <br>
         @if(Auth::check())
             @if(Auth::user()->nivel == 1)

@@ -78,9 +78,6 @@
     transition: all 0.3s;
 }
 
-.dropdown-menu:hover { /* Div com links dentro do Dropdown (ao passar mouse em cima) */
-    background-color: #891e2b !important;
-}
 
 @media (min-width: 360px) {
     /* Responsividade para mobile */

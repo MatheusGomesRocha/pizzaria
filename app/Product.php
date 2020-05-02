@@ -63,4 +63,12 @@ class Product extends Authenticatable
                 ->get();
     }
 
+    public static function drink_limit()
+    {
+            return DB::table('products')
+                ->where('type', '=', 'bebida')
+                ->limit('3')
+                ->get();
+    }
+
 }

@@ -35,21 +35,42 @@ $(window).scroll(function(){ // função para pegar o movimento do scroll (barra
     }
 });
 
-function burger() {
-    document.getElementById('btnPizza').style.color = "#FAC564";
-    document.getElementById('btnPizza').style.backgroundColor = "transparent";
-    document.getElementById('btnBurger').style.backgroundColor = "#FAC564";
-    document.getElementById('btnBurger').style.color = "#000";
-    document.getElementById('divPizza').style.display = "none";
-    document.getElementById('divBurger').style.display = "block";
-}
+
 
 function pizza() {
     document.getElementById('btnPizza').style.color = "#000";
     document.getElementById('btnPizza').style.backgroundColor = "#FAC564";
     document.getElementById('btnBurger').style.backgroundColor = "transparent";
     document.getElementById('btnBurger').style.color = "#FAC564";
+    document.getElementById('btnDrink').style.backgroundColor = "transparent";
+    document.getElementById('btnDrink').style.color = "#FAC564";
     document.getElementById('divPizza').style.display = "block";
     document.getElementById('divBurger').style.display = "none";
+    document.getElementById('divDrink').style.display = "none";
+}
+
+function burger() {
+    document.getElementById('btnPizza').style.color = "#FAC564";
+    document.getElementById('btnPizza').style.backgroundColor = "transparent";
+    document.getElementById('btnBurger').style.backgroundColor = "#FAC564";
+    document.getElementById('btnBurger').style.color = "#000";
+    document.getElementById('btnDrink').style.color = "#FAC564";
+    document.getElementById('btnDrink').style.backgroundColor = "transparent";
+    document.getElementById('divPizza').style.display = "none";
+    document.getElementById('divBurger').style.display = "block";
+    document.getElementById('divDrink').style.display = "none";
+}
+
+
+function drink() {
+    document.getElementById('btnPizza').style.color = "#FAC564";
+    document.getElementById('btnPizza').style.backgroundColor = "transparent";
+    document.getElementById('btnBurger').style.backgroundColor = "transparent";
+    document.getElementById('btnBurger').style.color = "#FAC564";
+    document.getElementById('btnDrink').style.color = "#000";
+    document.getElementById('btnDrink').style.backgroundColor = "#FAC564";
+    document.getElementById('divPizza').style.display = "none";
+    document.getElementById('divBurger').style.display = "none";
+    document.getElementById('divDrink').style.display = "block";
 }
 

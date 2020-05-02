@@ -215,7 +215,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#imgPizza, #imgBurger {     /* IMAGENS VINDAS DO BD */
+#imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
     margin-top: 20px;
     margin-left: 90px;
     border-radius: 360px;
@@ -223,15 +223,15 @@
     width: 200px;
 }
 
-#divPizza, #divBurger {     /* DIV FORA DO FOREACH */
+#divPizza, #divBurger, #divDrink {     /* DIV FORA DO FOREACH */
     margin-top: 50px;
 }
 
-#divBurger {        /* AQUI FICA COM DISPLAY:NONE, SÓ IRÁ APARECER USANDO JS QUANDO O USUÁRIO CLIQUE NO BOTÃO BURGER */
+#divBurger, #divDrink {        /* AQUI FICA COM DISPLAY:NONE, SÓ IRÁ APARECER USANDO JS QUANDO O USUÁRIO CLIQUE NO BOTÃO BURGER */
     display: none;
 }
 
-#divFilhaPizza, #divfilhaBurger {       /* DIV DENTRO DO FOREACH */
+#divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
     margin-left: 80px;
     display: inline-block;
 }
@@ -282,4 +282,13 @@
 
 #btnProduct {       /* MARGIN PARA SEPARAR DO FOOTER */
     margin-bottom: 200px;
+}
+
+
+
+
+/* HOME DO ADMIN */
+
+#divChart {
+    margin-top: -600px;
 }

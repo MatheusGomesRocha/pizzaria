@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', 'ProductController@index')->name('home');
-Route::get('/product_info/{id}', 'ProductController@product_info')->middleware('auth');
+Route::get('/', 'HomeController')->name('home');
+Route::get('/product_info/{id}', 'ProductController@product_info');
 
 /* ****** LOGIN ******* */
 Route::get('/login', 'UserController@login')->name('login');
@@ -23,13 +23,13 @@ Route::get('/cadastro', 'UserController@register')->name('register');
 Route::post('/validation_register', 'UserController@validation_register');
 /* ****** ADMIN AREA ******* */
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/products', 'ProductController@products_all')->name('product_stock')->middleware('auth');
-    Route::get('/delete_product/{id}', 'ProductController@delete_product')->middleware('auth');
-    Route::post('/validation_product_register', 'ProductController@validation_product_register')->middleware('auth');
+    Route::get('/products', 'ProductController@products_all')->name('product_stock');
+    Route::get('/delete_product/{id}', 'ProductController@delete_product');
+    Route::post('/validation_product_register', 'ProductController@validation_product_register');
     /*******/
     Route::get('/ingredients', 'OrderController@ingredients_all')->name('ingredient_stock')->middleware('auth');
-    Route::post('/validation_ingredient_register', 'ProductController@validation_ingredient_register')->middleware('auth');
-    Route::get('/delete_ing/{id}', 'ProductController@delete_ing')->middleware('auth');
+    Route::post('/validation_ingredient_register', 'ProductController@validation_ingredient_register');
+    Route::get('/delete_ing/{id}', 'ProductController@delete_ing');
     /*******/
     Route::get('/users', 'UserController@get_users')->name('users')->middleware('auth');
     Route::get('/admins', 'UserController@get_admins')->name('admins')->middleware('auth');

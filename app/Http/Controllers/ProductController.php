@@ -12,32 +12,13 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
-use App\Product_img;
 
 class ProductController extends Controller
 {
 
-    public function index()     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
+    public function __construct()
     {
-        $user = User::get_user();
-        $query = Product::all();
-        $pizza_limit = Product::pizza_limit();
-        $burger_limit = Product::burger_limit();
-        $count = Order::get_count();
-        $countAdmin = Order::get_count_admin();
-        $order = Order::all();
-
-        if (Auth::check()) {
-            if (Auth::user()->nivel == 2) {
-                return view('home.home')->with('products', $query)->with('count', $count)->with('user', $user)
-                    ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit);
-            } else {
-                return view('home.admin_index')->with('count', $countAdmin)->with('order', $order);
-            }
-        } else {
-            return view('home.home')->with('products', $query)->with('user', $user)
-                ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit);
-        }
+        $this->middleware('auth');
     }
 
     public function ingredient_register()       // INGREDIENTES VIEW

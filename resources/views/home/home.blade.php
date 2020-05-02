@@ -169,7 +169,7 @@
             <div id="btns">
                 <button class="btn" id="btnPizza" onclick="pizza()"> Pizza</button>
                 <button class="btn" id="btnBurger" onclick="burger()"> Burger</button>
-                <button class="btn" id="btnDrink"> Drink</button>
+                <button class="btn" id="btnDrink" onclick="drink()"> Drink</button>
             </div>
 
             <div class="col-md-12" id="divPizza">
@@ -201,6 +201,30 @@
                     <div class="col-md-3" id="divFilhaBurger">
                         <img class="img-fluid col-md-12 d-flex justify-content-center"
                              src="{{ url("storage/products/{$row->img}") }}" id="imgBurger">
+                        <div class="col-md-12 d-flex justify-content-center" id="nameProduct1">
+                            {{ $row->name }}
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center" id="descriptionProduct1">
+                            <div class="col-md-6">{{ $row->description }}</div>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center" id="priceProduct1">
+                            R$ {{ $row->price }}
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
+                            <a id="btnPedir" style="margin-top: 20px" class="btn"
+                               href="{{ asset("product_info/{$row->id}") }}">
+                                Pedir
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="col-md-12" id="divDrink">
+                @foreach($drink_limit as $row)
+                    <div class="col-md-3" id="divFilhaDrink">
+                        <img class="img-fluid col-md-12 d-flex justify-content-center"
+                             src="{{ url("storage/products/{$row->img}") }}" id="imgDrink">
                         <div class="col-md-12 d-flex justify-content-center" id="nameProduct1">
                             {{ $row->name }}
                         </div>
