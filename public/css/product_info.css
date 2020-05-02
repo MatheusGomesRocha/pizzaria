@@ -36,11 +36,6 @@
     font-weight: bold;
 }
 
-#price_sm, #price_md, #price_lg {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 26px;
-}
-
 #info {
     text-transform: uppercase;
     font-family: 'Roboto Condensed', sans-serif;

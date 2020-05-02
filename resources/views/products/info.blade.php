@@ -41,67 +41,80 @@
                         <span> {{ $products->type }}</span>
                         <span> {{ $products->name }}</span>
                     </div>
-                    @if($products->type == 'pizza')
-                        <div class="col-md-12" id="form">
-                            <form id="formCart" method="post" action="{{ asset('/insert_cart') }}">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="product_id" value="{{ $products->id }}">
-                                <input type="hidden" name="product_name" value="{{ $products->name }}">
-                                <input type="hidden" name="type" value="{{ $products->type }}">
-                                <span class="col-md-12"> Escolha um tamanho </span>
-                                <br>
-                                <div class="btn-group col-md-12" id="btn">
-                                    @if($products->sm)
-                                        <label for="p" class="btn btn-default" id="labelP" data-toggle="tooltip"
-                                               data-placement="top" title="(4 pedaços)"> P </label>
-                                        <input type="radio" id="p" name="size" value="P">
-                                    @endif
-                                    @if($products->md)
-                                        <label for="m" class="btn btn-default" id="labelM" data-toggle="tooltip"
-                                               data-placement="top" title="(6 pedaços)"> M </label>
-                                        <input type="radio" id="m" name="size" value="M" checked>
-                                    @endif
-                                    @if($products->lg)
-                                        <label for="g" class="btn btn-default" id="labelG" data-toggle="tooltip"
-                                               data-placement="top" title="(8 pedaços)"> G </label>
-                                        <input type="radio" id="g" name="size" value="G">
-                                    @endif
-                                </div>
+                    <div class="col-md-12" id="form">
+                        <form id="formCart" method="post" action="{{ asset('/insert_cart') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="product_id" value="{{ $products->id }}">
+                            <input type="hidden" name="product_name" value="{{ $products->name }}">
+                            <input type="hidden" name="type" value="{{ $products->type }}">
+                            <span class="col-md-12"> Escolha um tamanho </span>
+                            <br>
+                            <div class="btn-group col-md-12" id="btn">
+                                @if($products->sm)
+                                    <label for="p" class="btn btn-default" id="labelP" data-toggle="tooltip"
+                                           data-placement="top" title="(4 pedaços)"> P </label>
+                                    <input type="radio" id="p" name="size" value="P">
+                                @endif
+                                @if($products->md)
+                                    <label for="m" class="btn btn-default" id="labelM" data-toggle="tooltip"
+                                           data-placement="top" title="(6 pedaços)"> M </label>
+                                    <input type="radio" id="m" name="size" value="M" checked>
+                                @endif
+                                @if($products->lg)
+                                    <label for="g" class="btn btn-default" id="labelG" data-toggle="tooltip"
+                                           data-placement="top" title="(8 pedaços)"> G </label>
+                                    <input type="radio" id="g" name="size" value="G">
+                                @endif
+                            </div>
 
-                                <span class="col-md-12"> Escolha a quantidade </span>
-                                <br>
-                                <div class="col-md-12" id="qtdDiv">
-                                    <button data-action="decrease" id="qtdLess" class="btn btn-info"> -</button>
-                                    <input type="text" value="1" placeholder="1" id="qtd" disabled>
-                                    <input type="hidden" name="qtd_hidden" value="1" id="qtdHidden">
-                                    <button data-action="increase" id="qtdPlus" class="btn btn-info"> +</button>
-                                </div>
-                                <div class="col-md-12" id="priceDiv">
-                                    <input type="text" placeholder="{{ $products->price_md }} + frete" name="textPrice" id="textPrice" disabled>
+                            <span class="col-md-12"> Escolha a quantidade </span>
+                            <br>
+                            <div class="col-md-12" id="qtdDiv">
+                                <button data-action="decrease" id="qtdLess" class="btn btn-info"> -</button>
+                                <input type="text" value="1" placeholder="1" id="qtd" disabled>
+                                <input type="hidden" name="qtd_hidden" value="1" id="qtdHidden">
+                                <button data-action="increase" id="qtdPlus" class="btn btn-info"> +</button>
+                            </div>
+                            <div class="col-md-12" id="priceDiv">
+                                @if($products->price_md)
+                                    <input type="text" placeholder="R$ {{ $products->price_md }} + frete" name="textPrice"
+                                           id="textPrice" disabled>
                                     <input type="hidden" name="price" id="price" value="{{ $products->price_md }}">
+                                @elseif($products->price_sm)
+                                    <input type="text" placeholder="R$ {{ $products->price_sm }} + frete" name="textPrice"
+                                           id="textPrice" disabled>
+                                    <input type="hidden" name="price" id="price" value="{{ $products->price_sm }}">
+                                @elseif($products->price_lg)
+                                    <input type="text" placeholder="R$ {{ $products->price_lg }} + frete" name="textPrice"
+                                           id="textPrice" disabled>
+                                    <input type="hidden" name="price" id="price" value="{{ $products->price_lg }}">
+                                @elseif($products->price)
+                                    <input type="text" placeholder="R$ {{ $products->price }} + frete" name="textPrice"
+                                           id="textPrice" disabled>
+                                    <input type="hidden" name="price" id="price" value="{{ $products->price }}">
+                                @endif
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mb-2">
+                                    <input type="submit" id="btnFinish" class="btn" value="Comprar">
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="input-group mb-2">
-                                        <input type="submit" id="btnFinish" class="btn" value="Comprar">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    @endif
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        $('#btn').click(function() {
+        $('#btn').click(function () {
             if ($('#p').prop('checked')) {
                 $('#labelP').css('background-color', '#d7dadd');
                 $('#labelM').css('background-color', '#f6f9fc');
                 $('#labelG').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_sm }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_sm }} + frete' })
+                $('#textPrice').attr({placeholder: '{{ $products->price_sm }} + frete'})
             }
 
             if ($('#m').prop('checked')) {
@@ -109,7 +122,7 @@
                 $('#labelP').css('background-color', '#f6f9fc');
                 $('#labelG').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_md }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_md }} + frete' })
+                $('#textPrice').attr({placeholder: '{{ $products->price_md }} + frete'})
             }
 
             if ($('#g').prop('checked')) {
@@ -117,7 +130,7 @@
                 $('#labelP').css('background-color', '#f6f9fc');
                 $('#labelM').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_lg }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_lg }} + frete' })
+                $('#textPrice').attr({placeholder: '{{ $products->price_lg }} + frete'})
             }
         });
     </script>

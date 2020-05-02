@@ -71,7 +71,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 mb-2" id="ing" style="display: none">
+                            <div class="col-md-12 mb-2" id="divDescription" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="description" id="description"
                                            placeholder="Adicione uma pequena descrição" class="form-control"
@@ -155,9 +155,7 @@
                                     <option disabled selected> Escolha o tipo do produto...</option>
                                     <option value="pizza"> Pizza</option>
                                     <option value="sanduiche"> Sanduíche</option>
-                                    <option value="salgado"> Salgados</option>
                                     <option value="bebida"> Bebida</option>
-                                    <option value="combo"> Combo</option>
                                 </select>
                             </div>
                         </div>
@@ -181,10 +179,10 @@
                 <th class="text-danger"> Preço_P</th>
                 <th class="text-danger"> Preço_M</th>
                 <th class="text-danger"> Preço_G</th>
+                <th class="text-danger"> Preço</th>
                 <th class="text-danger"> #</th>
             </tr>
             @foreach($query as $row)
-                @if($row->type == 'pizza')
                     <tr id="td">
                         <td> {{ $row->id }}</td>
                         <td> {{ $row->name }}</td>
@@ -197,48 +195,31 @@
                         </td>
                         @if($row->price_sm)
                             <td class="text-success"> R$ {{ $row->price_sm }}</td>
-                        @endif
-                        @if($row->price_sm == false)
+                        @else
                             <td class="text-danger"> #</td>
                         @endif
+
                         @if($row->price_md)
                             <td class="text-success"> R$ {{ $row->price_md }}</td>
-                        @endif
-                        @if($row->price_md == false)
+                        @else
                             <td class="text-danger"> #</td>
                         @endif
+
                         @if($row->price_lg)
                             <td class="text-success"> R$ {{ $row->price_lg }}</td>
-                        @endif
-                        @if($row->price_lg == false)
+                        @else
                             <td class="text-danger"> #</td>
                         @endif
-                        <td><a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i
-                                    class="fas fa-trash"></i> </a></td>
-                    </tr>
-                @endif
-            @endforeach
-        </table>
 
-        <table class="table table-striped " id="tableUsers">
-            <tr id="th">
-                <th class="text-danger"> ID</th>
-                <th class="text-danger"> Nome</th>
-                <th class="text-danger"> Tipo</th>
-                <th class="text-danger"> Preço</th>
-                <th class="text-danger"> #</th>
-            </tr>
-            @foreach($query as $row)
-                @if($row->type == 'sanduiche')
-                    <tr id="td">
-                        <td> {{ $row->id }}</td>
-                        <td> {{ $row->name }}</td>
-                        <td> {{ $row->type }}</td>
-                        <td class="text-success"> R$ {{ $row->price }}</td>
+                        @if($row->price)
+                            <td class="text-success"> R$ {{ $row->price }}</td>
+                        @else
+                            <td class="text-danger"> #</td>
+                        @endif
+                        
                         <td><a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i
                                     class="fas fa-trash"></i> </a></td>
                     </tr>
-                @endif
             @endforeach
         </table>
     </div>

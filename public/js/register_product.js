@@ -10,10 +10,10 @@ function verify_select() {
         tamanho5 == Div do price para outros produtos
      */
 
-    if (select == 'bebida' || select == 'salgado') {
+    if (select == 'bebida') {
         document.getElementById('labelImg').style.display = "block";
-        document.getElementById('image').style.display = "none";
-        document.getElementById('ing').style.display = "none";
+        document.getElementById('image').style.display = "block";
+        document.getElementById('divDescription').style.display = "block";
         document.getElementById('tamanhoLabel').style.display = "none";
         document.getElementById('tamanho').style.display = "block";
         document.getElementById('tamanho1').style.display = "none";
@@ -43,7 +43,7 @@ function verify_select() {
     if (select == 'sanduiche') {
         document.getElementById('labelImg').style.display = "block";
         document.getElementById('image').style.display = "block";
-        document.getElementById('ing').style.display = "block";
+        document.getElementById('divDescription').style.display = "block";
         document.getElementById('tamanhoLabel').style.display = "none";
         document.getElementById('tamanho').style.display = "block";
         document.getElementById('tamanho1').style.display = "none";
@@ -72,7 +72,7 @@ function verify_select() {
     if (select == 'pizza') {
         document.getElementById('labelImg').style.display = "block";
         document.getElementById('image').style.display = "block";
-        document.getElementById('ing').style.display = "block";
+        document.getElementById('divDescription').style.display = "block";
         document.getElementById('tamanhoLabel').style.display = "block";
         document.getElementById('tamanho').style.display = "block";
         document.getElementById('tamanho1').style.display = "block";
