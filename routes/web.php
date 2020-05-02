@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::fallback(function () {
+    return view('error.404');
+});
 
 Route::get('/', 'HomeController')->name('home');
 Route::get('/product_info/{id}', 'ProductController@product_info');
