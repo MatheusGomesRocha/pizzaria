@@ -31,7 +31,7 @@
         <div class="notfound-404">
             <h1>4<span>0</span>4</h1>
         </div>
-        <p> A página que você está procurando pode ter sido removida, ou mudou de nome ou está temporariamente
+        <p> A página que você está procurando não existe, ou mudou de nome ou está temporariamente
             indisponível.</p>
         <a href="{{ route('home') }}">home page</a>
     </div>
