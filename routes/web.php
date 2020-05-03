@@ -47,20 +47,22 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::get('/cart', 'OrderController@index')->middleware('auth')->name('cart');
+Route::post('/cart_submit', 'OrderController@cart_submit')->middleware('auth')->name('cart_submit');
 Route::post('/insert_cart', 'OrderController@insert_cart')->middleware('auth');
 /* ****** ORDERS ******* */
 Route::get('/delete_order/{id}', 'OrderController@delete_order')->middleware('auth');
-Route::get('/finish_order', 'OrderController@finish_order')->middleware('auth');
+Route::get('/finish_order', 'OrderController@finish_order')->middleware('auth')->name('finish_order');
 Route::get('/quantidade/{id}', 'OrderController@quantidade')->middleware('auth')->name('quantidade');
 Route::post('/alterarQtd', 'OrderController@quantidade_post')->middleware('auth');
 /* ****** ADRESS ******* */
-Route::get('/custom_adress', 'OrderController@adress')->middleware('auth');
+Route::get('/custom_adress', 'OrderController@adress')->middleware('auth')->name('adress');
 Route::post('/add_adress', 'OrderController@add_adress')->middleware('auth');
 Route::get('/delete_adress/{id}', 'OrderController@delete_adress')->middleware('auth');
 Route::post('/update_adress', 'OrderController@delivery')->middleware('auth');
 Route::post('/store', 'OrderController@restaurant')->middleware('auth');
 /* ****** PAYMENT ******* */
 Route::get('/payment', 'OrderController@payment')->middleware('auth');
+Route::post('/payment_post', 'OrderController@payment_post')->middleware('auth')->name('pay_post');
 Route::post('/add_card', 'OrderController@add_card')->middleware('auth');
 /* ****** USERS_INFOS ******* */
 Route::get('/my_orders', 'UserController@get_orders')->name('orders')->middleware('auth');

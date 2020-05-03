@@ -30,7 +30,7 @@
                     <div id="texts" class="d-flex justify-content-center animated" style="visibility: hidden;">
                         <div class="col-md-3" id="phone">
                             <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
-                            <span> (00) 12345-6789</span> <br>
+                            <span> (11) 11111-1111 </span>
                         </div>
                         <div class="col-md-3" id="adress">
                             <i class="fas fa-road"></i>&nbsp;&nbsp;&nbsp;

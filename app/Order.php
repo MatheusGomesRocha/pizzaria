@@ -42,7 +42,6 @@ class Order extends Authenticatable
         if (Auth::check()) {
             return DB::table('orders')
                 ->where('user_id', '=', Auth::user()->id)
-                ->where('confirmed', '=', '0')
                 ->first();
         }
     }

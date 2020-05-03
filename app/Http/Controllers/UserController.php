@@ -65,6 +65,7 @@ class UserController extends Controller
 
             User::create($data);
 
+
             session::flash('success', 'Cadastrado com sucesso');
             return redirect()->back();
         } else {
@@ -77,13 +78,19 @@ class UserController extends Controller
     public function validation_login(Request $request)
     {
 
+
         $credentials = array(
             'user' => $request->input('user'),
             'password' => $request->input('password'),
         );
 
         if (Auth::attempt($credentials)) {
-            return redirect()->back();
+            $data_login = date('H:i:s');
+            session()->put('name', 'matheus');
+            session()->put('data_login', $data_login);
+
+
+            return redirect('/');
         } else {
             Session::flash('error', 'Usuário ou senha incorretos');
             return redirect()->back();

@@ -7,6 +7,7 @@ use App\Order;
 use App\Adress;
 use App\Product;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
 
-    public function index()                 // CART VIEW
+    public function index(Request $request)                 // CART VIEW
     {
         $user = User::get_user();
         $query = Order::get_orders();
@@ -28,6 +29,17 @@ class OrderController extends Controller
         }
 
         return view('orders.cart')->with('subtotal', $subtotal)->with('orders', $query)->with('count', $count)->with('user', $user);
+    }
+
+    public function cart_submit(Request $request)
+    {
+        $query = DB::table('orders')
+            ->where('user_id', '=', Auth::user()->id)
+            ->update(['quantidade' => $request->input('quantidade')]);
+
+        $confirm_pedido = date('H:i:s');
+        session()->put('confirm_pedido', $confirm_pedido);
+        return redirect('/custom_adress');
     }
 
     public function insert_cart(Request $request)  // FUNÇÃO PARA FAZER O PEDIDO E SE JÁ TIVER O PEDIDO IGUAL, AUMENTA A QUANTIDADE
@@ -50,7 +62,7 @@ class OrderController extends Controller
             ];
             Order::create($data);
 
-            return redirect('/cart');
+            return redirect()->route('cart');
         } else {
             $select1 = DB::table('orders')
                 ->where('product_id', '=', $request->input('product_id'))
@@ -64,7 +76,7 @@ class OrderController extends Controller
                 ]);
             }
 
-            return redirect('/cart');
+            return redirect()->route('cart');
         }
     }
 
@@ -77,169 +89,362 @@ class OrderController extends Controller
 
     public function adress()    // ENDEREÇO VIEW
     {
-        $user = User::get_user();
-        $count = Order::get_count();
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
 
-        $query = Adress::get_adress();
-        return view('orders.adress')->with('query', $query)->with('count', $count)->with('user', $user);
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $user = User::get_user();
+                $count = Order::get_count();
+
+                $query = Adress::get_adress();
+                return view('orders.adress')->with('query', $query)->with('count', $count)->with('user', $user);
+            }
+
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
     }
 
     public function add_adress(Request $request1)   // ADICIONANDO QUANTOS ENDEREÇOS O USUÁRIO QUISER
     {
-        $validation1 = $this->validation1($request1->all());
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
 
-        if ($validation1->fails()) {
-            return redirect()->back()->withErrors($validation1->errors())->withInput($request1->all());
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $validation1 = $this->validation1($request1->all());
+
+                if ($validation1->fails()) {
+                    return redirect()->back()->withErrors($validation1->errors())->withInput($request1->all());
+                }
+
+                $id = Auth::user()->id;
+                $data = [
+                    'user_id' => $id,
+                    'cep' => $request1->input('cep'),
+                    'bairro' => $request1->input('bairroHidden'),
+                    'rua' => $request1->input('ruaHidden'),
+                    'numero' => $request1->input('number'),
+                    'complemento' => $request1->input('complemento'),
+                    'referencia' => $request1->input('referencia'),
+                ];
+
+                Adress::create($data);
+
+                return redirect()->back();
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
         }
-
-        $id = Auth::user()->id;
-        $data = [
-            'user_id' => $id,
-            'cep' => $request1->input('cep'),
-            'bairro' => $request1->input('bairroHidden'),
-            'rua' => $request1->input('ruaHidden'),
-            'numero' => $request1->input('number'),
-            'complemento' => $request1->input('complemento'),
-            'referencia' => $request1->input('referencia'),
-        ];
-
-        Adress::create($data);
-
-        return redirect()->back();
     }
 
     public function delete_adress($id)
     {
-        $query = Adress::delete_adress($id);
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
 
-        return redirect()->back();
-    }
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
 
-    public function delivery(request $request)  // FAZENDO EDIT CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "DELIVERY"
-    {
-        if (Auth::check()) {
-            $id = Auth::user()->id;
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $query = Adress::delete_adress($id);
 
-            DB::table('orders')
-                ->where('user_id', '=', $id)
-                ->update([
-                    'cep' => $request->input('cep'),
-                    'bairro' => $request->input('bairro'),
-                    'rua' => $request->input('rua'),
-                    'numero' => $request->input('numero'),
-                    'complemento' => $request->input('complemento'),
-                    'referencia' => $request->input('referencia'),
-                    'forma_entrega' => 'delivery'
-                ]);
-        }
-
-        return redirect('/payment');
-    }
-
-    public function restaurant(request $request)  // FAZENDO UPDATE CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "RETIRAR NO RESTAURANTE"
-    {
-        if (Auth::check()) {
-            $id = Auth::user()->id;
-
-            DB::table('orders')
-                ->where('user_id', '=', $id)
-                ->update([
-                    'cep' => '',
-                    'bairro' => '',
-                    'rua' => '',
-                    'numero' => '',
-                    'complemento' => '',
-                    'referencia' => '',
-                    'forma_entrega' => 'restaurant'
-                ]);
-        }
-
-        return redirect('/payment');
-    }
-
-    public function payment()   // PAGAMENTO VIEW
-    {
-        $user = User::get_user();
-        $count = Order::get_count();
-        $cards = Card::cards();
-
-        return view('orders.payment')->with('count', $count)->with('cards', $cards)->with('user', $user);
-    }
-
-    public function finish_order()  // FINALIZAR O PEDIDO VIEW
-    {
-        $user = User::get_user();
-        $count = Order::get_count();
-        $query = Order::get_first_order();
-        $order = Order::get_orders();
-        $adress = Adress::get_adress_first();
-
-        $subtotal = 0;
-        foreach ($order as $sub) {
-            $subtotal += (intval($sub->price) * $sub->quantidade);
-        }
-
-        return view('orders.finish_order')->with('subtotal', $subtotal)->with('count', $count)->with('row', $query)
-            ->with('orders', $order)->with('adress', $adress)->with('user', $user);
-    }
-
-    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
-    {
-        if (Auth::user()->nivel == 2) {
-            $count = User::count_orders();
-            $query = DB::table('orders')
-                ->where('order_id', '=', $id)
-                ->first();
-
-            return view('orders.quantidade_produto')->with('count', $count)->with('row', $query);
+                return redirect()->back();
+            }
         } else {
-            return redirect('/');
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
         }
     }
 
-    public function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
+    public
+    function delivery(request $request)  // FAZENDO EDIT CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "DELIVERY"
     {
-        $query = DB::table('orders')
-            ->where('order_id', '=', $request->input('order_id'))
-            ->update(['quantidade' => $request->input('qtdValue')]);
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
 
-        if ($query) {
-            return redirect('/finish_order');
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $id = Auth::user()->id;
+
+                DB::table('orders')
+                    ->where('user_id', '=', $id)
+                    ->update([
+                        'cep' => $request->input('cep'),
+                        'bairro' => $request->input('bairro'),
+                        'rua' => $request->input('rua'),
+                        'numero' => $request->input('numero'),
+                        'complemento' => $request->input('complemento'),
+                        'referencia' => $request->input('referencia'),
+                        'forma_entrega' => 'delivery'
+                    ]);
+
+                return redirect('/payment');
+            }
+
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
         }
     }
 
-    public function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
+    public
+    function restaurant(request $request)  // FAZENDO UPDATE CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "RETIRAR NO RESTAURANTE"
     {
-        $validation2 = $this->validation2($request->all());
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
 
-        if ($validation2->fails()) {
-            return redirect()->back()->withErrors($validation2->errors())->withInput($request->all());
-        }
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
 
-        $id = Auth::user()->id;
-        $array = array($request->input('card_date_month'), $request->input('card_date_year'));
-        $date = implode('/', $array);
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $id = Auth::user()->id;
 
-        $data = [
-            'user_id' => $id,
-            'card_name' => $request->input('card_name'),
-            'card_number' => $request->input('card_number'),
-            'card_ccv' => $request->input('card_ccv'),
-            'card_date' => $date,
-        ];
+                DB::table('orders')
+                    ->where('user_id', '=', $id)
+                    ->update([
+                        'cep' => '',
+                        'bairro' => '',
+                        'rua' => '',
+                        'numero' => '',
+                        'complemento' => '',
+                        'referencia' => '',
+                        'forma_entrega' => 'restaurant'
+                    ]);
 
-        $card = Card::create($data);
+                return redirect('/payment');
+            }
 
-        if ($card) {
-            return redirect()->back();
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
         }
     }
 
+    public
+    function payment()   // PAGAMENTO VIEW
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+
+            } else {
+                $user = User::get_user();
+                $count = Order::get_count();
+                $cards = Card::cards();
+
+                return view('orders.payment')->with('count', $count)->with('cards', $cards)->with('user', $user);
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
+
+    public function payment_post(Request $request)
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+
+            } else {
+                if (Auth::check()) {
+                    $id = Auth::user()->id;
+
+                    $insert = DB::table('orders')
+                        ->where('user_id', '=', Auth::user()->id)
+                        ->update(['forma_pagamento' => $request->input('forma_pagamento')]);
+
+                    return redirect()->route('finish_order');
+                }
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
+
+    public
+    function finish_order()  // FINALIZAR O PEDIDO VIEW
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $user = User::get_user();
+                $count = Order::get_count();
+                $query = Order::get_first_order();
+                $order = Order::get_orders();
+                $adress = Adress::get_adress_first();
+
+                $subtotal = 0;
+                foreach ($order as $sub) {
+                    $subtotal += (intval($sub->price) * $sub->quantidade);
+                }
+
+                return view('orders.finish_order')->with('subtotal', $subtotal)->with('count', $count)->with('row', $query)
+                    ->with('orders', $order)->with('adress', $adress)->with('user', $user);
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
+
+    public
+    function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+
+                $count = User::count_orders();
+                $query = DB::table('orders')
+                    ->where('order_id', '=', $id)
+                    ->first();
+
+                return view('orders.quantidade_produto')->with('count', $count)->with('row', $query);
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
+
+    public
+    function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+
+                $query = DB::table('orders')
+                    ->where('order_id', '=', $request->input('order_id'))
+                    ->update(['quantidade' => $request->input('qtdValue')]);
+
+                if ($query) {
+                    return redirect('/finish_order');
+                }
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
+
+    public
+    function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
+    {
+        if (session()->has('confirm_pedido')) {
+            $now = Carbon::now();
+
+            session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+            if (session('diff') > '1200') {
+                session()->forget('confirm_pedido');
+                session()->forget('diff');
+                return redirect()->route('cart');
+            } else {
+                $validation2 = $this->validation2($request->all());
+
+                if ($validation2->fails()) {
+                    return redirect()->back()->withErrors($validation2->errors())->withInput($request->all());
+                }
+
+                $id = Auth::user()->id;
+                $array = array($request->input('card_date_month'), $request->input('card_date_year'));
+                $date = implode('/', $array);
+
+                $data = [
+                    'user_id' => $id,
+                    'card_name' => $request->input('card_name'),
+                    'card_number' => $request->input('card_number'),
+                    'card_ccv' => $request->input('card_ccv'),
+                    'card_date' => $date,
+                ];
+
+                $card = Card::create($data);
+
+                if ($card) {
+                    return redirect()->back();
+                }
+            }
+        } else {
+            $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
+                seu pedido';
+            return view('error.404')->with('permission', $permission);
+        }
+    }
 
 
     // A PARTIR DAQUI É ÁREA APENAS DO ADM
 
-    public function orders_pendent()    // PEDIDOS PENDENTES VIEW
+    public
+    function orders_pendent()    // PEDIDOS PENDENTES VIEW
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -251,7 +456,8 @@ class OrderController extends Controller
         }
     }
 
-    public function orders_delivery()   // PEDIDOS JÁ ENTREGUES
+    public
+    function orders_delivery()   // PEDIDOS JÁ ENTREGUES
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -263,7 +469,8 @@ class OrderController extends Controller
         }
     }
 
-    public function ingredients_all()   // INGREDIENTES VIEW
+    public
+    function ingredients_all()   // INGREDIENTES VIEW
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -276,7 +483,8 @@ class OrderController extends Controller
     }
 
 
-    private function validation1($data1)
+    private
+    function validation1($data1)
     {
         $regras1 = [
             'cep' => 'required',
@@ -289,7 +497,8 @@ class OrderController extends Controller
         return Validator::make($data1, $regras1, $mensagens1);
     }
 
-    private function validation2($data2)
+    private
+    function validation2($data2)
     {
         $regras2 = [
             'card_name' => 'required',

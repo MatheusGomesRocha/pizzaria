@@ -39,12 +39,14 @@
 
             <div class="col-md-12">
                 <table class="table" id="tableCard">
-                    <form>
+                    <form  action="{{ route('pay_post') }}" method="post">
                         <tr>
                             <th>Seus cartões</th>
                             <th>Nome do cartão</th>
                             <th>Data vencimento</th>
+                            <th> #</th>
                         </tr>
+                            {{ csrf_field() }}
                         @foreach($cards as $row)
                             <tr>
                                 <td><img src="{{ asset('img/icons8-mastercard-48.png') }}">(Crédito)
@@ -58,6 +60,9 @@
                                     </select></td>
                                 <td>{{ $row->card_name }}</td>
                                 <td>{{ $row->card_date }}</td>
+
+                                    <input type="hidden" name="forma_pagamento" value="card">
+                                    <td><input type="submit" value="Pagar" class="btn btn-success"></td>
                             </tr>
                         @endforeach
                     </form>

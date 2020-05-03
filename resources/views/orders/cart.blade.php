@@ -34,8 +34,8 @@
             de Uso da Pizzaria.com.br
         </small>
         <div class="col-md-8" align="left" id="left">
-            <form method="post" action="" id="qtdCart">
-
+            <form method="post" action="{{ route('cart_submit')  }}" id="qtdCart">
+            {{ csrf_field() }}
             <table class="table">
                 <thead>
                 <tr id="title">
@@ -84,9 +84,9 @@
             </span>
             </div>
             <hr>
-            <a href="{{asset('/custom_adress')}}" class="btn btn-success col-md-12" id="btn"><img
-                    src="{{ asset('img/supermarket.png')}}"> &nbsp;Continuar
-            </a>
+            <input type="hidden" value="{{ $subtotal }}" name="subtotal">
+            <input type="hidden" value="{{ $count }}" name="quantidade">
+            <input type="submit" class="btn btn-success" id="btn">
             </form>
         </div>
     </div>

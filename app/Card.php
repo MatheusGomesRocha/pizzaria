@@ -16,7 +16,7 @@ class Card extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'user_id', 'card_name', 'card_number', 'card_ccv', 'card_date',
+        'user_id', 'card_name', 'card_number', 'card_date',
     ];
 
     protected $hidden = [

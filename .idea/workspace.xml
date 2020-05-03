@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Card.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Card.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/error/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/error/404.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,18 +164,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
-      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers" />
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers\Admin" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public\products" />
       <recent name="C:\wamp64\www\pizzaria" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
+      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
     </key>
   </component>
   <component name="RunManager">
@@ -201,7 +208,10 @@
       <workItem from="1588261054424" duration="1275000" />
       <workItem from="1588347364327" duration="11271000" />
       <workItem from="1588434195998" duration="4532000" />
-      <workItem from="1588447575448" duration="8009000" />
+      <workItem from="1588447575448" duration="8133000" />
+      <workItem from="1588473856073" duration="410000" />
+      <workItem from="1588475922047" duration="265000" />
+      <workItem from="1588518850856" duration="15942000" />
     </task>
     <servers />
   </component>
@@ -209,10 +219,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="207" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588451638499">
+    <state x="499" y="207" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588525308662">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="499" y="207" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1536.824@0.40.1536.824" timestamp="1588451638499" />
+    <state x="499" y="207" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.40.1536.824@0.40.1536.824" timestamp="1588525308662" />
     <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1588453774263">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
@@ -233,14 +243,14 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="465" y="276" key="com.intellij.ide.util.TipDialog/0.40.1536.824@0.40.1536.824" timestamp="1586273406909" />
-    <state x="425" y="207" key="run.anything.popup" timestamp="1588439573662">
+    <state x="425" y="207" key="run.anything.popup" timestamp="1588531980202">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="425" y="207" key="run.anything.popup/0.40.1536.824@0.40.1536.824" timestamp="1588439573662" />
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1588358465215">
+    <state x="425" y="207" key="run.anything.popup/0.40.1536.824@0.40.1536.824" timestamp="1588531980202" />
+    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1588527280267">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup/0.40.1536.824@0.40.1536.824" timestamp="1588358465215" />
+    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup/0.40.1536.824@0.40.1536.824" timestamp="1588527280267" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -249,6 +259,11 @@
           <url>file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php</url>
+          <line>7</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

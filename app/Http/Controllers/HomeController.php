@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeController extends Controller
 {
-    public function __invoke()     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
+    public function __invoke(Request $request)     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
     {
         $user = User::get_user();
         $query = Product::all();
@@ -23,8 +24,14 @@ class HomeController extends Controller
         $countAdmin = Order::get_count_admin();
         $order = Order::all();
 
+
         if (Auth::check()) {
             if (Auth::user()->nivel == 2) {
+
+                $now = Carbon::now();
+
+                session()->put('diff', $now->diffInSeconds(session('data_login')))  ;
+
                 return view('home.home')->with('products', $query)->with('count', $count)->with('user', $user)
                     ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit)
                     ->with('drink_limit', $drink_limit);
@@ -33,7 +40,8 @@ class HomeController extends Controller
             }
         } else {
             return view('home.home')->with('products', $query)->with('user', $user)
-                ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit);
+                ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit)
+                ->with('drink_limit', $drink_limit);
         }
     }
 }
