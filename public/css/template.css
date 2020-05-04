@@ -10,6 +10,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+#countIcon { /* Número que veio da variável count */
+    color: #d02000 !important;
+    font-size: 22px;
+}
+
 #toggleButton { /* Botão mobile para abrir menu */
     border: none;
 }
@@ -57,15 +62,15 @@
 }
 
 #userDropdown { /* Dropdown do usuário */
-    background-color: #ae2536 !important;
+    background-color: #FAC564 !important;
 }
 
 #myOrders, #logout, #myAccount { /* Links dentro do dropdown */
-    color: #fff;
+    color: #000;
 }
 
 #myOrders:hover, #logout:hover, #myAccount:hover { /* Links dentro do dropdown (ao passar o mouse por cima) */
-    background-color: #8a202a !important;
+    background-color: #ca9b57 !important;
 }
 
 #home, #about, #local, #staff, #login { /* Links home, sobre, localização e funcionários */
@@ -79,30 +84,36 @@
 }
 
 
-@media (min-width: 360px) {
+@media (min-width: 360px) and (max-width: 575.8px) {
     /* Responsividade para mobile */
     #cartDesktop { /* Ícone carrinho em lg e xl */
         display: none;
     }
 
     #countIcon { /* Número que veio da variável count (Posição diferente da que está na responsividade 998px */
-        color: #d02000 !important;
-        font-weight: bold;
-        font-size: 22px;
         position: absolute;
-        left: 324px;
+        left: 370px;
         top: 8px;
     }
 
     #logoMobile {
         display: block;
     }
+
+    #btnMobile {
+        border: none;
+    }
+
+    #btnMobile:focus {
+        border: none;
+        outline: 0;
+    }
 }
 
-@media (min-width: 998px) {
+@media (min-width: 998px) and (max-width: 1198px) {
     #navbarTemplate { /* Tamanho do Navbar */
-        height: 70px;
         padding: 50px;
+        height: 70px;
     }
 
     /* Responsividade para desktop */
@@ -120,9 +131,6 @@
     }
 
     #countIcon { /* Número que veio da variável count */
-        color: #d02000 !important;
-        font-weight: bold;
-        font-size: 22px;
         position: absolute;
         left: 1349px;
         top: 22px;
@@ -139,5 +147,18 @@
     #logoMobile { /* LOGO na versão mobile */
         display: none;
     }
+}
+
+@media(min-width: 1200px) {
+    .dropdown-menu { /* Div dentro do dropdown */
+        margin-left: -80px !important;
+    }
+
+    #countIcon { /* Número que veio da variável count */
+        position: absolute;
+        left: 2416px;
+        top: 5px;
+    }
 
 }
+

@@ -26,32 +26,32 @@
 
         <div class="container-fluid">
             <div class="row" id="divResAcc">
-                <div class="col-md-8" id="infoRes">
+                <div class="col-md-8 col-12" id="infoRes">
                     <div id="texts" class="d-flex justify-content-center animated" style="visibility: hidden;">
-                        <div class="col-md-3" id="phone">
-                            <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
+                        <div class="col-md-3 col-4" id="phone">
+                            <i class="fas fa-phone" id="iPhone"></i>&nbsp;&nbsp;&nbsp;
                             <span> (11) 11111-1111 </span>
                         </div>
-                        <div class="col-md-3" id="adress">
-                            <i class="fas fa-road"></i>&nbsp;&nbsp;&nbsp;
+                        <div class="col-md-3 col-4" id="adress">
+                            <i class="fas fa-road" id="iAdress"></i>&nbsp;&nbsp;&nbsp;
                             <span> Avenida São Paulo, 66</span>
                         </div>
-                        <div class="col-md-3" id="time">
-                            <i class="fas fa-clock"></i>&nbsp;&nbsp;&nbsp;
-                            <span> Aberto Segunda à Sexta</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span align="center">8:00 - 22:00</span>
+                        <div class="col-md-3 col-4" id="time">
+                            <i class="fas fa-clock" id="iTime"></i>&nbsp;&nbsp;&nbsp;
+                            <span> Segunda à Sexta</span><br>
+                            <span id="horarioTime">8:00 - 22:00</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" id="accounts">
+                <div class="col-md-4 col-12" id="accounts">
                     <div class="d-flex justify-content-center animated" id="textSocial" style="visibility: hidden">
-                        <div class="col-md-3" id="insta">
+                        <div class="col-md-3 col-3" id="insta">
                             <a id="instagram">Intagram</a>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-3">
                             <a>Facebook</a>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-3">
                             <a>twitter</a>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
 
     <div class="container-fluid" id="allHome2">
         <div class="row" id="divImgText">
-            <div class="col-md-6" id="divImgRestaurant">
+            <div class="col-md-6 col-12" id="divImgRestaurant">
                 <img class="img-fluid" id="imgRestaurant" src="{{ asset('img/restaurante.jpg') }}">
             </div>
             <div class="col-md-6" id="divTextRestaurant">
@@ -125,18 +125,18 @@
 
     <div id="allHome3" class="container-fluid">
 
-        <h1 id="home3Title" class="col-md-12 d-flex justify-content-center animated"> PIZZAS MAIS PEDIDAS </h1>
-        <div id="home3Text" class="col-md-12 d-flex justify-content-center animated">Lorem ipsum dolor sit amet,
+        <h1 id="home3Title" class="col-md-12 col-12 d-flex justify-content-center animated"> PIZZAS MAIS PEDIDAS </h1>
+        <div id="home3Text" class="col-md-12 col-12 d-flex justify-content-center animated">Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Vivamus varius.
         </div>
 
         <div id="cardapio" class="row animated">
             @foreach($products as $row)
                 @if($row->type == 'pizza')
-                    <div class="col-md-2" id="divImgCardapio">
+                    <div class="col-md-2 col-6" id="divImgCardapio">
                         <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
                     </div>
-                    <div class="col-md-2" id="cardapioText">
+                    <div class="col-md-2 col-6" id="cardapioText">
                         <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
                         <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
                         <div class="col-md-12">

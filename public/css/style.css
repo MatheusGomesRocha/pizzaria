@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 /*
+
     TUDO QUE ESTÁ COM VISIBILITY:HIDDEN É PORQUE ESTOU USANDO JAVASCRIPT PARA QUANDO CHEGAR A UM DETERMINADO PIXEL
     ESSAS DIV VÃO APARECER COM UMA ANIMAÇÃO DE FADE
+
  */
 
 /* #allHome */
@@ -22,6 +24,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+
 #infoRes {     /* DIV FILHA COM AS INFOS DO RESTURANTE */
     background-color: #000;
     padding: 20px;
@@ -36,14 +39,11 @@
 
 
 
+
 /* #allHome2 */
 
 #divImgText {   /* DIV PAI COM A IMAGEM DO RESTURANTE E UM TEXTO SOBRE ELE */
-    background-image: url("../img/black.jpg");
-}
-
-#imgRestaurant {    /* IMG DO RESTAURANTE */
-    margin-left: -15px;
+    background: url("../img/black.jpg");
 }
 
 #divTextRestaurant {    /* DIV FILHA COM TEXTO SOBRE O RESTAURANTE */
@@ -87,7 +87,6 @@
 }
 
 #pizza, #chips, #drink {    /* DIV COM ÍCONE ANIMADO */
-    margin-top: 100px;
     height: 100px;
 }
 
@@ -100,21 +99,12 @@
     border: 1px solid;
 }
 
-#iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
-    border: none;
-    color: #fff;
-    background-color: #000;
-    transform: rotateY(360deg);
-    transition: 0.7s;
-}
-
 #pizzaTitle, #chipsTitle, #drikTitle {      /* TÍTULOS */
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
 }
 
 #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
-    padding: 70px;
     text-align: center;
     font-size: 20px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -216,8 +206,6 @@
 }
 
 #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
-    margin-top: 20px;
-    margin-left: 90px;
     border-radius: 360px;
     height: 200px;
     width: 200px;
@@ -232,7 +220,6 @@
 }
 
 #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
-    margin-left: 80px;
     display: inline-block;
 }
 
@@ -257,8 +244,7 @@
 }
 
 #btns {         /* DIV DE BOTÕES DO MINI-MENU */
-    margin-top: 50px;
-    margin-left: 180px;
+
 }
 
 #btnPizza, #btnBurger, #btnDrink {      /* BOTÕES DO MINI-MENU */
@@ -291,4 +277,150 @@
 
 #divChart {
     margin-top: -600px;
+}
+
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #time {
+        text-align: center;
+    }
+
+    #horarioTime {
+        margin-left: 30px;
+    }
+
+    #imgRestaurant {
+        display: none;
+    }
+
+    #divImgRestaurant {
+        margin-top: 100px;
+        background: url("../img/restaurante.jpg");
+        height: 400px;
+    }
+
+    #title {
+        text-align: center;
+    }
+
+    #pizza, #chips, #drink {        /* TEXTOS */
+        margin-top: 60px;
+    }
+
+    #pizzaTitle, #chipsTitle, #drinkTitle {
+        padding: 30px;
+    }
+
+    #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
+        padding: 30px;
+    }
+
+    #home3Title {
+        text-align: center;
+    }
+
+    #divImgCardapio, #cardapioText {
+        margin-top: 20px;
+    }
+
+    #btns {
+        margin-top: 50px;
+        margin-bottom: 130px;
+    }
+
+    #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
+        margin-left: 90px;
+    }
+
+    #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
+        margin-top: -130px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #horarioTime {
+        margin-left: 45px;
+    }
+
+    #imgRestaurant {    /* IMG DO RESTAURANTE */
+        margin-left: -15px;
+    }
+
+    #iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
+        border: none;
+        color: #fff;
+        background-color: #000;
+        transform: rotateY(360deg);
+        transition: 0.7s;
+    }
+
+    #pizza, #chips, #drink {    /* DIV COM ÍCONE ANIMADO */
+        margin-top: 100px;
+    }
+
+    #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
+        padding: 70px;
+    }
+
+    #btns {
+        margin-top: 50px;
+        margin-left: 180px;
+    }
+
+    #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
+        margin-left: 80px;
+    }
+
+    #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
+        margin-top: 20px;
+        margin-left: 90px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #horarioTime {
+        margin-left: 45px;
+    }
+
+    #imgRestaurant {    /* IMG DO RESTAURANTE */
+        margin-left: -15px;
+    }
+
+    #iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
+        border: none;
+        color: #fff;
+        background-color: #000;
+        transform: rotateY(360deg);
+        transition: 0.7s;
+    }
+
+    #pizza, #chips, #drink {    /* DIV COM ÍCONE ANIMADO */
+        margin-top: 100px;
+    }
+
+    #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
+        padding: 70px;
+    }
+
+    #btns {
+        margin-top: 50px;
+        margin-left: 300px;
+    }
+
+    #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
+        margin-left: 80px;
+    }
+
+    #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
+        margin-top: 20px;
+        margin-left: 210px;
+    }
 }

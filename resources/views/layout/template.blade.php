@@ -47,10 +47,10 @@
 <body>
 @if(Auth::check())
     @if(Auth::user()->nivel == 2)
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbarTemplate">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbarTemplate">
             <div class="navbar-brand" id="logo">Logo</div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="btnMobile">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
