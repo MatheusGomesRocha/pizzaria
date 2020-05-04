@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index(Request $request)                 // CART VIEW
     {
@@ -176,8 +180,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function delivery(request $request)  // FAZENDO EDIT CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "DELIVERY"
+    public function delivery(request $request)  // FAZENDO EDIT CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "DELIVERY"
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -213,8 +216,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function restaurant(request $request)  // FAZENDO UPDATE CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "RETIRAR NO RESTAURANTE"
+    public function restaurant(request $request)  // FAZENDO UPDATE CASO O USUÁRIO ESCOLHA A FORMA DE ENTREGA "RETIRAR NO RESTAURANTE"
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -250,8 +252,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function payment()   // PAGAMENTO VIEW
+    public function payment()   // PAGAMENTO VIEW
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -288,15 +289,13 @@ class OrderController extends Controller
                 return redirect()->route('cart');
 
             } else {
-                if (Auth::check()) {
-                    $id = Auth::user()->id;
+                $id = Auth::user()->id;
 
-                    $insert = DB::table('orders')
-                        ->where('user_id', '=', Auth::user()->id)
-                        ->update(['forma_pagamento' => $request->input('forma_pagamento')]);
+                $insert = DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->update(['forma_pagamento' => $request->input('forma_pagamento')]);
 
-                    return redirect()->route('finish_order');
-                }
+                return redirect()->route('finish_order');
             }
         } else {
             $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
@@ -305,8 +304,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function finish_order()  // FINALIZAR O PEDIDO VIEW
+    public function finish_order()  // FINALIZAR O PEDIDO VIEW
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -339,8 +337,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
+    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -367,8 +364,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
+    public function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -396,8 +392,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
+    public function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
     {
         if (session()->has('confirm_pedido')) {
             $now = Carbon::now();
@@ -443,8 +438,7 @@ class OrderController extends Controller
 
     // A PARTIR DAQUI É ÁREA APENAS DO ADM
 
-    public
-    function orders_pendent()    // PEDIDOS PENDENTES VIEW
+    public function orders_pendent()    // PEDIDOS PENDENTES VIEW
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -456,8 +450,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function orders_delivery()   // PEDIDOS JÁ ENTREGUES
+    public function orders_delivery()   // PEDIDOS JÁ ENTREGUES
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -469,8 +462,7 @@ class OrderController extends Controller
         }
     }
 
-    public
-    function ingredients_all()   // INGREDIENTES VIEW
+    public function ingredients_all()   // INGREDIENTES VIEW
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -483,8 +475,7 @@ class OrderController extends Controller
     }
 
 
-    private
-    function validation1($data1)
+    private function validation1($data1)
     {
         $regras1 = [
             'cep' => 'required',
@@ -497,8 +488,7 @@ class OrderController extends Controller
         return Validator::make($data1, $regras1, $mensagens1);
     }
 
-    private
-    function validation2($data2)
+    private function validation2($data2)
     {
         $regras2 = [
             'card_name' => 'required',

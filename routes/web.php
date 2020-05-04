@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/delete_product/{id}', 'ProductController@delete_product');
     Route::post('/validation_product_register', 'ProductController@validation_product_register');
     /*******/
-    Route::get('/ingredients', 'OrderController@ingredients_all')->name('ingredient_stock')->middleware('auth');
+    Route::get('/ingredients', 'OrderController@ingredients_all')->name('ingredient_stock');
     Route::post('/validation_ingredient_register', 'ProductController@validation_ingredient_register');
     Route::get('/delete_ing/{id}', 'ProductController@delete_ing');
     /*******/
@@ -41,29 +41,29 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/edit_nivel', 'UserController@admin_edit_nivel')->name('edit_nivel_user')->middleware('auth');
     Route::post('/edit_nivel_admin', 'UserController@admin_edit_nivel_admin')->name('edit_nivel_admin')->middleware('auth');
     /*******/
-    Route::get('/pendent', 'OrderController@orders_pendent')->name('pendent')->middleware('auth');
-    Route::get('/delivery', 'OrderController@orders_delivery')->name('delivery')->middleware('auth');
+    Route::get('/pendent', 'OrderController@orders_pendent')->name('pendent');
+    Route::get('/delivery', 'OrderController@orders_delivery')->name('delivery');
     /*******/
 });
 
-Route::get('/cart', 'OrderController@index')->middleware('auth')->name('cart');
-Route::post('/cart_submit', 'OrderController@cart_submit')->middleware('auth')->name('cart_submit');
-Route::post('/insert_cart', 'OrderController@insert_cart')->middleware('auth');
+Route::get('/cart', 'OrderController@index')->name('cart');
+Route::post('/cart_submit', 'OrderController@cart_submit')->name('cart_submit');
+Route::post('/insert_cart', 'OrderController@insert_cart');
 /* ****** ORDERS ******* */
-Route::get('/delete_order/{id}', 'OrderController@delete_order')->middleware('auth');
-Route::get('/finish_order', 'OrderController@finish_order')->middleware('auth')->name('finish_order');
-Route::get('/quantidade/{id}', 'OrderController@quantidade')->middleware('auth')->name('quantidade');
-Route::post('/alterarQtd', 'OrderController@quantidade_post')->middleware('auth');
+Route::get('/delete_order/{id}', 'OrderController@delete_order');
+Route::get('/finish_order', 'OrderController@finish_order')->name('finish_order');
+Route::get('/quantidade/{id}', 'OrderController@quantidade')->name('quantidade');
+Route::post('/alterarQtd', 'OrderController@quantidade_post');
 /* ****** ADRESS ******* */
-Route::get('/custom_adress', 'OrderController@adress')->middleware('auth')->name('adress');
-Route::post('/add_adress', 'OrderController@add_adress')->middleware('auth');
-Route::get('/delete_adress/{id}', 'OrderController@delete_adress')->middleware('auth');
-Route::post('/update_adress', 'OrderController@delivery')->middleware('auth');
-Route::post('/store', 'OrderController@restaurant')->middleware('auth');
+Route::get('/custom_adress', 'OrderController@adress')->name('adress');
+Route::post('/add_adress', 'OrderController@add_adress');
+Route::get('/delete_adress/{id}', 'OrderController@delete_adress');
+Route::post('/update_adress', 'OrderController@delivery');
+Route::post('/store', 'OrderController@restaurant');
 /* ****** PAYMENT ******* */
-Route::get('/payment', 'OrderController@payment')->middleware('auth');
-Route::post('/payment_post', 'OrderController@payment_post')->middleware('auth')->name('pay_post');
-Route::post('/add_card', 'OrderController@add_card')->middleware('auth');
+Route::get('/payment', 'OrderController@payment')->name('payment');
+Route::post('/payment_post', 'OrderController@payment_post')->name('pay_post');
+Route::post('/add_card', 'OrderController@add_card');
 /* ****** USERS_INFOS ******* */
 Route::get('/my_orders', 'UserController@get_orders')->name('orders')->middleware('auth');
 Route::get('/my_account', 'UserController@account')->name('account')->middleware('auth');
