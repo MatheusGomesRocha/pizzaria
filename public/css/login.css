@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #formLogin {
-    width: 650px;
-    height: 480px;
     margin-top: 100px;
     padding: 10px;
 }
@@ -63,6 +61,28 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#showPassword {
+@media(min-width: 360px) and (max-width: 575.8px) {
 
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #formLogin {
+        width: 650px;
+        height: 480px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #formLogin {
+        width: 650px;
+        height: 480px;
+    }
 }

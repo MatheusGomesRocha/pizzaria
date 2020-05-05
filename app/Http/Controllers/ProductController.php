@@ -105,7 +105,7 @@ class ProductController extends Controller
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
-            $query = Order::get_products();
+            $query = Product::get_products();
 
             return view('products.view')->with('count', $count)->with('query', $query);
         } else {

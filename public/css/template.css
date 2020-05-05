@@ -121,11 +121,6 @@
         width: 950px;
     }
 
-    #divTop { /* Div com Input text e append */
-        display: inline-block;
-        margin-left: 150px;
-    }
-
     .dropdown-menu { /* Div dentro do dropdown */
         margin-left: -35px !important;
     }
@@ -150,14 +145,19 @@
 }
 
 @media(min-width: 1200px) {
+    #navbarTemplate { /* Tamanho do Navbar */
+        padding: 50px;
+        height: 70px;
+    }
+
     .dropdown-menu { /* Div dentro do dropdown */
-        margin-left: -80px !important;
+        margin-left: -100px !important;
     }
 
     #countIcon { /* Número que veio da variável count */
         position: absolute;
-        left: 2416px;
-        top: 5px;
+        left: 2372px;
+        top: 18px;
     }
 
 }

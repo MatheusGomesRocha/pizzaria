@@ -48,11 +48,13 @@
 @if(Auth::check())
     @if(Auth::user()->nivel == 2)
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbarTemplate">
-            <div class="navbar-brand" id="logo">Logo</div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="btnMobile">
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    id="btnMobile">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="navbar-brand" id="logo">Logo</div>
 
             <a id="cartMobile" class="nav-link" href="{{ route('cart') }}">
                 <span id="countIcon"> {{ $count }}</span>
@@ -105,7 +107,6 @@
     @endif
 
     @if(Auth::user()->nivel == 1)
-
         <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
 
@@ -398,36 +399,34 @@
 @endif
 
 @if(Auth::check() == false)
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbarTemplate">
-        <div class="container">
-            <a class="navbar-brand" href="#" style="color: #fff;">
-                Logo
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-                    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbarTemplate">
+        <div class="navbar-brand" id="logo">Logo</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                id="btnMobile">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse  d-lg-flex justify-content-end" id="conteudoNavbarSuportado">
-                <ul class="navbar-nav" id="divBottom">
-                    <li class="nav-item">
-                        <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
-                                class="sr-only">(página atual)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="local" href="#">Localização</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="about" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="staff" href="#">Funcionários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
+                            class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="local" href="#">Localização</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="about" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="staff" href="#">Funcionários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
         </div>
     </nav>
 @endif
