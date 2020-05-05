@@ -32,43 +32,47 @@ class Product extends Authenticatable
     public static function delete_product($id)
     {
         if (Auth::check()) {
-            return DB::table('products')
-                ->where('id', '=', $id)
-                ->delete();
-        }
-    }
-
-    public static function delete_ing($id)
-    {
-        if (Auth::check()) {
-            return DB::table('ingredients')
-                ->where('id', '=', $id)
-                ->delete();
+            if (Auth::user()->nivel == 2) {
+                return DB::table('products')
+                    ->where('id', '=', $id)
+                    ->delete();
+            }
         }
     }
 
     public static function pizza_limit()
     {
-            return DB::table('products')
-                ->where('type', '=', 'pizza')
-                ->limit('3')
-                ->get();
+        return DB::table('products')
+            ->where('type', '=', 'pizza')
+            ->limit('3')
+            ->get();
     }
 
     public static function burger_limit()
     {
-            return DB::table('products')
-                ->where('type', '=', 'sanduiche')
-                ->limit('3')
-                ->get();
+        return DB::table('products')
+            ->where('type', '=', 'sanduiche')
+            ->limit('3')
+            ->get();
     }
 
     public static function drink_limit()
     {
-            return DB::table('products')
-                ->where('type', '=', 'bebida')
-                ->limit('3')
-                ->get();
+        return DB::table('products')
+            ->where('type', '=', 'bebida')
+            ->limit('3')
+            ->get();
     }
+
+    public static function get_products()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
+                return DB::table('products')
+                    ->get();
+            }
+        }
+    }
+
 
 }

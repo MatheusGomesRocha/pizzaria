@@ -29,9 +29,8 @@ class ProductController extends Controller
 
             return view('products.ingredients_register')->with('count', $count)->with('user', $user);
         } else {
-            return redirect('/login');
+            return view('error.404');
         }
-
     }
 
     public function product_info($id)       // INFO DOS PRODUTOS VIEW
@@ -43,10 +42,8 @@ class ProductController extends Controller
             $count = Order::get_count();
             return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
         } else {
-            return redirect('/404');
+            return view('error.404');
         }
-
-
     }
 
     public function validation_product_register(Request $request)   // VALIDAÇÃO DE CADASTRO DE PRODUTO
@@ -86,9 +83,7 @@ class ProductController extends Controller
 
                     session::flash('success', 'Produto cadastrado com sucesso');
                     return redirect()->back();
-                }
-
-                else {
+                } else {
                     session::flash('error', 'A imagem do produto é obrigatório');
                     return redirect()->back();
                 }
@@ -99,30 +94,9 @@ class ProductController extends Controller
                 return redirect()->back();
             }
         } else {
-            return redirect('/login');
+            return view('error.404');
         }
 
-    }
-
-    public function validation_ingredient_register(Request $request)        // VALIDAÇÃO DE CADASTRO DE INGREDIENTE
-    {
-        if (Auth::user()->nivel == 1) {
-            $select = DB::table('ingredients')->where('ingredients', '=', $request->input('ingredient'))->count();
-            if ($select == 0) {
-                $ing = $request->input('ingredient');
-                Ingredient::create([
-                    'ingredients' => $ing
-                ]);
-
-                session::flash('success', 'Ingrediente cadastrado com sucesso');
-                return redirect()->back();
-            } else {
-                session::flash('error', 'Já existe um ingrediente com esse nome');
-                return redirect()->back();
-            }
-        } else {
-            return redirect('/login');
-        }
     }
 
     /* A PARTIR DAQUI É ÁREA DO ADMIN */
@@ -130,36 +104,24 @@ class ProductController extends Controller
     public function products_all()      // TABELA DE PEDIDOS
     {
         if (Auth::user()->nivel == 1) {
-            $ing = Ingredient::all();
             $count = User::count_orders();
             $query = Order::get_products();
 
-            return view('products.view')->with('ing', $ing)->with('count', $count)->with('query', $query);
+            return view('products.view')->with('count', $count)->with('query', $query);
         } else {
-            return redirect('/login');
+            return view('error.404');
         }
 
     }
 
     public function delete_product($id)     // DELETAR PRODUTOS
     {
-        if(Auth::user()->nivel == 1) {
+        if (Auth::user()->nivel == 1) {
             $delete = Product::delete_product($id);
 
             return redirect()->back();
         } else {
-            return redirect('/login');
-        }
-    }
-
-    public function delete_ing($id)     // DELETEAR INGREDIENTES
-    {
-        if (Auth::user()->nivel == 1) {
-            $delete = Product::delete_ing($id);
-
-            return redirect()->back();
-        } else {
-            return redirect('/login');
+            return view('error.404');
         }
     }
 

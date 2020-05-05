@@ -30,85 +30,93 @@ class Order extends Authenticatable
 
     public static function get_orders()
     {
-        return DB::table('orders')
-            ->where('user_id', '=', Auth::user()->id)
-            ->get();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->get();
+            }
+        }
     }
 
     public static function get_first_order()
     {
-        return DB::table('orders')
-            ->where('user_id', '=', Auth::user()->id)
-            ->first();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->first();
+            }
+        }
     }
 
     public static function get_count()
     {
-        if (Auth::user()->nivel == 2) {
-            return DB::table('orders')
-                ->where('user_id', '=', Auth::user()->id)
-                ->sum('quantidade');
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->sum('quantidade');
+            }
         }
     }
 
     public static function get_count_admin()
     {
-        if (Auth::user()->nivel == 1) {
-            return DB::table('orders')
-                ->count();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
+                return DB::table('orders')
+                    ->count();
+            }
         }
     }
 
     public static function get_count_created()
     {
-        if (Auth::user()->nivel == 1) {
-            return DB::table('orders')
-                ->where('created_at', '=', '1')
-                ->count();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
+                return DB::table('orders')
+                    ->where('created_at', '=', '1')
+                    ->count();
+            }
         }
     }
 
     public static function delete_order($id)
     {
-        return DB::table('orders')
-            ->where('order_id', '=', $id)
-            ->delete();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('order_id', '=', $id)
+                    ->delete();
+            }
+        }
     }
 
     public static function get_orders_pendent()
     {
-        return DB::table('orders')
-            ->join('users', 'users.id', '=', 'orders.user_id')
-            ->orderBy('orders.order_id', 'desc')
-            ->where('entregue', '=', '0')
-            ->get();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
+                return DB::table('orders')
+                    ->join('users', 'users.id', '=', 'orders.user_id')
+                    ->orderBy('orders.order_id', 'desc')
+                    ->where('entregue', '=', '0')
+                    ->get();
+            }
+        }
     }
 
     public static function get_orders_delivery()
     {
-        return DB::table('orders')
-            ->join('users', 'users.id', '=', 'orders.user_id')
-            ->orderBy('entregue', 'asc')
-            ->where('entregue', '=', '1')
-            ->get();
-    }
-
-    public static function get_products()
-    {
-        return DB::table('products')
-            ->get();
-    }
-
-    public static function get_ingredients()
-    {
-        return DB::table('ingredients')
-            ->get();
-    }
-
-    public static function get_products_info()
-    {
-        return DB::table('products')
-            ->first();
+        if (Auth::check()) {
+            if (Auth::user()->nivel == 1) {
+                return DB::table('orders')
+                    ->join('users', 'users.id', '=', 'orders.user_id')
+                    ->orderBy('entregue', 'asc')
+                    ->where('entregue', '=', '1')
+                    ->get();
+            }
+        }
     }
 
 
