@@ -1,6 +1,7 @@
 @extends('layout.template')
 
 @section('title', 'Home')
+
 <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
 <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
 <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">

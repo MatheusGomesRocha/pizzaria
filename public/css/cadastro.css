@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
-
-#formRegisterProduct, #ingRegister {
-    width: 650px;
-    height: auto;
-    margin-top: -650px;
-}
-
-#register {
-    width: 650px;
-    height: auto;
-    margin-top: 150px;
-}
-
 .errors {
     list-style: none;
     border-left: none;
@@ -22,26 +9,42 @@
     border: 1px solid #ccc !important;
 }
 
-#name:focus, #user:focus, #email:focus, #cpf:focus, #tel:focus, #pass:focus, #conPass:focus {
-    border-color: #e5e500;
-    box-shadow: 0 0 2px 2px #e5e500;
+/* CADASTRO DE USUÁRIO */
+
+#register {
+    height: auto;
 }
 
-#btn {
+#form-title {
+    color: #C4161C;
+    font-size: 40px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#name:focus, #user:focus, #email:focus, #cpf:focus, #tel:focus, #pass:focus, #conPass:focus {
+    border-color: #FAC564;
+    box-shadow: 0 0 2px 2px #FAC564;
+}
+
+#btnRegisterUser {
     width: 100%;
     border-radius: 15px !important;
     background-color: #C4161C;
     color: #fff;
 }
 
-#btn:hover {
+#btnRegisterUser:hover {
     background-color: #aa1318;
 }
 
-.form-title {
-    color: #C4161C;
-    font-size: 40px;
-    font-family: 'Roboto Condensed', sans-serif;
+
+
+
+
+#formRegisterProduct, #ingRegister {
+    width: 650px;
+    height: auto;
+    margin-top: -650px;
 }
 
 select:focus {
@@ -108,4 +111,33 @@ select:focus {
 #img {
     border: none !important;
     background-color: transparent !important;
+}
+
+@media(min-width: 360px) and (max-width: 575.8px){
+    #register {
+        width: 350px;
+        margin-top: 70px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.8px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #register {
+        width: 650px;
+        margin-top: 200px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #register {
+        width: 750px;
+        margin-top: 200px;
+    }
 }

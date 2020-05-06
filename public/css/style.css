@@ -394,6 +394,10 @@
         margin-left: -15px;
     }
 
+    #divTextRestaurant {
+        margin-left: -250px;
+    }
+
     #iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
         border: none;
         color: #fff;
@@ -416,7 +420,7 @@
     }
 
     #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
-        margin-left: 80px;
+        margin-left: 150px;
     }
 
     #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
