@@ -16,8 +16,8 @@ class Order extends Authenticatable
     protected $primaryKey = 'order_id';
 
     protected $fillable = [
-        'user_id', 'product_id', 'product_name', 'type', 'size', 'quantidade', 'price', 'borda', 'cep', 'bairro', 'rua',
-        'numero', 'complemento', 'referencia', 'forma_pagamento', 'forma_entrega', 'entregue', 'fraction', 'confirmed',
+        'user_id', 'product_id', 'product_name', 'type', 'size', 'quantidade', 'product_price', 'borda', 'cep', 'bairro', 'rua',
+        'numero', 'complemento', 'referencia', 'status', 'forma_pagamento', 'forma_entrega', 'entregue',
     ];
 
     protected $hidden = [
@@ -33,6 +33,7 @@ class Order extends Authenticatable
         if (Auth::check()) {
             if (Auth::user()->nivel == 2) {
                 return DB::table('orders')
+                    ->join('products', 'products.id', '=', 'orders.product_id')
                     ->where('user_id', '=', Auth::user()->id)
                     ->get();
             }

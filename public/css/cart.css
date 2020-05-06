@@ -1,58 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
-#fatherDiv {
-    margin-top: 30px;
+#divAllCart {
+    margin-top: 140px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#left {
-    margin-top: 30px;
-}
-
-#rightDiv {
-    background-color: #F8F8F8;
-    padding: 25px;
-    font-size: 20px;
-}
-
-#btn {
-    text-align: center;
-}
-
-#btn:focus {
-    outline: 0;
-    border-color: #e5e500;
-    box-shadow: 0 0 2px 2px #e5e500;
-}
-
-#title, #body {
-}
-
-#total {
-    font-size: 24px;
-}
-
-tr {
-    font-size: 18px;
-    text-align: center;
-}
-
-#newTitle {            /* Titulo (finalize seu pedido) */
+#titleCart {            /* Titulo (finalize seu pedido) */
     color: #c4161c;
-    font-size: 32px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 28px;
     font-weight: bold;
 }
 
-#qtdEdit {      /* View quantidade_produto */
-    width: 20%;
-    text-align: center;
-    border: none;
-    padding: 3px;
-    background-color: transparent;
-    color: #000;
+#tableCart {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 600px;
+    border-bottom: 1px solid;
 }
 
-#tdProduct {
+#tableCart th, td{
+    border:none !important;
+}
+
+#productNameCart, #productQtdCart {
     text-transform: uppercase;
+}
+
+#divPriceCart {
+    height: 200px;
+    margin-top: 50px;
+    background-color: #e0e0e0;
+}
+
+#formCart {
+    padding: 30px;
+    font-size: 20px;
+}
+
+#cartInsert {
+    margin-top: 15px;
 }

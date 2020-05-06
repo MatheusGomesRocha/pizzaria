@@ -30,7 +30,7 @@ class OrderController extends Controller
 
             $subtotal = 0;
             foreach ($query as $sub) {
-                $subtotal += (intval($sub->price) * $sub->quantidade);
+                $subtotal += (intval($sub->product_price) * $sub->quantidade);
             }
 
             return view('orders.cart')->with('subtotal', $subtotal)->with('orders', $query)->with('count', $count)->with('user', $user);
@@ -42,9 +42,6 @@ class OrderController extends Controller
     public function cart_submit(Request $request)
     {
         if (Auth::user()->nivel == 2) {
-            $query = DB::table('orders')
-                ->where('user_id', '=', Auth::user()->id)
-                ->update(['quantidade' => $request->input('quantidade')]);
 
             $confirm_pedido = date('H:i:s');
             session()->put('confirm_pedido', $confirm_pedido);
@@ -71,8 +68,10 @@ class OrderController extends Controller
                     'type' => $request->input('type'),
                     'size' => $request->input('size'),
                     'quantidade' => $request->input('qtd_hidden'),
-                    'price' => $request->input('price'),
+                    'product_price' => $request->input('price'),
+                    'status' => 'Pendente',
                 ];
+
                 Order::create($data);
 
                 return redirect()->route('cart');
@@ -369,7 +368,7 @@ class OrderController extends Controller
 
                     $subtotal = 0;
                     foreach ($order as $sub) {
-                        $subtotal += (intval($sub->price) * $sub->quantidade);
+                        $subtotal += (intval($sub->product_price) * $sub->quantidade);
                     }
 
                     return view('orders.finish_order')->with('subtotal', $subtotal)->with('count', $count)->with('row', $query)
