@@ -14,21 +14,26 @@
 #tableCart {
     font-family: 'Roboto Condensed', sans-serif;
     margin-top: 50px;
-    margin-bottom: 600px;
-    border-bottom: 1px solid;
 }
 
 #tableCart th, td{
     border:none !important;
 }
 
+#tbodyCart {
+    border-top: 1px solid;
+}
+
+#tableCart td {
+}
+
 #productNameCart, #productQtdCart {
     text-transform: uppercase;
+
 }
 
 #divPriceCart {
     height: 200px;
-    margin-top: 50px;
     background-color: #e0e0e0;
 }
 
@@ -39,4 +44,50 @@
 
 #cartInsert {
     margin-top: 15px;
+}
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #divAllCart {
+        margin-bottom: 200px;
+    }
+
+    #msgMobile {
+        display: block;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.8px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #divAllCart {
+        margin-bottom: 600px;
+    }
+
+    #divPriceCart {
+        margin-top: 50px;
+    }
+
+    #msgMobile {
+        display: none;
+    }
+}
+
+@media(min-width: 1200px) {
+    #divAllCart {
+        margin-bottom: 600px;
+    }
+
+    #divPriceCart {
+        margin-top: 50px;
+    }
+
+    #msgMobile {
+        display: none;
+    }
 }

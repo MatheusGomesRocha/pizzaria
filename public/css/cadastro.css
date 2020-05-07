@@ -114,6 +114,10 @@ select:focus {
 }
 
 @media(min-width: 360px) and (max-width: 575.8px){
+    #allRegisterUser {
+        margin-bottom: 150px;
+    }
+
     #register {
         width: 350px;
         margin-top: 70px;
