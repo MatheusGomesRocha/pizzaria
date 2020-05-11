@@ -69,7 +69,8 @@ class Product extends Authenticatable
         if (Auth::check()) {
             if (Auth::user()->nivel == 1) {
                 return DB::table('products')
-                    ->get();
+                    ->orderBy('type')
+                    ->paginate(10);
             }
         }
     }

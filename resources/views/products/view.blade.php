@@ -216,12 +216,14 @@
                         @else
                             <td class="text-danger"> #</td>
                         @endif
-                        
+
                         <td><a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i
                                     class="fas fa-trash"></i> </a></td>
                     </tr>
             @endforeach
         </table>
+        {{ $query->links() }}
+
     </div>
 
     <script src="{{ asset('js/register_product.js')}}" type="text/javascript"></script>

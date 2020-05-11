@@ -62,7 +62,6 @@ class User extends Authenticatable
     public static function count_orders()
     {
         return DB::table('orders')
-            ->where('entregue', '=', '0')
             ->count();
     }
 
