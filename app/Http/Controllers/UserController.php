@@ -15,8 +15,7 @@ use App\Order;
 class UserController extends Controller
 {
 
-    // VIEW LOGIN
-    public function login()
+    public function login()     // LOGIN VIEW
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -28,8 +27,7 @@ class UserController extends Controller
         }
     }
 
-    //VIEW REGISTER
-    public function register()
+    public function register()  // CADASTRO VIEW
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -41,10 +39,9 @@ class UserController extends Controller
         }
     }
 
-    //REGISTER VALIDATION
-    public function validation_register(Request $request)
-    {
 
+    public function validation_register(Request $request)   // VALIDAÇÃO DE CADASTRO
+    {
         $validation = $this->validation($request->all());
 
         if ($validation->fails()) {
@@ -74,11 +71,8 @@ class UserController extends Controller
         }
     }
 
-    //VALIDATION LOGIN
-    public function validation_login(Request $request)
+    public function validation_login(Request $request)  // VALIDAÇÃO DE LOGIN
     {
-
-
         $credentials = array(
             'user' => $request->input('user'),
             'password' => $request->input('password'),
@@ -97,7 +91,7 @@ class UserController extends Controller
         }
     }
 
-    public function get_orders()
+    public function get_orders()    // FUNÇÃO ONDE O USUÁRIO VÊ OS SEUS PEDIDOS
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -106,7 +100,7 @@ class UserController extends Controller
         return view('users.orders')->with('query', $query)->with('count', $count)->with('user', $user);
     }
 
-    public function account()
+    public function account()   // FUNÇÃO QUE MOSTRA AS INFOS DA CONTA DO USUÁRIO LOGADO E AS OPÇÕES PARA EDITAR
     {
         $user = User::get_user();
         $count = Order::get_count();
@@ -114,7 +108,7 @@ class UserController extends Controller
         return view('users.account')->with('count', $count)->with('user', $user);
     }
 
-    public function edit_name_val(Request $request)
+    public function edit_name_val(Request $request)    // VALIDAÇÃO EDIT NAME
     {
         $validation1 = $this->validation1($request->all());
 
@@ -135,7 +129,7 @@ class UserController extends Controller
         }
     }
 
-    public function edit_email_val(Request $request)
+    public function edit_email_val(Request $request)    // VALIDAÇÃO EDIT EMAIL
     {
         $validation2 = $this->validation2($request->all());
 
@@ -156,7 +150,7 @@ class UserController extends Controller
         }
     }
 
-    public function edit_phone_val(Request $request)
+    public function edit_phone_val(Request $request)    // VALIDAÇÃO EDIT PHONE
     {
         $validation3 = $this->validation3($request->all());
 
@@ -177,7 +171,7 @@ class UserController extends Controller
         }
     }
 
-    public function edit_pass_val(Request $request)
+    public function edit_pass_val(Request $request) // VALIDAÇÃO EDIT SENHA
     {
         $validation4 = $this->validation4($request->all());
 
@@ -199,7 +193,7 @@ class UserController extends Controller
         }
     }
 
-    public function edit_user_val(Request $request)
+    public function edit_user_val(Request $request)    // VALIDAÇÃO EDIT USUÁRIO
     {
         $validation5 = $this->validation5($request->all());
 
@@ -220,7 +214,9 @@ class UserController extends Controller
         }
     }
 
-    public function get_users()
+    /* ÁREA DO ADMIN */
+
+    public function get_users()     // RETORNA OS USUÁRIOS CADASTRADOS
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -232,7 +228,7 @@ class UserController extends Controller
         }
     }
 
-    public function get_admins()
+    public function get_admins()    // RETORNA OS ADMINS CADASTRADOS
     {
         if (Auth::user()->nivel == 1) {
             $count = User::count_orders();
@@ -244,7 +240,7 @@ class UserController extends Controller
         }
     }
 
-    public function delete_user($id)
+    public function delete_user($id)        // DELETA UM USUÁRIO
     {
         if (Auth::user()->nivel == 1) {
             User::delete_user($id);
@@ -255,7 +251,7 @@ class UserController extends Controller
         }
     }
 
-    public function admin_edit_nivel(Request $request)
+    public function admin_edit_nivel(Request $request)      // EDITA O "NÍVEL" DE UM USUÁRIO PARA ADMIN
     {
         if (!Hash::check($request->inputPass, Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
@@ -269,7 +265,8 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
-    public function admin_edit_nivel_admin(Request $request)
+
+    public function admin_edit_nivel_admin(Request $request)    // EDITAR O "NÍVEL" DO ADMIN PARA USUÁRIO COMUM
     {
         if (!Hash::check($request->inputPass, Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
@@ -286,7 +283,7 @@ class UserController extends Controller
 
 
     //LOGOUT
-    public function logout()
+    public function logout()    // FUNÇÃO PARA DESLOGAR
     {
         $count = Order::get_count();
 
