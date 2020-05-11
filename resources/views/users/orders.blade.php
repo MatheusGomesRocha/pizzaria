@@ -26,24 +26,33 @@
 
 @section('content')
     <div class="container row " id="wrapperOrders">
-        @foreach($query as $row)
-            <div id="ordersUser" class="col-md-12">
-                <div id="contentTop" class="col-md-12">
+        @forelse($query as $row)
+            <div id="ordersUser" class="col-md-12 col-12">
+                <div id="contentTop" class="col-md-12 col-12">
                     <div class="row" id="contentTopIn">
-                        <div id="inline" class="col-md-3">
-                            <span id="order"><strong>Pedido realizado</strong></span><br>
+                        <div id="inline" class="col-md-2 col-4">
+                            <span id="order"><strong>Pedido realizado: </strong></span><br>
                             <span id="userDate">{{ date('d/m/Y H:i', strtotime($row->created_at)) }}</span>
                         </div>
-                        <div id="inline" class="col-md-3">
-                            <span id="price"><strong>Total</strong></span><br>
-                            <span id="userPrice"> R$ {{ number_format(intval($row->price) * $row->quantidade + 5, '2', ',', '.') }}</span>
+                        <div id="inline" class="col-md-2 col-4">
+                            <span id="price"><strong>Total: </strong></span><br>
+                            <span
+                                id="userPrice"> R$ {{ number_format(intval($row->product_price) * $row->quantidade + 5, '2', ',', '.') }}</span>
                         </div>
-                        <div id="inline" class="col-md-3">
-                            <span id="send"><strong>Enviado para</strong></span><br>
+                        <div id="inline" class="col-md-2 col-4">
+                            <span id="send"><strong>Enviado para: </strong></span><br>
                             <span id="userName">{{ $user->name }}</span>
                         </div>
-                        <div id="inline" class="col-md-3">
-                            <span id="orderID"><strong>Pedido Nº:</strong> {{ $row->order_id }}</span>
+                        <div id="inline" class="col-md-2 col-4">
+                            <span id="orderID"><strong>Pedido Nº: </strong> {{ $row->order_id }}</span>
+                        </div>
+                        <div id="inline" class="col-md-2 col-4">
+                            <span id="stats"><strong>Situação: </strong></span> <br>
+                            @if($row->status == 'pendente')
+                                <span class="text text-yellow">{{ $row->status }}</span>
+                            @elseif($row->status == 'confirmado')
+                                <span class="text text-success">{{ $row->status }}</span>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -58,23 +67,78 @@
                                 <strong> Tipo: </strong> {{ $row->type }} <br>
                                 <strong> Tamanho: </strong> {{ $row->size }} <br>
                                 <strong> Sabor: </strong> {{ $row->product_name }} <br>
-                                <strong> Fração: </strong> {{ $row->fraction }} <br>
                             </div>
                             <div class="col-md-12" id="product_name">
                                 <strong> Valor unitário:</strong>
-                                <span id="product_price"> R$ {{ $row->price }}</span><br>
-                                <strong > Quantidade: </strong> {{ $row->quantidade }}
+                                <span
+                                    id="product_price"> R$ {{ number_format($row->product_price, '2', ',', '0') }}</span><br>
+                                <strong> Quantidade: </strong> {{ $row->quantidade }}
 
                             </div>
-                            <div class="col-md-12" id="btnBuyDiv">
-                                <a href="/product_info/{{ $row->product_id }}" id="btnBuyLink" class="btn btn-primary">
-                                    Comprar novamente </a>
+                            @if($row->status == 'pendente')
+                                <div class="col-md-12" id="btnBuyDiv">
+                                    <a href="{{ route('finish_order') }}" id="btnBuyLink"
+                                       class="btn btn-primary"> Finalizar compra </a>
+                                </div>
+                            @elseif($row->status == 'confirmado')
+                                <div class="col-md-12" id="btnBuyDiv">
+                                    <a href="{{ asset("/product_info/{$row->product_id}") }}" id="btnBuyLink"
+                                       class="btn btn-primary"> Comprar novamente </a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div id="ordersUser" class="col-md-12">
+                <h1> Você ainda não confirmou nenhum pedido </h1>
+                <div id="contentTop" class="col-md-12">
+                    <div class="row" id="contentTopIn">
+                        <div id="inline" class="col-md-4">
+                            <span id="order"><strong>Pedido realizado: </strong></span><br>
+                            <span id="userDate"></span>
+                        </div>
+                        <div id="inline" class="col-md-4">
+                            <span id="price"><strong>Total: </strong></span><br>
+                            <span id="userPrice"></span>
+                        </div>
+                        <div id="inline" class="col-md-4">
+                            <span id="send"><strong>Enviado para: </strong></span><br>
+                            <span id="userName"></span>
+                        </div>
+                        <div id="inline" class="col-md-4">
+                            <span id="orderID"><strong>Pedido Nº: </strong></span>
+                        </div>
+                        <div id="inline" class="col-md-4">
+                            <span id="stats"><strong>Situação: </strong></span> <br>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" id="contentBottom">
+                    <div class="row" id="contentBottomIn">
+                        <div class="col-md-12 " id="inline">
+                        <span id="entregue"
+                              class="col-md-12"> </span>
+                        </div>
+                        <div class="col-md-12" id="infoOrder">
+                            <div class="col-md-12" id="product_name">
+                                <strong> Tipo: </strong> <br>
+                                <strong> Tamanho: </strong> <br>
+                                <strong> Sabor: </strong> <br>
+                            </div>
+                            <div class="col-md-12" id="product_name">
+                                <strong> Valor unitário:</strong>
+                                <span id="product_price"> </span><br>
+                                <strong> Quantidade: </strong>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforelse
     </div>
 @endsection
 </body>

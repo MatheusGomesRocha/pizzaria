@@ -34,6 +34,7 @@ class Order extends Authenticatable
             if (Auth::user()->nivel == 2) {
                 return DB::table('orders')
                     ->join('products', 'products.id', '=', 'orders.product_id')
+                    ->where('orders.status', '=', 'Pendente')
                     ->where('user_id', '=', Auth::user()->id)
                     ->get();
             }

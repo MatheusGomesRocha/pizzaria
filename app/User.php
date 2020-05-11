@@ -29,11 +29,13 @@ class User extends Authenticatable
 
     public static function get_orders()
     {
-        return DB::table('orders')
-            ->where('orders.entregue', '=', '0')
-            ->where('orders.user_id', '=', Auth::user()->id)
-            ->get();
-
+        if(Auth::check()) {
+            if(Auth::user()->nivel == 2) {
+                return DB::table('orders')
+                    ->where('user_id', '=', Auth::user()->id)
+                    ->get();
+            }
+        }
     }
 
     public static function get_user()

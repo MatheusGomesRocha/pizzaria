@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #wrapperOrders {
-    margin-top: 30px;
+    margin-top: 150px;
 }
 
 #ordersUser {
@@ -11,7 +11,7 @@
 #contentTop {
     background-color: #F6F6F6;
     border: 1px solid #ccc;
-    height: 65px;
+    height: auto;
     padding-top: 8px;
 }
 
@@ -39,7 +39,6 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
     font-weight: bold;
-    padding: 20px;
 }
 
 
@@ -69,4 +68,40 @@
 
 #btnBuyLink:hover {
     background-color: #821d29 !important;
+}
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #wrapperOrders {
+        margin-bottom: 150px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #wrapperOrders {
+        margin-bottom: 450px;
+        margin-left: 600px;
+    }
+
+    #btnBuyLink {
+        margin-top: 10px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #wrapperOrders {
+        margin-bottom: 450px;
+        margin-left: 600px;
+    }
+
+    #btnBuyLink {
+        margin-top: 10px;
+    }
 }

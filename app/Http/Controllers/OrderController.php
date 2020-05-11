@@ -69,7 +69,7 @@ class OrderController extends Controller
                     'size' => $request->input('size'),
                     'quantidade' => $request->input('qtd_hidden'),
                     'product_price' => $request->input('price'),
-                    'status' => 'Pendente',
+                    'status' => 'pendente',
                 ];
 
                 Order::create($data);
@@ -331,7 +331,7 @@ class OrderController extends Controller
                 } else {
                     $id = Auth::user()->id;
 
-                    $insert = DB::table('orders')
+                    $update = DB::table('orders')
                         ->where('user_id', '=', Auth::user()->id)
                         ->update(['forma_pagamento' => $request->input('forma_pagamento')]);
 

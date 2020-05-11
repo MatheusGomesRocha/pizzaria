@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::get('/cart', 'OrderController@index')->name('cart');
 Route::post('/cart_submit', 'OrderController@cart_submit')->name('cart_submit');
-Route::post('/insert_cart', 'OrderController@insert_cart');
+Route::post('/insert_cart', 'OrderController@insert_cart')->name('insert_cart');
 /* ****** ORDERS ******* */
 Route::get('/delete_order/{id}', 'OrderController@delete_order');
 Route::get('/finish_order', 'OrderController@finish_order')->name('finish_order');
