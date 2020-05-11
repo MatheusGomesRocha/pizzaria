@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
+/* DIV DA VIEW ACCOUNT */
+
 #accountAll { /* Div pai */
-    margin-top: 50px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -19,9 +20,71 @@
     height: 40px !important;
 }
 
-#btnEdit:focus { /* Botão de editar (ao clicar) */
+#btnEdit:focus, input:focus { /* Botão de editar (ao clicar) */
     border-color: none !important;
     outline: 0;
     -webkit-box-shadow: none !important;
     box-shadow: none !important
+}
+
+.errors {
+    list-style: none;
+    padding-top: 10px;
+}
+
+/* MODAL USER */
+
+
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #accountAll {
+        margin-top: 150px;
+        margin-bottom: 200px;
+    }
+
+    #modalExemplo, #modalExemplo1, #modalExemplo2, #modalExemplo3, #modalExemplo4 {
+        margin-top: 150px;
+    }
+
+    #btnModalEdit {
+        margin-top: 10px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #accountAll {
+        margin-top: 150px;
+        margin-bottom: 350px;
+    }
+
+    #modalExemplo, #modalExemplo1, #modalExemplo2, #modalExemplo3, #modalExemplo4 {
+        margin-top: 150px;
+    }
+
+    #btnModalEdit {
+        margin-top: 10px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #accountAll {
+        margin-top: 150px;
+        margin-bottom: 350px;
+    }
+
+    #modalExemplo, #modalExemplo1, #modalExemplo2, #modalExemplo3, #modalExemplo4 {
+        margin-top: 150px;
+    }
+
+    #btnModalEdit {
+        margin-top: 10px;
+    }
 }

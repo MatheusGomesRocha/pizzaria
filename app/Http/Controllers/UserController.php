@@ -114,46 +114,6 @@ class UserController extends Controller
         return view('users.account')->with('count', $count)->with('user', $user);
     }
 
-    public function edit_name()
-    {
-        $count = Order::get_count();
-        $user = User::get_user();
-
-        return view('users.edit_name')->with('count', $count)->with('user', $user);
-    }
-
-    public function edit_user()
-    {
-        $count = Order::get_count();
-        $user = User::get_user();
-
-        return view('users.edit_user')->with('count', $count)->with('user', $user);
-    }
-
-    public function edit_email()
-    {
-        $count = Order::get_count();
-        $user = User::get_user();
-
-        return view('users.edit_email')->with('count', $count)->with('user', $user);
-    }
-
-    public function edit_phone()
-    {
-        $count = Order::get_count();
-        $user = User::get_user();
-
-        return view('users.edit_phone')->with('count', $count)->with('user', $user);
-    }
-
-    public function edit_pass()
-    {
-        $count = Order::get_count();
-        $user = User::get_user();
-
-        return view('users.edit_pass')->with('count', $count)->with('user', $user);
-    }
-
     public function edit_name_val(Request $request)
     {
         $validation1 = $this->validation1($request->all());
@@ -419,7 +379,7 @@ class UserController extends Controller
         $mensagens = [
             'inputPass.required' => 'Digite a senha atual',
             'inputNewPass.required' => 'Digite uma nova senha',
-            'inputConPass.required' => 'Confimer a nova senha',
+            'inputConPass.required' => 'Confirme a nova senha',
             'inputConPass.same' => 'Novas senhas não coincidem',
         ];
 
