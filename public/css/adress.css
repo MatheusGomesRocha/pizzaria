@@ -2,7 +2,6 @@
 
 #adressUser {
     font-family: 'Roboto Condensed', sans-serif;
-    margin-top: 50px;
 }
 
 #bairro, #rua, #cep, #complemento {
@@ -10,7 +9,6 @@
 }
 
 #sendAdress {
-    margin-left: 13px;
     font-size: 16px;
 }
 
@@ -21,12 +19,11 @@
 }
 
 #addAdress {
-    width: 550px;
     height: auto;
 }
 
 .container-login100 {
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .errors {
@@ -88,6 +85,52 @@ input::placeholder {
 
 #infos {
     padding: 25px;
+}
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #adressUser {
+        margin-top: 100px;
+    }
+
+    #addAdress {
+        width: 350px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.8px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #adressUser {
+        margin-top: 150px;
+    }
+
+    #addAdress {
+        width: 550px;
+    }
+
+    #sendAdress {
+        margin-left: 13px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #adressUser {
+        margin-top: 150px;
+    }
+
+    #addAdress {
+        width: 550px;
+    }
+
+    #sendAdress {
+        margin-left: 8px;
+    }
 }
 
 

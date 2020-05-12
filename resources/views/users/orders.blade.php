@@ -58,10 +58,13 @@
                 </div>
                 <div class="col-md-12" id="contentBottom">
                     <div class="row" id="contentBottomIn">
-                        <div class="col-md-12 " id="inline">
-                        <span id="entregue"
-                              class="col-md-12"> Entregue {{ date('d/m/Y H:i', strtotime($row->updated_at)) }}</span>
-                        </div>
+                        @if($row->status == 'entregue')
+                            <div class="col-md-12 " id="inline">
+                                <span id="entregue" class="col-md-12">
+                                    Entregue {{ date('d/m/Y H:i', strtotime($row->updated_at)) }}
+                                </span>
+                            </div>
+                        @endif
                         <div class="col-md-12" id="infoOrder">
                             <div class="col-md-12" id="product_name">
                                 <strong> Tipo: </strong> {{ $row->type }} <br>

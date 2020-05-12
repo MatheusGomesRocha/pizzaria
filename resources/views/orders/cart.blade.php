@@ -17,7 +17,7 @@
 
 
 @section('content')
-    <div class="container-fluid" id="divAllCart">
+    <div class="container" id="divAllCart">
         <div class="row">
         <span class="col-md-12" id="titleCart">
             Carrinhos de compras
@@ -31,7 +31,7 @@
                 de Uso da Pizzaria.com.br
             </small>
 
-            <div class="col-md-10 col-12" id="divTableCart">
+            <div class="col-md-8 col-12" id="divTableCart">
                 <table class="table table-responsive-sm" width="100%" id="tableCart">
                     <tr id="theadCart">
                         <span id="msgMobile"> Arraste a tabela para o lado para mais informações </span>
@@ -60,7 +60,7 @@
             </div>
 
 
-            <div class="col-md-2 col-12" id="divPriceCart">
+            <div class="col-md-4 col-12" id="divPriceCart">
                 <form method="post" action="{{ route('cart_submit') }}" id="formCart">
                     {{ csrf_field() }}
                     <div class="col-md-12 col-12">

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
-#wrapperOrders {
-    margin-top: 150px;
-}
-
 #ordersUser {
     margin-top: 30px;
 }
@@ -72,7 +68,9 @@
 
 @media(min-width: 360px) and (max-width: 575.8px) {
     #wrapperOrders {
-        margin-bottom: 150px;
+        margin-top: 100px;
+        margin-bottom: 250px;
+        padding-left: 20px;
     }
 }
 
@@ -86,6 +84,7 @@
 
 @media(min-width: 998px) and (max-width: 1199.8px) {
     #wrapperOrders {
+        margin-top: 150px;
         margin-bottom: 450px;
         margin-left: 600px;
     }
@@ -97,11 +96,16 @@
 
 @media(min-width: 1200px) {
     #wrapperOrders {
+        margin-top: 150px;
         margin-bottom: 450px;
         margin-left: 600px;
     }
 
     #btnBuyLink {
         margin-top: 10px;
+    }
+
+    #entregue {
+        margin-left: 10px;
     }
 }

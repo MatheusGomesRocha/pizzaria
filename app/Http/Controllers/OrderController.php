@@ -117,6 +117,16 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $user = User::get_user();
@@ -147,6 +157,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $validation1 = $this->validation1($request1->all());
@@ -191,6 +212,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $query = Adress::delete_adress($id);
@@ -218,6 +250,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $id = Auth::user()->id;
@@ -258,6 +301,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $id = Auth::user()->id;
@@ -297,6 +351,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
 
                 } else {
@@ -326,6 +391,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
 
                 } else {
@@ -358,6 +434,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $user = User::get_user();
@@ -395,6 +482,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
 
@@ -426,6 +524,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $query = DB::table('orders')
@@ -457,6 +566,17 @@ class OrderController extends Controller
                 if (session('diff') > '1200') {
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
+
+                    DB::table('orders')
+                        ->update([
+                            'cep' => '',
+                            'bairro' => '',
+                            'rua' => '',
+                            'numero' => '',
+                            'complemento' => '',
+                            'referencia' => '',
+                            'forma_entrega' => ''
+                        ]);
                     return redirect()->route('cart');
                 } else {
                     $validation2 = $this->validation2($request->all());

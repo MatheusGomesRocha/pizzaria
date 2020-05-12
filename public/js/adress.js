@@ -27,13 +27,14 @@ $(document).ready(function () {
                         $('#ruaHidden').val(data.logradouro);
                         $('#bairroInput').val(data.bairro);
                         $('#bairroHidden').val(data.bairro);
+                        $('#ruaInput').prop('disabled', true);
+                        $('#bairroInput').prop('disabled', true);
                     },
                     400: function (msg) {
                         alert(msg);
                     },
                     404: function (msg) {
                         alert(msg);
-
                     },
                 }
             });

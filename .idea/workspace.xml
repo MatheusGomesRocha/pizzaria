@@ -4,12 +4,13 @@
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/adress.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/adress.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/orders_user.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/orders_user.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/adress.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/adress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/adress.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/adress.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/finish_order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/finish_order.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +218,7 @@
       <workItem from="1588788282117" duration="10539000" />
       <workItem from="1588868161631" duration="4887000" />
       <workItem from="1589211071887" duration="7315000" />
+      <workItem from="1589302040832" duration="3221000" />
     </task>
     <servers />
   </component>
@@ -248,6 +250,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="465" y="276" key="com.intellij.ide.util.TipDialog/0.40.1536.824@0.40.1536.824" timestamp="1586273406909" />
+    <state x="737" y="480" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589305138473">
+      <screen x="0" y="40" width="2560" height="1040" />
+    </state>
+    <state x="737" y="480" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.40.2560.1040@0.40.2560.1040" timestamp="1589305138473" />
     <state x="425" y="207" key="run.anything.popup" timestamp="1588531980202">
       <screen x="0" y="40" width="1536" height="824" />
     </state>

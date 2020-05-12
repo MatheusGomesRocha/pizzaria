@@ -113,12 +113,12 @@
             <div class="row">
                 <div class="col-md-12" id="infoOrder">
                     <div class="col-md-12" id="product_name">
-                        <strong>{{ $row->type }}  {{ $row->size }}
-                            {{ $row->fraction }} {{ $row->product_name }}
+                        <strong>
+                            {{ $row->type }}  {{ $row->size }}{{ $row->product_name }}
                         </strong>
                     </div>
                     <div class="col-md-12" id="product_price">
-                        <span> R$ {{ $row->price }}</span>
+                        <span> R$ {{ number_format($row->product_price, '2', ',', '0') }}</span>
                     </div>
                     <div class="col-md-12" id="product_qtd">
                         <strong> quantidade: </strong>
