@@ -1,4 +1,4 @@
-.form-title, #newTitle {
+#newTitle {
     color: #c4161c;
     font-size: 32px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -23,4 +23,51 @@
 
 #tableCard {
     border: 1px solid #dbdbdb;
+}
+
+#divForm {
+    margin-top: 120px;
+    margin-bottom: 100px;
+}
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #msgMobile {
+        display: block;
+    }
+
+    #newTitle {
+        margin-top: 100px;
+    }
+
+    #divCardCCV, #divCardDate, #divCardName, #divCardNumber {
+        margin-top: 15px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.8px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #msgMobile {
+        display: none;
+    }
+
+    #newTitle {
+        margin-top: 150px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #msgMobile {
+        display: none;
+    }
+
+    #newTitle {
+        margin-top: 150px;
+    }
 }

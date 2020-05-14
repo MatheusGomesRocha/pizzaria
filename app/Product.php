@@ -75,5 +75,13 @@ class Product extends Authenticatable
         }
     }
 
+    public static function products_all()
+    {
+        return DB::table('products')
+            ->where('type', '=', 'pizza')
+            ->limit('6')
+            ->get();
+    }
+
 
 }

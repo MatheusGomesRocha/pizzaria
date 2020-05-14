@@ -30,57 +30,63 @@
         <span class="col-md-12 d-flex justify-content-left" id="newTitle">
             Escolha um método de pagamento
         </span>
-            <span class="col-md-12"
+            <span class="col-md-12 col-12"
                   id="text"> Escolha o método que você irá pagar, Cartão de crédito, débito ou dinheiro.</span>
-            <small class="col-md-12"> Ao efetuar seu pedido, você concorda com a Notificação de Privacidade e as
+            <small class="col-md-12 col-12"> Ao efetuar seu pedido, você concorda com a Notificação de Privacidade e as
                 Condições
                 de Uso da Pizzaria.com.br</small>
             <hr style="width: 100% ;">
 
-            <div class="col-md-12">
-                <table class="table" id="tableCard">
-                    <form  action="{{ route('pay_post') }}" method="post">
+            <div class="col-md-12 col-12">
+                <table class="table table-responsive" id="tableCard">
+                    <span id="msgMobile"> Arraste a tabela para o lado para mais informações </span>
+                    <form action="{{ route('pay_post') }}" method="post">
                         <tr>
-                            <th>Seus cartões</th>
-                            <th>Nome do cartão</th>
+                            <th>Cartão</th>
+                            <th>Parcelas</th>
+                            <th>Nome no cartão</th>
                             <th>Data vencimento</th>
                             <th> #</th>
                         </tr>
-                            {{ csrf_field() }}
+                        {{ csrf_field() }}
                         @foreach($cards as $row)
                             <tr>
-                                <td><img src="{{ asset('img/icons8-mastercard-48.png') }}">(Crédito)
+                                <td>
+                                    <img src="{{ asset('img/icons8-mastercard-48.png') }}">(Crédito)
                                     <strong>MasterCard</strong> {{ $row->card_number }} <br>
+                                </td>
+                                <td>
                                     <select class="btn btn-info">
                                         <option> 1 x R$ 1118,59 sem juros</option>
                                         <option> 1 x R$ 1118,59 sem juros</option>
                                         <option> 1 x R$ 1118,59 sem juros</option>
                                         <option> 1 x R$ 1118,59 sem juros</option>
                                         <option> 1 x R$ 1118,59 sem juros</option>
-                                    </select></td>
+                                    </select>
+                                </td>
                                 <td>{{ $row->card_name }}</td>
                                 <td>{{ $row->card_date }}</td>
 
-                                    <input type="hidden" name="forma_pagamento" value="card">
-                                    <td><input type="submit" value="Pagar" class="btn btn-success"></td>
+                                <input type="hidden" name="forma_pagamento" value="card">
+                                <td><input type="submit" value="Pagar" class="btn btn-success"></td>
                             </tr>
                         @endforeach
                     </form>
                 </table>
             </div>
 
-            <div class="col-md-8" id="divForm">
-                <div class="col-md-12">
+            <div class="col-md-8 col-12" id="divForm">
+                <div class="col-md-12 col-12">
                     <h3>Opções de pagamento</h3>
                 </div>
 
                 <form class="row" id="formCard" method="post" action="{{ asset('/add_card') }}">
                     {{ csrf_field() }}
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-12">
                         <h4> Adicionar cartão de crédito <img src="{{ asset('img/icons8-mastercard-48.png') }}"></h4>
                     </div>
                     @if ($errors->any())
-                        <div class="alert alert-danger col-md-12">
+                        <div class="alert alert-danger col-md-12 col-12">
                             <ul class="errors">
                                 @foreach($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -88,16 +94,16 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="col-md-6">
-                        <label for="cardNumber" class="col-md-12"> Número do cartão </label>
+                    <div class="col-md-6 col-12" id="divCardNumber">
+                        <label for="cardNumber" class="col-md-12 col-12"> Número do cartão </label>
                         <input name="card_number" type="text" class="form-control" id="cardNumber">
                     </div>
-                    <div class="col-md-3">
-                        <label for="cardCCV" class="col-md-12"> Código de 3 dígitos </label>
+                    <div class="col-md-3 col-12" id="divCardCCV">
+                        <label for="cardCCV" class="col-md-12 col-12"> Código de 3 dígitos </label>
                         <input name="card_ccv" type="text" class="form-control" id="cardCCV">
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-12" id="divCardDate">
                         <label for="selectVencimento" class="col-md-12"> Vencimento </label>
                         <select id="selectVencimento" class="btn btn-info" name="card_date_month">
                             <option value="1"> 1</option>
@@ -147,11 +153,11 @@
                             <option value="2050"> 2050</option>
                         </select>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-12" id="divCardName">
                         <label for="cardName" class="col-md-12"> Nome do titular do cartão </label>
                         <input name="card_name" type="text" class="form-control" id="cardName">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-12">
                         <button type="submit" class="btn" id="btnAdd"> Adicionar Cartão</button>
                     </div>
                 </form>

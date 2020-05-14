@@ -35,7 +35,6 @@ class ProductController extends Controller
 
     public function product_info($id)       // INFO DOS PRODUTOS VIEW
     {
-
         $query = Product::all()->where('id', '=', $id)->first();
         if ($query) {
             $user = User::get_user();

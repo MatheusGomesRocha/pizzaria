@@ -30,6 +30,7 @@
                 Condições
                 de Uso da Pizzaria.com.br
             </small>
+            <hr style="width: 100% ;">
 
             <div class="col-md-8 col-12" id="divTableCart">
                 <table class="table table-responsive-sm" width="100%" id="tableCart">

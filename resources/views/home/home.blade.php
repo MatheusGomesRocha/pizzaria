@@ -126,46 +126,14 @@
 
     <div id="allHome3" class="container-fluid">
 
-        <h1 id="home3Title" class="col-md-12 col-12 d-flex justify-content-center animated"> PIZZAS MAIS PEDIDAS </h1>
+        <h1 id="home3Title" class="col-md-12 col-12 d-flex justify-content-center animated"> PRODUTOS MAIS PEDIDOS </h1>
         <div id="home3Text" class="col-md-12 col-12 d-flex justify-content-center animated">Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Vivamus varius.
         </div>
-
-        <div id="cardapio" class="row animated">
-            @foreach($products as $row)
-                @if($row->type == 'pizza')
-                    <div class="col-md-2 col-6" id="divImgCardapio">
-                        <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
-                    </div>
-                    <div class="col-md-2 col-6" id="cardapioText">
-                        <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                        <div class="col-md-12">
-                            <span class="col-md-6" id="cardapioPrice"> R$
-                                @if($row->price_md)
-                                    {{ $row->price_md }}
-                                @endif
-                                @if($row->price_md == false)
-                                    @if($row->price_sm)
-                                        {{ $row->price_sm }}
-                                    @endif
-                                    @if($row->price_sm == false)
-                                        {{ $row->price_lg }}
-                                    @endif
-                                @endif
-                            </span>
-                            <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product_info/{$row->id}") }}">
-                                Pedir</a>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
+        <div class="col-md-12 d-flex justify-content-center">
+            <button class="btn" id="btnCardapio"> Ver cardápio</button>
         </div>
-    </div>
 
-    <!-- ÁREA DO MENU -->
-
-    <div id="allHome4" class="container-fluid">
         <div class="row">
             <div id="btns">
                 <button class="btn" id="btnPizza" onclick="pizza()"> Pizza</button>
@@ -245,6 +213,46 @@
                 @endforeach
             </div>
         </div>
+    </div>
+
+
+
+    <!-- <div id="cardapio" class="row animated">
+            @/foreach($products as $row)
+                @/if($row->type == 'pizza')
+                    <div class="col-md-2 col-6" id="divImgCardapio">
+                        <img class="img-fluid" src="{/{ url("storage/products/{$row->img}") }}" id="imgCardapio">
+                    </div>
+                    <div class="col-md-2 col-6" id="cardapioText">
+                        <span class="col-md-12" id="cardapioName">{/{ $row->type }} {/{ $row->name }}</span>
+                        <p class="col-md-12" id="cardapioDescription">{/{ $row->description }}</p>
+                        <div class="col-md-12">
+                            <span class="col-md-6" id="cardapioPrice"> R$
+                                @/if($row->price_md)
+                                    {/{ $row->price_md }}
+                                @/endif
+                                @/if($row->price_md == false)
+                                    @/if($row->price_sm)
+                                        {/{ $row->price_sm }}
+                                    @/endif
+                                    @/if($row->price_sm == false)
+                                        {/{ $row->price_lg }}
+                                    @/endif
+                                @/endif
+                            </span>
+                            <a class="btn col-md-6" id="btnPedir" href="{/{ asset("/product_info/{$row->id}") }}">
+                                Pedir</a>
+                        </div>
+                    </div>
+                @/endif
+            @/endforeach
+        </div>
+    </div>
+    -->
+    <!-- ÁREA DO MENU -->
+
+    <div id="allHome4" class="container-fluid">
+
     </div>
 
 @endsection

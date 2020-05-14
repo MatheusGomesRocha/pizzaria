@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function __invoke(Request $request)     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
     {
         $user = User::get_user();
-        $query = Product::all();
+        $query = Product::products_all();
         $pizza_limit = Product::pizza_limit();
         $burger_limit = Product::burger_limit();
         $drink_limit = Product::drink_limit();
