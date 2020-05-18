@@ -137,9 +137,7 @@ class OrderController extends Controller
                 }
 
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -192,9 +190,7 @@ class OrderController extends Controller
                     return redirect()->back();
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -230,9 +226,7 @@ class OrderController extends Controller
                     return redirect()->back();
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -281,9 +275,7 @@ class OrderController extends Controller
                 }
 
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -332,9 +324,7 @@ class OrderController extends Controller
                 }
 
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -372,9 +362,7 @@ class OrderController extends Controller
                     return view('orders.payment')->with('count', $count)->with('cards', $cards)->with('user', $user);
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -414,9 +402,7 @@ class OrderController extends Controller
                     return redirect()->route('finish_order');
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -447,31 +433,27 @@ class OrderController extends Controller
                         ]);
                     return redirect()->route('cart');
                 } else {
-                    $user = User::get_user();
                     $count = Order::get_count();
-                    $query = Order::get_first_order();
-                    $order = Order::get_orders();
-                    $adress = Adress::get_adress_first();
+                    $order = Order::get_first_order();
+                    $query = Order::get_orders();
 
                     $subtotal = 0;
-                    foreach ($order as $sub) {
+                    foreach ($query as $sub) {
                         $subtotal += (intval($sub->product_price) * $sub->quantidade);
                     }
 
-                    return view('orders.finish_order')->with('subtotal', $subtotal)->with('count', $count)->with('row', $query)
-                        ->with('orders', $order)->with('adress', $adress)->with('user', $user);
+                    return view('orders.finish_order')->with('subtotal', $subtotal)->with('count', $count)->with('query', $query)
+                        ->with('order', $order);
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
         }
     }
 
-    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE FINALIZAR PEDIDO
+    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE CART
     {
         if (Auth::user()->nivel == 2) {
             if (session()->has('confirm_pedido')) {
@@ -504,9 +486,7 @@ class OrderController extends Controller
                     return view('orders.quantidade_produto')->with('count', $count)->with('row', $query);
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -546,9 +526,7 @@ class OrderController extends Controller
                     }
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');
@@ -604,9 +582,7 @@ class OrderController extends Controller
                     }
                 }
             } else {
-                $permission = 'Opss... Parece que você ainda não tem permissão para entrar nessa página, primeiro confirme
-                seu pedido';
-                return view('error.404')->with('permission', $permission);
+                return redirect()->route('cart');
             }
         } else {
             return view('error.404');

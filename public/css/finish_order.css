@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
-#finishPedido {         /* Div contendo informações da entrega */
-    margin-top: 50px;
+#allFinishOrder {
+    margin-top: 150px;
+    margin-bottom: 300px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#finishBairro, #finishRua, #finishCep, #finishComplemento {     /* Tamanho da fonte do bairro, rua, cep e complemento. */
-    font-size: 24px;
+#qtd, #frete, #orderTotal {
+    float: left;
 }
 
-.form-title, #newTitle {            /* Titulo (finalize seu pedido) */
+#subotal, #freteValue, #orderValue {
+    float: right;
+}
+
+#newTitleOrder {            /* Titulo (finalize seu pedido) */
     color: #c4161c;
     font-size: 32px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -20,24 +25,21 @@
     font-size: 19px;
 }
 
-#adressDelivery {       /* Div (endereço de entrega) */
-    font-size: 20px;
-    padding-bottom: 20px;
+#infoAdress, #infoCard {       /* Div adress e card */
+    font-size: 18px;
 }
 
 #content {          /* Conteúdo da Div (endereço de entrega) */
     border: 1px solid #c6c8ca;
     margin-top: 15px;
-    padding: 25px;
+    padding: 35px;
 }
 
 #adressCard {       /* Div para cartão de crédito */
-    margin-top: 60px;
     font-size: 20px;
 }
 
-#infoPrice {            /* Div com informações do preço */
-    margin-top: 205px;
+#infoPriceDesk, #infoPriceMobile {            /* Div com informações do preço */
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #F8F8F8;
     padding: 25px;
@@ -52,12 +54,66 @@
     padding: 25px;
 }
 
-#product_name {         /* Nome do produto na div infoOrder */
+#orderPrice {
+    margin-top: 15px;
+}
+
+#submitOrder {
+    margin-top: 30px;
+}
+
+#productName {         /* Nome do produto na div infoOrder */
     font-size: 20px;
 }
 
-#product_price {        /* Preço do produto na div infoOrder */
+#productPrice {        /* Preço do produto na div infoOrder */
     font-size: 20px;
     color: #dc2323;
     font-weight: bold;
+}
+
+
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #infoAdress {
+        margin-bottom: 20px;
+    }
+
+    #infoPriceDesk {
+        display: none;
+    }
+
+    #infoPriceMobile {
+        margin-top: 20px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #infoPriceDesk {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    #infoPriceMobile {
+        display: none;
+    }
+}
+
+@media(min-width: 1200px) {
+    #infoPriceDesk {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    #infoPriceMobile {
+        display: none;
+    }
 }

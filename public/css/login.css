@@ -2,7 +2,6 @@
 
 #formLogin {
     margin-top: 100px;
-    padding: 10px;
 }
 
 #container-login100 {
@@ -20,32 +19,32 @@
 }
 
 
-#btn {
+#btnForgot {
     width: 100%;
     border-radius: 15px !important;
     background-color: #ca7f00 !important;
     color: #fff;
 }
 
-#btn:hover {
+#btnForgot:hover {
     background-color: #b46d00 !important;
 }
 
-#btn:focus, #btn1:focus {
+#btnForgot:focus, #btnLogin:focus {
     border-color: none !important;
     outline: 0;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
-#btn1 {
+#btnLogin {
     width: 100%;
     border-radius: 15px !important;
     background-color: #C4161C;
     color: #fff;
 }
 
-#btn1:hover {
+#btnLogin:hover {
     background-color: #aa1318;
 }
 
@@ -64,6 +63,15 @@
 @media(min-width: 360px) and (max-width: 575.8px) {
     #formLogin {
         width: 350px;
+        padding: 20px;
+    }
+
+    #iconUser {
+        font-size: 60px;
+    }
+
+    #btnLogin {
+        margin-bottom: 10px;
     }
 }
 
@@ -77,14 +85,26 @@
 
 @media(min-width: 998px) and (max-width: 1199.8px) {
     #formLogin {
-        width: 650px;
+        border: 1px solid;
+        padding: 60px;
+        width: 450px;
         height: 480px;
+    }
+
+    #iconUser {
+        font-size: 60px;
     }
 }
 
 @media(min-width: 1200px) {
     #formLogin {
-        width: 650px;
+        border: 1px solid;
+        padding: 60px;
+        width: 450px;
         height: 480px;
+    }
+
+    #iconUser {
+        font-size: 60px;
     }
 }

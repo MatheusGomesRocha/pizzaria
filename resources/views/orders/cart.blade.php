@@ -45,11 +45,13 @@
                     </tr>
                     @foreach($orders as $row)
                         <tr id="tbodyCart">
-                            <td width="80"> <img id="productImg" class="img-fluid" src='{{ url("storage/products/{$row->img}") }}'> </td>
+                            <td width="80"><img id="productImg" class="img-fluid"
+                                                src='{{ url("storage/products/{$row->img}") }}'></td>
                             <td id="productNameCart"> {{ $row->type }} {{ $row->product_name }} </td>
                             <td id="productQtdCart"> {{ $row->quantidade }} </td>
                             <td> R$ {{ number_format($row->product_price, '2', ',', '0') }} </td>
-                            <td> R$ {{ number_format(intval($row->product_price * $row->quantidade), '2', ',', '0') }} </td>
+                            <td>
+                                R$ {{ number_format(intval($row->product_price * $row->quantidade), '2', ',', '0') }} </td>
                             <td>
                                 <a class="btn btn-danger" href="{{ asset("/delete_order/{$row->order_id}") }}">
                                     <i class="fas fa-trash"></i>
@@ -68,7 +70,8 @@
                         <strong>Frete: </strong> R$ 5,00
                     </div>
                     <div class="col-md-12 col-12">
-                        <strong>Subtotal ({{ $count }} itens): </strong> {{ number_format($subtotal + 5, '2', ',', '0') }}
+                        <strong>Subtotal ({{ $count }}
+                            itens): </strong> {{ number_format($subtotal + 5, '2', ',', '0') }}
                     </div>
                     <div class="col-md-12 col-12">
                         <input type="submit" class="btn btn-success" value="Fechar pedido" id="cartInsert">
@@ -79,6 +82,6 @@
         </div>
     </div>
 
-        @endsection
+@endsection
 
-        <script src="{{ asset('js/cart.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/cart.js') }}" type="text/javascript"></script>

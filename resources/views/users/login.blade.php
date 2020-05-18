@@ -5,12 +5,12 @@
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css')}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
@@ -31,6 +31,9 @@
             <div class="d-flex justify-content-center form_container">
                 <form method="post" action="{{ asset('/validation_login')}}" id="formLogin">
                     {{csrf_field()}}
+                    <div id="divIconUser" class="col-md-12 d-flex justify-content-center">
+                        <h1><i class="fas fa-user-circle" id="iconUser"></i></h1>
+                    </div>
                     <span class="form-title d-flex justify-content-center ">
 						Login
                 </span>
@@ -49,12 +52,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="submit" name="submit" class="btn" id="btn1">Login</button>
+                            <button type="submit" name="submit" class="btn" id="btnLogin">Login</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" name="forgot" class="btn" id="btn">Esqueci a senha</button>
+                            <button type="submit" name="forgot" class="btn" id="btnForgot">Esqueci a senha</button>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-md-12" id="btnCadastro">

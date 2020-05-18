@@ -52,7 +52,7 @@ Route::post('/insert_cart', 'OrderController@insert_cart')->name('insert_cart');
 /* ****** ORDERS ******* */
 Route::get('/delete_order/{id}', 'OrderController@delete_order');
 Route::get('/finish_order', 'OrderController@finish_order')->name('finish_order');
-Route::get('/quantidade/{id}', 'OrderController@quantidade')->name('quantidade');
+Route::get('/quantidade/{id}', 'OrderController@quantidade');
 Route::post('/alterarQtd', 'OrderController@quantidade_post');
 /* ****** ADRESS ******* */
 Route::get('/custom_adress', 'OrderController@adress')->name('adress');
