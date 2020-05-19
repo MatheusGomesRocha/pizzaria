@@ -64,8 +64,6 @@ class OrderController extends Controller
                 $data = [
                     'user_id' => $request->input('user_id'),
                     'product_id' => $request->input('product_id'),
-                    'product_name' => $request->input('product_name'),
-                    'type' => $request->input('type'),
                     'size' => $request->input('size'),
                     'quantidade' => $request->input('qtd_hidden'),
                     'product_price' => $request->input('price'),
@@ -119,20 +117,15 @@ class OrderController extends Controller
                     session()->forget('diff');
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
                 } else {
                     $user = User::get_user();
                     $count = Order::get_count();
-
                     $query = Adress::get_adress();
+
                     return view('orders.adress')->with('query', $query)->with('count', $count)->with('user', $user);
                 }
 
@@ -158,12 +151,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -211,12 +199,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -247,12 +230,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -262,12 +240,7 @@ class OrderController extends Controller
                     DB::table('orders')
                         ->where('user_id', '=', $id)
                         ->update([
-                            'cep' => $request->input('cep'),
-                            'bairro' => $request->input('bairro'),
-                            'rua' => $request->input('rua'),
-                            'numero' => $request->input('numero'),
-                            'complemento' => $request->input('complemento'),
-                            'referencia' => $request->input('referencia'),
+                            'id_adress' => $request->input('id_adress'),
                             'forma_entrega' => 'delivery'
                         ]);
 
@@ -296,12 +269,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -311,6 +279,7 @@ class OrderController extends Controller
                     DB::table('orders')
                         ->where('user_id', '=', $id)
                         ->update([
+                            'id_adress' => '',
                             'cep' => '',
                             'bairro' => '',
                             'rua' => '',
@@ -344,12 +313,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -382,12 +346,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -423,12 +382,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -453,6 +407,11 @@ class OrderController extends Controller
         }
     }
 
+    public function order_submit(Request $request)
+    {
+
+    }
+
     public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE CART
     {
         if (Auth::user()->nivel == 2) {
@@ -467,12 +426,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -507,12 +461,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
@@ -547,12 +496,7 @@ class OrderController extends Controller
 
                     DB::table('orders')
                         ->update([
-                            'cep' => '',
-                            'bairro' => '',
-                            'rua' => '',
-                            'numero' => '',
-                            'complemento' => '',
-                            'referencia' => '',
+                            'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');

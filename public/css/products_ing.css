@@ -1,11 +1,10 @@
 #divAll {
     position: relative;
-    top: -600px;
-    width: 900px !important;
 }
 
 #tableUsers {
-    border: 1px solid #d2d2d2;
+    border-left: 1px solid #d2d2d2;
+    border-right: 1px solid #d2d2d2;
     text-align: center;
 }
 
@@ -23,7 +22,7 @@
 }
 
 #modalForm {
-    width: 800px !important;
+
 }
 
 #inlineRadio1, #inlineRadio2, #inlineRadio3, #ingredients {
@@ -129,4 +128,53 @@ select:focus {
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #divAll {
+        margin-top: -700px;
+        margin-bottom: 900px;
+    }
+
+    #formTitleProduct {
+        text-align: center;
+    }
+
+    #modalForm {
+        padding: 20px;
+    }
+
+    #tamanho2 {
+        margin-top: 20px;
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #divAll {
+        margin-top: -800px;
+        width: 900px !important;
+    }
+
+    #modalForm {
+        width: 800px !important;
+    }
+}
+
+@media(min-width: 1200px) {
+    #divAll {
+        margin-top: -800px;
+        width: 900px !important
+    }
+
+    #modalForm {
+        width: 800px !important;
+    }
 }

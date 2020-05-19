@@ -32,7 +32,8 @@ class User extends Authenticatable
         if(Auth::check()) {
             if(Auth::user()->nivel == 2) {
                 return DB::table('orders')
-                    ->where('user_id', '=', Auth::user()->id)
+                    ->join('products', 'products.id', '=', 'orders.product_id')
+                    ->where('orders.user_id', '=', Auth::user()->id)
                     ->get();
             }
         }

@@ -269,27 +269,11 @@
                                 </a>
                             </li>
                             <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item">
+                                <a href="{{ route('product_stock') }}" class="nav-link">
                                     <i class="nav-icon fas fa-poll-h"></i>
-                                    <p>
-                                        Produtos
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
+                                    <p>Produtos</p>
                                 </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{ route('product_stock') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Produtos</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('ingredient_stock') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Ingredientes</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">

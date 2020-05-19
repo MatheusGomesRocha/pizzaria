@@ -95,7 +95,22 @@
                         id="orderValue"> <strong> R$ {{ number_format($subtotal + 5, '2', ',', '0') }} </strong></span>
                 </div>
                 <div class="col-md-12" id="divSubmitOrder">
-                    <input type="submit" id="submitOrder" class="col-md-12 btn btn-primary" value="Finalizar Pedido">
+                    <form method="post" action="{{ route('order_submit') }}">
+                        {{ csrf_field() }}
+                        @foreach($query as $row)
+                            <input type="hidden" name="order_type" value="{{ $row->type }}">
+                            <input type="hidden" name="order_size" value="{{ $row->size }}">
+                            <input type="hidden" name="order_name" value="{{ $row->name }}">
+                            <input type="hidden" name="order_quantidade" value="{{ $row->quantidade }}">
+                        @endforeach
+
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="order_price" value="{{ $subtotal + 5 }}">
+                        <input type="hidden" name="id_adress" value="{{ $order->id }}">
+                        <input type="hidden" name="forma_entrega" value="{{ $order->forma_entrega }}">
+                        <input type="submit" id="submitOrder" class="col-md-12 btn btn-primary"
+                               value="Finalizar Pedido">
+                    </form>
                 </div>
             </div>
 
@@ -134,7 +149,21 @@
                         id="orderValue"> <strong> R$ {{ number_format($subtotal + 5, '2', ',', '0') }} </strong></span>
                 </div>
                 <div class="col-md-12" id="divSubmitOrder">
-                    <input type="submit" id="submitOrder" class="col-md-12 btn btn-primary" value="Finalizar Pedido">
+                    <form method="post" action="{{ asset('/order_submit') }}">
+                        {{ csrf_field() }}
+                        @foreach($query as $row)
+                            <input type="hidden" name="order_type" value="{{ $row->type }}">
+                            <input type="hidden" name="order_size" value="{{ $row->size }}">
+                            <input type="hidden" name="order_name" value="{{ $row->name }}">
+                        @endforeach
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="order_price" value="{{ $subtotal + 5 }}">
+                        <input type="hidden" name="id_adress" value="{{ $order->id }}">
+                        <input type="hidden" name="forma_entrega" value="{{ $order->forma_entrega }}">
+
+                        <input type="submit" id="submitOrder" class="col-md-12 btn btn-primary"
+                               value="Finalizar Pedido">
+                    </form>
                 </div>
             </div>
         </div>

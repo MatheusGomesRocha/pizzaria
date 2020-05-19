@@ -16,7 +16,7 @@ class Adress extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'user_id', 'cep', 'rua', 'bairro', 'numero', 'complemento', 'referencia',
+        'adress_user_id', 'cep', 'rua', 'bairro', 'numero', 'complemento', 'referencia',
     ];
 
     protected $hidden = [
@@ -31,7 +31,7 @@ class Adress extends Authenticatable
     {
         if (Auth::check()) {
             return DB::table('adresses')
-                ->where('user_id', '=', Auth::user()->id)
+                ->where('adress_user_id', '=', Auth::user()->id)
                 ->get();
         }
     }
@@ -40,7 +40,7 @@ class Adress extends Authenticatable
     {
         if (Auth::check()) {
             return DB::table('adresses')
-                ->where('user_id', '=', Auth::user()->id)
+                ->where('adress_user_id', '=', Auth::user()->id)
                 ->first();
         }
     }
@@ -49,7 +49,7 @@ class Adress extends Authenticatable
     {
         if (Auth::check()) {
             return DB::table('adresses')
-                ->where('user_id', '=', Auth::user()->id)
+                ->where('adress_user_id', '=', Auth::user()->id)
                 ->Count();
         }
     }

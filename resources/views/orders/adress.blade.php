@@ -50,6 +50,7 @@
                     <div class="col-md-12 col-12" id="cep"><small> CEP: <strong> {{ $row->cep }}</strong></small></div>
                     <form method="post" action="{{asset('/update_adress')}}">
                         {{ csrf_field() }}
+                        <input type="hidden" name="id_adress" value="{{ $row->id }}">
                         <input type="hidden" name="bairro" value="{{ $row->bairro }}">
                         <input type="hidden" name="rua" value="{{ $row->rua }}">
                         <input type="hidden" name="complemento" value="{{ $row->complemento }}">

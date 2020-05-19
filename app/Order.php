@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Order as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Order extends Authenticatable
 {
@@ -16,8 +17,8 @@ class Order extends Authenticatable
     protected $primaryKey = 'order_id';
 
     protected $fillable = [
-        'user_id', 'product_id', 'product_name', 'type', 'size', 'quantidade', 'product_price', 'borda', 'cep', 'bairro', 'rua',
-        'numero', 'complemento', 'referencia', 'status', 'forma_pagamento', 'forma_entrega', 'entregue',
+        'user_id', 'product_id', 'product_name', 'type', 'size', 'quantidade', 'product_price', 'id_adress', 'borda', 'cep', 'bairro', 'rua',
+        'numero', 'complemento', 'referencia', 'status', 'forma_pagamento', 'forma_entrega',
     ];
 
     protected $hidden = [
@@ -46,7 +47,8 @@ class Order extends Authenticatable
         if (Auth::check()) {
             if (Auth::user()->nivel == 2) {
                 return DB::table('orders')
-                    ->where('user_id', '=', Auth::user()->id)
+                    ->join('adresses', 'adresses.id', '=', 'orders.id_adress')
+                    ->where('orders.user_id', '=', Auth::user()->id)
                     ->first();
             }
         }

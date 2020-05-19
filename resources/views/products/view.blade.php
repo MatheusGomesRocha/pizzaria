@@ -7,17 +7,18 @@
     <meta content="" name="description">
 
     <link rel="stylesheet" href="{{asset('css/products_ing.css')}}">
+    <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
 </head>
 <body>
@@ -41,7 +42,7 @@
                           id="formRegisterProduct"
                           enctype="multipart/form-data">
                         {{csrf_field()}}
-                        <span class="form-title d-flex justify-content-center">Cadastro de Produtos</span>
+                        <span class="form-title d-flex justify-content-center" id="formTitleProduct">Cadastro de Produtos</span>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul class="errors">
@@ -63,7 +64,7 @@
                             </div>
                         @endif
                         <div class="row">
-                            <div class="col-md-12 mb-2" id="tamanho" style="display: none;">
+                            <div class="col-md-12 mb-2 col-12" id="tamanho" style="display: none;">
                                 <div class="input-group mb-2">
                                     <input type="text" name="name"
                                            placeholder="Nome ou Sabor do produto (ex: Água, Calabresa, À Moda etc...)"
@@ -71,17 +72,17 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12 mb-2" id="divDescription" style="display: none">
+                            <div class="col-md-12 mb-2 col-12" id="divDescription" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="description" id="description"
                                            placeholder="Adicione uma pequena descrição" class="form-control"
                                            autocomplete="no">
                                 </div>
                             </div>
-                            <div class="col-md-12 mb-2" style="margin-left: 5px; display: none;" id="labelImg">
+                            <div class="col-md-12 mb-2 col-12" style="margin-left: 5px; display: none;" id="labelImg">
 
                             </div>
-                            <div class="col-md-12 mb-2" id="image" style="display: none">
+                            <div class="col-md-12 mb-2 col-12" id="image" style="display: none">
                                 <div id="fileDiv" class="input-group mb-2">
                                     <label for="fileImg" style="padding: 5px">
                                         Nunca esqueça de cortar a imagem para ficar apenas o produto
@@ -97,49 +98,50 @@
                             </div>
 
                             <!-- TAMANHO TEM QUE SER CHECKBOX PARA P, M E G -->
-                            <div class="col-md-12 mb-2" style="margin-left: 5px; display: none;" id="tamanhoLabel">
+                            <div class="col-md-12 mb-2 col-12" style="margin-left: 5px; display: none;" id="tamanhoLabel">
                                 <label> Marque os tamanhos de pizza disponíveis </label>
                             </div>
-                            <div class="col-md-12 mb-2" style="margin-left: 5px; display: none" id="tamanho1">
-                                <div class="form-check form-check-inline col-md-4" onchange="verify_sm()">
+                            <div class="col-md-12 mb- col-12" style="margin-left: 5px; display: none" id="tamanho1">
+                                <div class="form-check form-check-inline col-md-4 col-12" onchange="verify_sm()">
                                     <input class="form-check-input" type="checkbox" name="sm" id="inlineRadio1"
                                            value="1">
                                     <label class="form-check-label" for="inlineRadio1" id="small1">Pequena (4
                                         fatias)</label>
                                 </div>
-                                <div class="form-check form-check-inline col-md-4" onchange="verify_md()">
+                                <div class="form-check form-check-inline col-md-4 col-12" onchange="verify_md()">
                                     <input class="form-check-input" type="checkbox" name="md" id="inlineRadio2"
                                            value="1">
                                     <label class="form-check-label" for="inlineRadio2" id="small2">Média (6
                                         fatias)</label>
                                 </div>
-                                <div class="form-check form-check-inline col-md-3" onchange="verify_lg()">
+                                <div class="form-check form-check-inline col-md-3 col-12" onchange="verify_lg()">
                                     <input class="form-check-input" type="checkbox" name="lg" id="inlineRadio3"
                                            value="1">
                                     <label class="form-check-label" for="inlineRadio3" id="small3">Grande (8
                                         fatias)</label>
                                 </div>
                             </div>
-                            <div class="col-md-4" id="tamanho2" style="display: none">
+
+                            <div class="col-md-4 col-12" id="tamanho2" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="price_sm" disabled id="price_sm"
                                            placeholder="Preço Pequena"
                                            class="form-control" autocomplete="no">
                                 </div>
                             </div>
-                            <div class="col-md-4" id="tamanho3" style="display: none">
+                            <div class="col-md-4 col-12" id="tamanho3" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="price_md" disabled id="price_md" placeholder="Preço Média"
                                            class="form-control" autocomplete="no">
                                 </div>
                             </div>
-                            <div class="col-md-4" id="tamanho4" style="display: none">
+                            <div class="col-md-4 col-12" id="tamanho4" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="price_lg" disabled id="price_lg" placeholder="Preço Grande"
                                            class="form-control" autocomplete="no">
                                 </div>
                             </div>
-                            <div class="col-md-12" id="tamanho5" style="display: none">
+                            <div class="col-md-12 col-12" id="tamanho5" style="display: none">
                                 <div class="input-group mb-2">
                                     <input type="text" name="price" id="price" placeholder="Preço" disabled
                                            class="form-control" autocomplete="no">
@@ -147,7 +149,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-12 mb-2">
+                        <div class="col-md-12 mb-2 col-12">
                             <div class="input-group mb-2">
                                 <select class="form-control" autocomplete="off" name="type" id="select"
                                         onchange="verify_select()">
@@ -159,18 +161,17 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-12">
                             <div class="input-group mb-2">
                                 <input type="submit" name="submit" class="btn" id="btnFormSubmit"
                                        value="Finalizar Cadastro">
-
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <table class="table table-striped " id="tableUsers">
+        <table class="table table-responsive" id="tableUsers">
             <tr id="th">
                 <th class="text-danger"> ID</th>
                 <th class="text-danger"> Nome</th>

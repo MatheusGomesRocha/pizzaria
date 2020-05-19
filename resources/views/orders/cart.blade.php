@@ -47,7 +47,7 @@
                         <tr id="tbodyCart">
                             <td width="80"><img id="productImg" class="img-fluid"
                                                 src='{{ url("storage/products/{$row->img}") }}'></td>
-                            <td id="productNameCart"> {{ $row->type }} {{ $row->product_name }} </td>
+                            <td id="productNameCart"> {{ $row->type }} {{ $row->name }} </td>
                             <td id="productQtdCart"> {{ $row->quantidade }} </td>
                             <td> R$ {{ number_format($row->product_price, '2', ',', '0') }} </td>
                             <td>

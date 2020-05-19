@@ -49,21 +49,26 @@ Route::group(['prefix' => 'admin'], function() {
 Route::get('/cart', 'OrderController@index')->name('cart');
 Route::post('/cart_submit', 'OrderController@cart_submit')->name('cart_submit');
 Route::post('/insert_cart', 'OrderController@insert_cart')->name('insert_cart');
+
 /* ****** ORDERS ******* */
 Route::get('/delete_order/{id}', 'OrderController@delete_order');
 Route::get('/finish_order', 'OrderController@finish_order')->name('finish_order');
+Route::post('/order_submit', 'OrderController@order_submit')->name('order_submit');
 Route::get('/quantidade/{id}', 'OrderController@quantidade');
 Route::post('/alterarQtd', 'OrderController@quantidade_post');
+
 /* ****** ADRESS ******* */
 Route::get('/custom_adress', 'OrderController@adress')->name('adress');
 Route::post('/add_adress', 'OrderController@add_adress');
 Route::get('/delete_adress/{id}', 'OrderController@delete_adress');
 Route::post('/update_adress', 'OrderController@delivery');
 Route::post('/store', 'OrderController@restaurant');
+
 /* ****** PAYMENT ******* */
 Route::get('/payment', 'OrderController@payment')->name('payment');
 Route::post('/payment_post', 'OrderController@payment_post')->name('pay_post');
 Route::post('/add_card', 'OrderController@add_card');
+
 /* ****** USERS_INFOS ******* */
 Route::get('/my_orders', 'UserController@get_orders')->name('orders')->middleware('auth');
 Route::get('/my_account', 'UserController@account')->name('account')->middleware('auth');

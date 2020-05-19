@@ -69,7 +69,7 @@
                             <div class="col-md-12" id="product_name">
                                 <strong> Tipo: </strong> {{ $row->type }} <br>
                                 <strong> Tamanho: </strong> {{ $row->size }} <br>
-                                <strong> Sabor: </strong> {{ $row->product_name }} <br>
+                                <strong> Sabor: </strong> {{ $row->name }} <br>
                             </div>
                             <div class="col-md-12" id="product_name">
                                 <strong> Valor unitário:</strong>
