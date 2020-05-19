@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="container" id="divAll">
-        <table class="table table-striped " id="tableUsers">
+        <table class="table table-responsive table-striped " id="tableUsers">
             <tr id="th">
                 <th class="text-danger"> Nome</th>
                 <th class="text-danger"> Email</th>
