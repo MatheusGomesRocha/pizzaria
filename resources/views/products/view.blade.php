@@ -171,7 +171,7 @@
                 </div>
             </div>
         </div>
-        <table class="table table-responsive" id="tableUsers">
+        <table class="table table-responsive table-striped" id="tableUsers">
             <tr id="th">
                 <th class="text-danger"> ID</th>
                 <th class="text-danger"> Nome</th>
