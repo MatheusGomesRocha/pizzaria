@@ -48,23 +48,18 @@ return [
         ],
 
         'product' => [
-           'driver' => 'session',
-           'provider' => 'products',
-        ],
-
-        'product_img' => [
-           'driver' => 'session',
-           'provider' => 'products_img',
+            'driver' => 'session',
+            'provider' => 'products',
         ],
 
         'order' => [
-           'driver' => 'session',
-           'provider' => 'orders',
+            'driver' => 'session',
+            'provider' => 'orders',
         ],
 
-        'ingredient' => [
+        'order_admin' => [
             'driver' => 'session',
-            'provider' => 'ingredients',
+            'provider' => 'orders_admins',
         ],
 
         'adress' => [
@@ -106,19 +101,14 @@ return [
             'model' => App\Product::class,
         ],
 
-        'products_img' => [
-            'driver' => 'eloquent',
-            'model' => App\Product_img::class,
-        ],
-
         'orders' => [
             'driver' => 'eloquent',
             'model' => App\Order::class,
         ],
 
-        'ingredients' => [
+        'orders_admin' => [
             'driver' => 'eloquent',
-            'model' => App\Ingredient::class,
+            'model' => App\Order_admin::class,
         ],
 
         'adresses' => [

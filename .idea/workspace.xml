@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Order_admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/finish_order.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/finish_order.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/finish_order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/finish_order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_products_table.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,23 +152,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Users/Public/Downloads" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
-      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers" />
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers\Admin" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public\products" />
       <recent name="C:\wamp64\www\pizzaria" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
+      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
     </key>
   </component>
   <component name="RunManager">
@@ -219,7 +214,8 @@
       <workItem from="1589385246735" duration="2852000" />
       <workItem from="1589491564867" duration="5214000" />
       <workItem from="1589574613884" duration="1114000" />
-      <workItem from="1589813109283" duration="6407000" />
+      <workItem from="1589813109283" duration="7547000" />
+      <workItem from="1589891785004" duration="2165000" />
     </task>
     <servers />
   </component>
@@ -235,10 +231,11 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1588453774263" />
-    <state x="447" y="266" key="NewPhpClassDialog" timestamp="1586223826348">
-      <screen x="0" y="40" width="1536" height="824" />
+    <state x="745" y="325" key="NewPhpClassDialog" timestamp="1589893350160">
+      <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="447" y="266" key="NewPhpClassDialog/0.40.1536.824@0.40.1536.824" timestamp="1586223826348" />
+    <state x="745" y="325" key="NewPhpClassDialog/0.40.2560.1040@0.40.2560.1040" timestamp="1589893350160" />
     <state x="604" y="375" key="NewPhpFileDialog" timestamp="1588453595663">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
