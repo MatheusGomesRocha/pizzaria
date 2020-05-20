@@ -16,7 +16,6 @@ class HomeController extends Controller
     public function index(Request $request)     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
     {
         $user = User::get_user();
-        $query = Product::products_all();
         $pizza_limit = Product::pizza_limit();
         $burger_limit = Product::burger_limit();
         $drink_limit = Product::drink_limit();
@@ -32,20 +31,25 @@ class HomeController extends Controller
 
                 session()->put('diff', $now->diffInSeconds(session('data_login')))  ;
 
-                return view('home.home')->with('products', $query)->with('count', $count)->with('user', $user)
+                return view('home.home')->with('count', $count)->with('user', $user)
                     ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit)
                     ->with('drink_limit', $drink_limit);
             } else {
                 return view('home.admin_index')->with('count', $countAdmin)->with('order', $order);
             }
         } else {
-            return view('home.home')->with('products', $query)->with('user', $user)
+            return view('home.home')->with('user', $user)
                 ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit)
                 ->with('drink_limit', $drink_limit);
         }
     }
 
     public function cardapio() {
-        return view('home.cardapio');
+        $pizza = Product::get_pizza();
+        $burguer = Product::get_burguer();
+        $drink = Product::get_drink();
+
+
+        return view('home.cardapio')->with('pizza', $pizza)->with('burguer', $burguer)->with('drink', $drink);
     }
 }

@@ -83,5 +83,26 @@ class Product extends Authenticatable
             ->get();
     }
 
+    public static function get_pizza()
+    {
+        return DB::table('products')
+            ->where('type', '=', 'pizza')
+            ->paginate(10);
+    }
+
+    public static function get_burguer()
+    {
+        return DB::table('products')
+            ->where('type', '=', 'burguer')
+            ->paginate(10);
+    }
+
+    public static function get_drink()
+    {
+        return DB::table('products')
+            ->where('type', '=', 'drink')
+            ->paginate(10);
+    }
+
 
 }
