@@ -14,7 +14,8 @@ Route::fallback(function () {
     return view('error.404');
 });
 
-Route::get('/', 'HomeController')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/cardapio', 'HomeController@cardapio')->name('cardapio');
 Route::get('/product_info/{id}', 'ProductController@product_info');
 
 /* ****** LOGIN ******* */

@@ -131,7 +131,7 @@
             consectetur adipiscing elit. Vivamus varius.
         </div>
         <div class="col-md-12 d-flex justify-content-center">
-            <button class="btn" id="btnCardapio"> Ver cardápio</button>
+            <a class="btn" id="btnCardapio" href="{{ route('cardapio') }}"> Ver cardápio</a>
         </div>
 
         <div class="row">

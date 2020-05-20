@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/home/cardapio.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/products_ing.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/products_ing.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/admin_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/admin_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/pendent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/pendent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/orders.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +221,7 @@
       <workItem from="1589918494837" duration="6662000" />
       <workItem from="1589936076634" duration="1739000" />
       <workItem from="1589973836351" duration="1193000" />
-      <workItem from="1589988888995" duration="4924000" />
+      <workItem from="1589988888995" duration="5202000" />
     </task>
     <servers />
   </component>
@@ -252,10 +242,11 @@
     </state>
     <state x="447" y="266" key="NewPhpClassDialog/0.40.1536.824@0.40.1536.824" timestamp="1586223826348" />
     <state x="745" y="325" key="NewPhpClassDialog/0.40.2560.1040@0.40.2560.1040" timestamp="1589893350160" />
-    <state x="604" y="375" key="NewPhpFileDialog" timestamp="1588453595663">
-      <screen x="0" y="40" width="1536" height="824" />
+    <state x="1007" y="463" key="NewPhpFileDialog" timestamp="1589994109386">
+      <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="604" y="375" key="NewPhpFileDialog/0.40.1536.824@0.40.1536.824" timestamp="1588453595663" />
+    <state x="1007" y="463" key="NewPhpFileDialog/0.40.2560.1040@0.40.2560.1040" timestamp="1589994109385" />
     <state x="277" y="94" key="SettingsEditor" timestamp="1586798065365">
       <screen x="0" y="40" width="1536" height="824" />
     </state>

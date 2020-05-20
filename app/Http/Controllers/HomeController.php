@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeController extends Controller
 {
-    public function __invoke(Request $request)     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
+    public function index(Request $request)     // PRODUTOS VIEW (HOME) OU ADMIN VIEW
     {
         $user = User::get_user();
         $query = Product::products_all();
@@ -43,5 +43,9 @@ class HomeController extends Controller
                 ->with('pizza_limit', $pizza_limit)->with('burger_limit', $burger_limit)
                 ->with('drink_limit', $drink_limit);
         }
+    }
+
+    public function cardapio() {
+        return view('home.cardapio');
     }
 }
