@@ -98,10 +98,7 @@
                     <form method="post" action="{{ route('order_submit') }}">
                         {{ csrf_field() }}
                         @foreach($query as $row)
-                            <input type="hidden" name="order_type" value="{{ $row->type }}">
-                            <input type="hidden" name="order_size" value="{{ $row->size }}">
-                            <input type="hidden" name="order_name" value="{{ $row->name }}">
-                            <input type="hidden" name="order_quantidade" value="{{ $row->quantidade }}">
+                            <input type="hidden" name="order_name[]" value="{{ $row->type.' '.$row->name.' '.$row->size.' '.$row->quantidade }}">
                         @endforeach
 
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

@@ -410,6 +410,23 @@ class OrderController extends Controller
     public function order_submit(Request $request)
     {
 
+
+        $order_name = implode(" - ", $request->input('order_name'));
+        $user_id = Auth::user()->id;
+        $order_price = $request->input('order_price');
+        $id_adress = $request->input('id_adress');
+        $forma_entrega = $request->input('forma_entrega');
+
+        $insert = DB::table('orders_admin')->insert([
+            'order_user_id' => $user_id,
+            'order_name' => $order_name,
+            'order_price' => $order_price,
+            'adress' => $id_adress,
+            'forma_entrega' => $forma_entrega,
+            'status' => 'confirmado'
+        ]);
+
+
     }
 
     public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE CART
@@ -508,7 +525,10 @@ class OrderController extends Controller
                     }
 
                     $id = Auth::user()->id;
-                    $array = array($request->input('card_date_month'), $request->input('card_date_year'));
+                    $array = array(
+                        $request->input('card_date_month'),
+                        $request->input('card_date_year')
+                    );
                     $date = implode('/', $array);
 
                     $data = [
