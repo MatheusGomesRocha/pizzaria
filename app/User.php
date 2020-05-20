@@ -34,7 +34,7 @@ class User extends Authenticatable
                 return DB::table('orders')
                     ->join('products', 'products.id', '=', 'orders.product_id')
                     ->where('orders.user_id', '=', Auth::user()->id)
-                    ->get();
+                    ->paginate('5');
             }
         }
     }

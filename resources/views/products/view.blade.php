@@ -223,7 +223,7 @@
                     </tr>
             @endforeach
         </table>
-        {{ $query->links() }}
+        <div id="links">{{ $query->links() }}</div>
 
     </div>
 

@@ -264,7 +264,7 @@
                                 <a href="{{ route('home') }}" class="nav-link">
                                     <i class="nav-icon fas fa-home"></i>
                                     <p>
-                                        Home
+                                        Dashboard
                                     </p>
                                 </a>
                             </li>
@@ -284,9 +284,9 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('pendent') }}" class="nav-link">
+                                        <a href="{{ route('confirmed') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p> Pendentes </p>
+                                            <p> Confirmados </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">

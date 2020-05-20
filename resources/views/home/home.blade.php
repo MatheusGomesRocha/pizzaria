@@ -22,7 +22,7 @@
 @section('content')
     <div id="allHome">
         <div class="container-fluid" id="imgMark">
-
+            <img src="{{ asset('img/promoção1.jpg') }}">
         </div>
 
         <div class="container-fluid">

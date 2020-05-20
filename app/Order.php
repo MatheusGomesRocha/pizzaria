@@ -60,7 +60,8 @@ class Order extends Authenticatable
             if (Auth::user()->nivel == 2) {
                 return DB::table('orders')
                     ->where('user_id', '=', Auth::user()->id)
-                    ->sum('quantidade');
+                    ->where('status', '=', 'Pendente')
+                    ->count();
             }
         }
     }
@@ -97,15 +98,15 @@ class Order extends Authenticatable
         }
     }
 
-    public static function get_orders_pendent()
+    public static function get_orders_admin()
     {
         if (Auth::check()) {
             if (Auth::user()->nivel == 1) {
-                return DB::table('orders')
-                    ->join('users', 'users.id', '=', 'orders.user_id')
-                    ->orderBy('orders.order_id', 'desc')
-                    ->where('entregue', '=', '0')
-                    ->get();
+                return DB::table('orders_admin')
+                    ->join('users', 'users.id', '=', 'orders_admin.order_user_id')
+                    ->join('adresses', 'adresses.id', '=', 'orders_admin.adress')
+                    ->orderBy('orders_admin.num_pedido', 'desc')
+                    ->paginate(10);
             }
         }
     }

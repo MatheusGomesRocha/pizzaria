@@ -58,6 +58,7 @@ class OrderController extends Controller
                 ->where('product_id', '=', $request->input('product_id'))
                 ->where('user_id', '=', $request->input('user_id'))
                 ->where('size', '=', $request->input('size'))
+                ->where('status', '=', 'Pendente')
                 ->count();
 
             if ($select == 0) {
@@ -78,6 +79,7 @@ class OrderController extends Controller
                     ->where('product_id', '=', $request->input('product_id'))
                     ->where('user_id', '=', $request->input('user_id'))
                     ->where('size', '=', $request->input('size'))
+                    ->where('status', '=', 'Pendente')
                     ->get();
                 foreach ($select1 as $row) {
                     $qnt = $row->quantidade + $request->qtd_hidden;
@@ -116,6 +118,7 @@ class OrderController extends Controller
                     session()->forget('confirm_pedido');
                     session()->forget('diff');
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -150,6 +153,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -198,6 +202,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -229,6 +234,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -268,6 +274,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -312,6 +319,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -345,6 +353,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '',
                             'forma_entrega' => ''
@@ -381,6 +390,7 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
@@ -409,28 +419,6 @@ class OrderController extends Controller
 
     public function order_submit(Request $request)
     {
-
-
-        $order_name = implode(" - ", $request->input('order_name'));
-        $user_id = Auth::user()->id;
-        $order_price = $request->input('order_price');
-        $id_adress = $request->input('id_adress');
-        $forma_entrega = $request->input('forma_entrega');
-
-        $insert = DB::table('orders_admin')->insert([
-            'order_user_id' => $user_id,
-            'order_name' => $order_name,
-            'order_price' => $order_price,
-            'adress' => $id_adress,
-            'forma_entrega' => $forma_entrega,
-            'status' => 'confirmado'
-        ]);
-
-
-    }
-
-    public function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE CART
-    {
         if (Auth::user()->nivel == 2) {
             if (session()->has('confirm_pedido')) {
                 $now = Carbon::now();
@@ -442,54 +430,34 @@ class OrderController extends Controller
                     session()->forget('diff');
 
                     DB::table('orders')
+                        ->where('status', '=', 'Pendente')
                         ->update([
                             'id_adress' => '0',
                             'forma_entrega' => ''
                         ]);
                     return redirect()->route('cart');
                 } else {
+                    $order_name = implode(" - ", $request->input('order_name'));
+                    $user_id = Auth::user()->id;
+                    $order_price = $request->input('order_price');
+                    $id_adress = $request->input('id_adress');
+                    $forma_entrega = $request->input('forma_entrega');
 
-                    $count = User::count_orders();
-                    $query = DB::table('orders')
-                        ->where('order_id', '=', $id)
-                        ->first();
-
-                    return view('orders.quantidade_produto')->with('count', $count)->with('row', $query);
-                }
-            } else {
-                return redirect()->route('cart');
-            }
-        } else {
-            return view('error.404');
-        }
-    }
-
-    public function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
-    {
-        if (Auth::user()->nivel == 2) {
-            if (session()->has('confirm_pedido')) {
-                $now = Carbon::now();
-
-                session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
-
-                if (session('diff') > '1200') {
-                    session()->forget('confirm_pedido');
-                    session()->forget('diff');
+                    $insert = DB::table('orders_admin')->insert([
+                        'order_user_id' => $user_id,
+                        'order_name' => $order_name,
+                        'order_price' => $order_price,
+                        'adress' => $id_adress,
+                        'forma_entrega' => $forma_entrega,
+                        'status' => 'confirmado'
+                    ]);
 
                     DB::table('orders')
                         ->update([
-                            'id_adress' => '0',
-                            'forma_entrega' => ''
+                            'status' => 'confirmado',
                         ]);
-                    return redirect()->route('cart');
-                } else {
-                    $query = DB::table('orders')
-                        ->where('order_id', '=', $request->input('order_id'))
-                        ->update(['quantidade' => $request->input('qtdValue')]);
 
-                    if ($query) {
-                        return redirect('/finish_order');
-                    }
+                    return redirect()->route('home');
                 }
             } else {
                 return redirect()->route('cart');
@@ -499,133 +467,215 @@ class OrderController extends Controller
         }
     }
 
-    public function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
-    {
-        if (Auth::user()->nivel == 2) {
-            if (session()->has('confirm_pedido')) {
-                $now = Carbon::now();
+        public
+        function quantidade($id) // VIEW PARA ALTERAR QUANTIDADE DO PRODUTO (MUDAR ISSO) PARA ALTERAR NA VIEW DE CART
+        {
+            if (Auth::user()->nivel == 2) {
+                if (session()->has('confirm_pedido')) {
+                    $now = Carbon::now();
 
-                session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+                    session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
 
-                if (session('diff') > '1200') {
-                    session()->forget('confirm_pedido');
-                    session()->forget('diff');
+                    if (session('diff') > '1200') {
+                        session()->forget('confirm_pedido');
+                        session()->forget('diff');
 
-                    DB::table('orders')
-                        ->update([
-                            'id_adress' => '0',
-                            'forma_entrega' => ''
-                        ]);
-                    return redirect()->route('cart');
+                        DB::table('orders')
+                            ->where('status', '=', 'Pendente')
+                            ->update([
+                                'id_adress' => '0',
+                                'forma_entrega' => ''
+                            ]);
+                        return redirect()->route('cart');
+                    } else {
+
+                        $count = User::count_orders();
+                        $query = DB::table('orders')
+                            ->where('order_id', '=', $id)
+                            ->first();
+
+                        return view('orders.quantidade_produto')->with('count', $count)->with('row', $query);
+                    }
                 } else {
-                    $validation2 = $this->validation2($request->all());
-
-                    if ($validation2->fails()) {
-                        return redirect()->back()->withErrors($validation2->errors())->withInput($request->all());
-                    }
-
-                    $id = Auth::user()->id;
-                    $array = array(
-                        $request->input('card_date_month'),
-                        $request->input('card_date_year')
-                    );
-                    $date = implode('/', $array);
-
-                    $data = [
-                        'user_id' => $id,
-                        'card_name' => $request->input('card_name'),
-                        'card_number' => $request->input('card_number'),
-                        'card_ccv' => $request->input('card_ccv'),
-                        'card_date' => $date,
-                    ];
-
-                    $card = Card::create($data);
-
-                    if ($card) {
-                        return redirect()->back();
-                    }
+                    return redirect()->route('cart');
                 }
             } else {
-                return redirect()->route('cart');
+                return view('error.404');
             }
-        } else {
-            return view('error.404');
         }
-    }
 
+        public
+        function quantidade_post(Request $request)   // FUNÇÃO QUE ALTERA A QUANTIDADE DO PRODUTO
+        {
+            if (Auth::user()->nivel == 2) {
+                if (session()->has('confirm_pedido')) {
+                    $now = Carbon::now();
 
-    // A PARTIR DAQUI É ÁREA APENAS DO ADM
+                    session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
 
-    public function orders_pendent()    // PEDIDOS PENDENTES VIEW
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_orders_pendent();
+                    if (session('diff') > '1200') {
+                        session()->forget('confirm_pedido');
+                        session()->forget('diff');
 
-            return view('orders.pendent')->with('count', $count)->with('query', $query);
-        } else {
-            return view('error.404');
+                        DB::table('orders')
+                            ->where('status', '=', 'Pendente')
+                            ->update([
+                                'id_adress' => '0',
+                                'forma_entrega' => ''
+                            ]);
+                        return redirect()->route('cart');
+                    } else {
+                        $query = DB::table('orders')
+                            ->where('order_id', '=', $request->input('order_id'))
+                            ->update(['quantidade' => $request->input('qtdValue')]);
+
+                        if ($query) {
+                            return redirect('/finish_order');
+                        }
+                    }
+                } else {
+                    return redirect()->route('cart');
+                }
+            } else {
+                return view('error.404');
+            }
         }
-    }
 
-    public function orders_delivery()   // PEDIDOS JÁ ENTREGUES
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_orders_delivery();
+        public
+        function add_card(Request $request)  // ADICIONAR CARTÃO DE CRÉDITO
+        {
+            if (Auth::user()->nivel == 2) {
+                if (session()->has('confirm_pedido')) {
+                    $now = Carbon::now();
 
-            return view('orders.delivery')->with('count', $count)->with('query', $query);
-        } else {
-            return view('error.404');
+                    session()->put('diff', $now->diffInSeconds(session('confirm_pedido')));
+
+                    if (session('diff') > '1200') {
+                        session()->forget('confirm_pedido');
+                        session()->forget('diff');
+
+                        DB::table('orders')
+                            ->where('status', '=', 'Pendente')
+                            ->update([
+                                'id_adress' => '0',
+                                'forma_entrega' => ''
+                            ]);
+                        return redirect()->route('cart');
+                    } else {
+                        $validation2 = $this->validation2($request->all());
+
+                        if ($validation2->fails()) {
+                            return redirect()->back()->withErrors($validation2->errors())->withInput($request->all());
+                        }
+
+                        $id = Auth::user()->id;
+                        $array = array(
+                            $request->input('card_date_month'),
+                            $request->input('card_date_year')
+                        );
+                        $date = implode('/', $array);
+
+                        $data = [
+                            'user_id' => $id,
+                            'card_name' => $request->input('card_name'),
+                            'card_number' => $request->input('card_number'),
+                            'card_ccv' => $request->input('card_ccv'),
+                            'card_date' => $date,
+                        ];
+
+                        $card = Card::create($data);
+
+                        if ($card) {
+                            return redirect()->back();
+                        }
+                    }
+                } else {
+                    return redirect()->route('cart');
+                }
+            } else {
+                return view('error.404');
+            }
         }
-    }
 
-    public function ingredients_all()   // INGREDIENTES VIEW
-    {
-        if (Auth::user()->nivel == 1) {
-            $count = User::count_orders();
-            $query = Order::get_ingredients();
 
-            return view('products.view_ingredient')->with('count', $count)->with('query', $query);
-        } else {
-            return view('error.404');
+        // A PARTIR DAQUI É ÁREA APENAS DO ADM
+
+        public
+        function orders_confirmed()    // PEDIDOS PENDENTES VIEW
+        {
+            if (Auth::user()->nivel == 1) {
+                $count = User::count_orders();
+                $query = Order::get_orders_admin();
+
+
+                return view('orders.pendent')->with('count', $count)->with('query', $query);
+            } else {
+                return view('error.404');
+            }
         }
+
+        public
+        function orders_delivery()   // PEDIDOS JÁ ENTREGUES
+        {
+            if (Auth::user()->nivel == 1) {
+                $count = User::count_orders();
+                $query = Order::get_orders_delivery();
+
+                return view('orders.delivery')->with('count', $count)->with('query', $query);
+            } else {
+                return view('error.404');
+            }
+        }
+
+        public
+        function ingredients_all()   // INGREDIENTES VIEW
+        {
+            if (Auth::user()->nivel == 1) {
+                $count = User::count_orders();
+                $query = Order::get_ingredients();
+
+                return view('products.view_ingredient')->with('count', $count)->with('query', $query);
+            } else {
+                return view('error.404');
+            }
+        }
+
+
+        private
+        function validation1($data1)
+        {
+            $regras1 = [
+                'cep' => 'required',
+            ];
+
+            $mensagens1 = [
+                'cep.required' => 'preencha o CEP',
+            ];
+
+            return Validator::make($data1, $regras1, $mensagens1);
+        }
+
+        private
+        function validation2($data2)
+        {
+            $regras2 = [
+                'card_name' => 'required',
+                'card_number' => 'required|min:12|max:12',
+                'card_ccv' => 'required|min:3|max:3',
+                'card_date_month' => 'required',
+                'card_date_year' => 'required',
+            ];
+
+            $mensagens2 = [
+                'card_name.required' => 'Preencha o Nome',
+                'card_number.required' => 'Preencha o Número',
+                'card_ccv.required' => 'Preencha o CCV',
+                'card_date_month.required' => 'Escolha uma mês de vencimento',
+                'card_date_year.required' => 'Escolha uma ano de vencimento',
+            ];
+
+            return Validator::make($data2, $regras2, $mensagens2);
+        }
+
+
     }
-
-
-    private function validation1($data1)
-    {
-        $regras1 = [
-            'cep' => 'required',
-        ];
-
-        $mensagens1 = [
-            'cep.required' => 'preencha o CEP',
-        ];
-
-        return Validator::make($data1, $regras1, $mensagens1);
-    }
-
-    private function validation2($data2)
-    {
-        $regras2 = [
-            'card_name' => 'required',
-            'card_number' => 'required|min:12|max:12',
-            'card_ccv' => 'required|min:3|max:3',
-            'card_date_month' => 'required',
-            'card_date_year' => 'required',
-        ];
-
-        $mensagens2 = [
-            'card_name.required' => 'Preencha o Nome',
-            'card_number.required' => 'Preencha o Número',
-            'card_ccv.required' => 'Preencha o CCV',
-            'card_date_month.required' => 'Escolha uma mês de vencimento',
-            'card_date_year.required' => 'Escolha uma ano de vencimento',
-        ];
-
-        return Validator::make($data2, $regras2, $mensagens2);
-    }
-
-
-}

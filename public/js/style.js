@@ -1,35 +1,35 @@
 $(window).scroll(function(){ // função para pegar o movimento do scroll (barra de rolagem)
     var top = $(window).scrollTop(); // aqui vc pega a posição da página
-    if(top > 200){ // verifica a posição da página
+    if(top > 0){ // verifica a posição da página
         $('#texts').css('visibility', 'visible');
         $("#texts").addClass('fadeInUp'); // aqui vc aplica o fade no menu
         $('#textSocial').css('visibility', 'visible');
         $("#textSocial").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
-    if(top > 300) {
+    if(top > 100) {
         $('#textRestaurant').css('visibility', 'visible');
         $('#textRestaurant').addClass('fadeInUp');
     }
-    if(top > 350) {
+    if(top > 150) {
         $('#title').css('visibility', 'visible');
         $('#title').addClass('fadeInUp');
     }
-    if(top > 800) {
+    if(top > 400) {
         $('#servTitle').css('visibility', 'visible');
         $("#servTitle").addClass('fadeInUp'); // aqui vc aplica o fade no menu
         $('#servText').css('visibility', 'visible');
         $("#servText").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
-    if(top > 1100) {
+    if(top > 700) {
         $('.content1').css('visibility', 'visible');
         $(".content1").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
 
-    if(top > 1400) {
+    if(top > 1000) {
         $('#home3Title').css('visibility', 'visible');
         $("#home3Title").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }
-    if(top > 1350) {
+    if(top > 1050) {
         $('#home3Text').css('visibility', 'visible');
         $("#home3Text").addClass('fadeInUp'); // aqui vc aplica o fade no menu
     }

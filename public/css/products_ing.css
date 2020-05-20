@@ -3,8 +3,6 @@
 }
 
 #tableUsers {
-    border-left: 1px solid #d2d2d2;
-    border-right: 1px solid #d2d2d2;
     text-align: center;
 }
 
@@ -17,7 +15,6 @@
 }
 
 #btnAdd {
-    float: right;
     margin-bottom: 10px;
 }
 
@@ -133,11 +130,7 @@ select:focus {
 @media(min-width: 360px) and (max-width: 575.8px) {
     #divAll {
         margin-top: -700px;
-        margin-bottom: 900px;
-    }
-
-    #modalExemplo {
-        margin-top: 150px;
+        margin-bottom: 500px;
     }
 
     #formTitleProduct {
@@ -164,7 +157,7 @@ select:focus {
 @media(min-width: 998px) and (max-width: 1199.8px) {
     #divAll {
         margin-top: -800px;
-        width: 900px !important;
+        margin-bottom: 350px;
     }
 
     #modalForm {
@@ -174,8 +167,12 @@ select:focus {
 
 @media(min-width: 1200px) {
     #divAll {
-        margin-top: -800px;
-        width: 900px !important
+        margin-top: -850px;
+        margin-bottom: 350px;
+    }
+
+    #tableUsers, #btnAdd, #links {
+        margin-left: 250px;
     }
 
     #modalForm {

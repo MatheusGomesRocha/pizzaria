@@ -16,45 +16,36 @@
 
 @section('content')
     <div class="container" id="divAll">
-        <table class="table table-striped " id="tableUsers">
+        <table class="table table-responsive table-striped" id="tableUsers">
             <tr id="th">
-                <th class="text-danger"> ID usuário</th>
-                <th class="text-danger"> Nº pedido</th>
-                <th class="text-danger"> Tipo</th>
-                <th class="text-danger"> Produto</th>
-                <th class="text-danger"> Tamanho</th>
-                <th class="text-danger"> Fração</th>
-                <th class="text-danger"> Quantidade</th>
-                <th class="text-danger"> Preço</th>
-                <th class="text-danger"> Entrega</th>
-                <th class="text-danger"> Pagamento</th>
-                <th class="text-danger"> Status</th>
+                <th class="text-danger"> ID usuário </th>
+                <th class="text-danger"> Nº pedido </th>
+                <th class="text-danger"> Pedido </th>
+                <th class="text-danger"> Preço </th>
+                <th class="text-danger"> Endereço </th>
+                <th class="text-danger"> Status </th>
             </tr>
             @foreach($query as $row)
 
                 <tr id="td">
-                    <td>{{ $row->user_id }}</td>
-                    <td>{{ $row->order_id }}</td>
-                    <td>{{ $row->type }}</td>
-                    <td>{{ $row->product_name }}</td>
-                    <td>{{ $row->size }}</td>
-                    <td>{{ $row->fraction }}</td>
-                    <td>{{ $row->quantidade }}</td>
-                    <td>R$ {{ number_format(intval($row->price) * $row->quantidade, '2', ',', '.') }}</td>
+                    <td>{{ $row->order_user_id }}</td>
+                    <td>{{ $row->num_pedido }}</td>
+                    <td>{{ $row->order_name }}</td>
+                    <td>R$ {{ number_format($row->order_price, '2', ',', '.') }}</td>
                     <td>
                         @if($row->forma_entrega == 'delivery')
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo{{$row->id}}">
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo{{$row->adress}}">
                                 Endereço
                             </button>
-                            <div class="modal fade" id="modalExemplo{{$row->id}}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="modalExemplo{{$row->adress}}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <div class="modal-body">
+                                            <div class="modal-body" style="text-align: left">
                                                 <strong class="col-md-12"> Cep: </strong> {{ $row->cep }} <br>
                                                 <strong class="col-md-12"> Bairro: </strong> {{ $row->bairro }} <br>
-                                                <strong class="col-md-12"> Rua </strong> {{ $row->rua }} <br>
+                                                <strong class="col-md-12"> Rua: </strong> {{ $row->rua }} <br>
                                                 <strong class="col-md-12"> Número: </strong> {{ $row->numero }} <br>
                                             </div>
                                             <button type="button" class="close" data-dismiss="modal"
@@ -65,22 +56,14 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                        @if($row->forma_entrega == 'restaurant')
+                        @elseif($row->forma_entrega == 'restaurant')
                             Restaurante
                         @endif
                     </td>
-                    @if($row->forma_pagamento == 0)
-                        <td class="text-warning"> Pendente</td>
-                    @endif
-                    @if($row->forma_pagamento == 1)
-                        <td class="text-success"> Confirmado</td>
-                    @endif
-                    @if($row->entregue == 0)
-                        <td class="text-warning"> Pendente</td>
-                    @endif
-                    @if($row->entregue == 1)
-                        <td class="text-success"> Entregue</td>
+                    @if($row->status == 'pendente')
+                        <td class="text-warning"> Pendente </td>
+                    @elseif($row->status == 'confirmado')
+                        <td class="text-success"> Confirmado </td>
                     @endif
                 </tr>
             @endforeach

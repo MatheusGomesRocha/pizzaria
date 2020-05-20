@@ -142,6 +142,7 @@
                 </div>
             </div>
         @endforelse
+        {{ $query->links() }}
     </div>
 @endsection
 </body>

@@ -71,7 +71,7 @@
                     </div>
                     <div class="col-md-12 col-12">
                         <strong>Subtotal ({{ $count }}
-                            itens): </strong> {{ number_format($subtotal + 5, '2', ',', '0') }}
+                            itens): </strong> R$ {{ number_format($subtotal + 5, '2', ',', '0') }}
                     </div>
                     <div class="col-md-12 col-12">
                         <input type="submit" class="btn btn-success" value="Fechar pedido" id="cartInsert">

@@ -14,8 +14,7 @@
 
 
 #imgMark {  /* DIV RESERVADA PARA IMAGENS DE BANNERS E MARKETING */
-    height: 730px;
-    background-color: #ccc;
+    margin-top: 100px;
 }
 
 #divResAcc {  /* DIV PAI COM AS INFOS DO RESTAURANTE E REDES SOCIAIS */
@@ -263,9 +262,7 @@
 
 /* HOME DO ADMIN */
 
-#divChart {
-    margin-top: -800px;
-}
+
 
 
 @media(min-width: 360px) and (max-width: 575.8px) {
@@ -331,6 +328,13 @@
 
     #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
         margin-top: -130px;
+    }
+
+
+    /* ADMIN */
+
+    #divChart {
+        margin-top: -700px;
     }
 }
 
@@ -398,6 +402,14 @@
         margin-top: 20px;
         margin-left: 90px;
     }
+
+
+
+    /* ADMIN */
+
+    #divChart {
+        margin-top: -800px;
+    }
 }
 
 @media(min-width: 1200px) {
@@ -463,5 +475,13 @@
     #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
         margin-top: 20px;
         margin-left: 210px;
+    }
+
+
+
+    /* ADMIN */
+
+    #divChart {
+        margin-top: -800px;
     }
 }

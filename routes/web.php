@@ -30,10 +30,6 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/delete_product/{id}', 'ProductController@delete_product');
     Route::post('/validation_product_register', 'ProductController@validation_product_register');
     /*******/
-    Route::get('/ingredients', 'OrderController@ingredients_all')->name('ingredient_stock');
-    Route::post('/validation_ingredient_register', 'ProductController@validation_ingredient_register');
-    Route::get('/delete_ing/{id}', 'ProductController@delete_ing');
-    /*******/
     Route::get('/users', 'UserController@get_users')->name('users')->middleware('auth');
     Route::get('/admins', 'UserController@get_admins')->name('admins')->middleware('auth');
     Route::get('/delete_user/{id}', 'UserController@delete_user')->middleware('auth');
@@ -41,7 +37,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/edit_nivel', 'UserController@admin_edit_nivel')->name('edit_nivel_user')->middleware('auth');
     Route::post('/edit_nivel_admin', 'UserController@admin_edit_nivel_admin')->name('edit_nivel_admin')->middleware('auth');
     /*******/
-    Route::get('/pendent', 'OrderController@orders_pendent')->name('pendent');
+    Route::get('/confirmed', 'OrderController@orders_confirmed')->name('confirmed');
     Route::get('/delivery', 'OrderController@orders_delivery')->name('delivery');
     /*******/
 });

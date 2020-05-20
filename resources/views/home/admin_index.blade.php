@@ -6,6 +6,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -37,7 +38,7 @@
                 legend: { position: 'bottom' }
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
+            var chart = new google.visualization.PieChart(document.getElementById('curve_chart'));
 
             chart.draw(data, options);
         }
@@ -47,6 +48,7 @@
 @extends('layout.template')
 
 @section('content')
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" id="divChart">
         <!-- Main content -->
@@ -152,7 +154,6 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
                         <!-- STACKED BAR CHART -->
                         <div class="card card-success">
                             <div class="card-header">
@@ -200,7 +201,7 @@
         var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
         var areaChartData = {
-            labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            labels  : ['Mês', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
                     label               : 'Digital Goods',
