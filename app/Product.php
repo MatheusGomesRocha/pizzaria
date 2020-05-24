@@ -93,14 +93,14 @@ class Product extends Authenticatable
     public static function get_burguer()
     {
         return DB::table('products')
-            ->where('type', '=', 'burguer')
+            ->where('type', '=', 'sanduiche')
             ->paginate(10);
     }
 
     public static function get_drink()
     {
         return DB::table('products')
-            ->where('type', '=', 'drink')
+            ->where('type', '=', 'bebida')
             ->paginate(10);
     }
 

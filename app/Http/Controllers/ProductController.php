@@ -21,30 +21,6 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
-    public function ingredient_register()       // INGREDIENTES VIEW
-    {
-        if (Auth::user()->nivel == 1) {
-            $user = User::get_user();
-            $count = Order::get_count();
-
-            return view('products.ingredients_register')->with('count', $count)->with('user', $user);
-        } else {
-            return view('error.404');
-        }
-    }
-
-    public function product_info($id)       // INFO DOS PRODUTOS VIEW
-    {
-        $query = Product::all()->where('id', '=', $id)->first();
-        if ($query) {
-            $user = User::get_user();
-            $count = Order::get_count();
-            return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
-        } else {
-            return view('error.404');
-        }
-    }
-
     public function validation_product_register(Request $request)   // VALIDAÇÃO DE CADASTRO DE PRODUTO
     {
         if (Auth::user()->nivel == 1) {

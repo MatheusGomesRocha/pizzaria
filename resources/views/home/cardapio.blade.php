@@ -1,6 +1,6 @@
 @extends('layout.template')
 
-@section('title', 'Home')
+@section('title', 'Cardapio')
 
 <link href="{{ asset('css/cardapio.css')}}" rel="stylesheet">
 <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
@@ -22,7 +22,7 @@
 
     <div class="container-fluid" id="divCardapioAll">
         <div id="cardapio" class="row animated">
-            <div id="btns" class="col-md-12">
+            <div id="btnsCardapio">
                 <button class="btn" id="btnPizza" onclick="pizza()"> Pizza</button>
                 <button class="btn" id="btnBurger" onclick="burger()"> Burger</button>
                 <button class="btn" id="btnDrink" onclick="drink()"> Drink</button>
@@ -30,13 +30,14 @@
 
             <div class="col-md-12" id="divPaiCardapio">
                 @foreach($pizza as $row)
-                    <div class="col-md-2 col-6" id="divImgCardapio">
-                        <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
-                    </div>
-                    <div class="col-md-2 col-6" id="cardapioText">
-                        <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                        <div class="col-md-12">
+                    <div class="col-md-3" id="divFilhaCardapio">
+                        <div class="col-md-6 col-6" id="divImgCardapio" style="float: left">
+                            <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
+                        </div>
+                        <div class="col-md-6 col-6" id="cardapioText" style="float: right">
+                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
+                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
+                            <div class="col-md-12">
                             <span class="col-md-6" id="cardapioPrice"> R$
                                 @if($row->price_md)
                                     {{ $row->price_md }}
@@ -50,8 +51,9 @@
                                     @endif
                                 @endif
                             </span>
-                            <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product_info/{$row->id}") }}">
-                                Pedir</a>
+                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                    Pedir</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -59,20 +61,22 @@
 
             <div class="col-md-12" id="divPaiCardapio1">
                 @foreach($burguer as $row)
-                    <div class="col-md-2 col-6" id="divImgCardapio1">
-                        <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
-                    </div>
-                    <div class="col-md-2 col-6" id="cardapioText">
-                        <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                        <div class="col-md-12">
+                    <div class="col-md-3" id="divFilhaCardapio1">
+                        <div class="col-md-6 col-6" id="divImgCardapio1" style="float: left">
+                            <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
+                        </div>
+                        <div class="col-md-6 col-6" id="cardapioText">
+                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
+                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
+                            <div class="col-md-12">
                             <span class="col-md-6" id="cardapioPrice"> R$
                                 @if($row->price)
                                     {{ $row->price }}
                                 @endif
                             </span>
-                            <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product_info/{$row->id}") }}">
-                                Pedir</a>
+                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                    Pedir</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -80,20 +84,22 @@
 
             <div class="col-md-12" id="divPaiCardapio2">
                 @foreach($drink as $row)
-                    <div class="col-md-2 col-6" id="divImgCardapio2">
-                        <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
-                    </div>
-                    <div class="col-md-2 col-6" id="cardapioText">
-                        <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                        <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                        <div class="col-md-12">
+                    <div class="col-md-3" id="divFilhaCardapio2">
+                        <div class="col-md-6 col-6" id="divImgCardapio2" style="float: left">
+                            <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
+                        </div>
+                        <div class="col-md-6 col-6" id="cardapioText">
+                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
+                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
+                            <div class="col-md-12">
                             <span class="col-md-6" id="cardapioPrice"> R$
                                 @if($row->price)
                                     {{ $row->price }}
                                 @endif
                             </span>
-                            <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product_info/{$row->id}") }}">
-                                Pedir</a>
+                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                    Pedir</a>
+                            </div>
                         </div>
                     </div>
                 @endforeach

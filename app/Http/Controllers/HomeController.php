@@ -44,6 +44,7 @@ class HomeController extends Controller
         }
     }
 
+
     public function cardapio() {
         $pizza = Product::get_pizza();
         $burguer = Product::get_burguer();
@@ -51,5 +52,17 @@ class HomeController extends Controller
 
 
         return view('home.cardapio')->with('pizza', $pizza)->with('burguer', $burguer)->with('drink', $drink);
+    }
+
+    public function product_info($id)       // INFO DOS PRODUTOS VIEW
+    {
+        $query = Product::all()->where('id', '=', $id)->first();
+        if ($query) {
+            $user = User::get_user();
+            $count = Order::get_count();
+            return view('products.info')->with('products', $query)->with('count', $count)->with('user', $user);
+        } else {
+            return view('error.404');
+        }
     }
 }

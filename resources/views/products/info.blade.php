@@ -44,7 +44,9 @@
                     <div class="col-md-12" id="form">
                         <form id="formCart" method="post" action="{{ route('insert_cart') }}">
                             {{ csrf_field() }}
+                            @if(Auth::check())
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            @endif
                             <input type="hidden" name="product_id" value="{{ $products->id }}">
                             <input type="hidden" name="product_name" value="{{ $products->name }}">
                             <input type="hidden" name="type" value="{{ $products->type }}">

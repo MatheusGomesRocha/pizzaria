@@ -4,7 +4,26 @@
 
 #cardapio {     /* DIV ONDE FICA O MENU DE COMPRA */
     margin-top: 100px;
+}
 
+#btnsCardapio {
+    margin-left: 140px;
+    margin-top: 60px;
+}
+
+#divPaiCardapio, #divPaiCardapio1, #divPaiCardapio2 {
+    margin-top: 60px;
+    margin-bottom: 500px;
+}
+
+#divPaiCardapio1, #divPaiCardapio2 {            /*DIV FORA DO FOREACH */
+    display: none;
+}
+
+#divFilhaCardapio, #divFilhaCardapio1, #divFilhaCardapio2 {         /* DIV DENTRO DO FOREACH */
+    display: inline-block;
+    margin-left: 150px;
+    margin-top: 15px;
 }
 
 #divImgCardapio {       /* DIV DAS IMAGENS DAS PIZZAS VINDAS DO BD */
@@ -19,12 +38,13 @@
 
 #cardapioText {      /* TEXTO SOBRE O PRODUTO VINDO DO BD */
     margin-top: 10px;
-    background-color: rgba(300, 544, 75, 0.07);
+    float: right;
 }
 
 #cardapioName {      /* NOME DO PRODUTO VINDO DO BD */
     font-size: 24px;
     text-transform: uppercase;
+    color: #fff;
 }
 
 #cardapioDescription {       /* DESCRIÇÃO DO PRODUTO VINDO DO BD */
@@ -50,10 +70,4 @@
     color: #000;
 }
 
-#divPaiCardapio1, #divPaiCardapio2 {
-    display: none;
-}
 
-#divImgCardapio, #divImgCardapio1, #divImgCardapio2 {
-    display: inline-block;
-}
