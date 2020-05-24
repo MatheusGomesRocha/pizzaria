@@ -106,6 +106,7 @@ class Order extends Authenticatable
                     ->join('users', 'users.id', '=', 'orders_admin.order_user_id')
                     ->join('adresses', 'adresses.id', '=', 'orders_admin.adress')
                     ->orderBy('orders_admin.num_pedido', 'desc')
+                    ->where('status', '=', 'confirmado')
                     ->paginate(10);
             }
         }

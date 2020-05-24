@@ -42,24 +42,36 @@ class User extends Authenticatable
     public static function get_user()
     {
         if (Auth::check()) {
-            return DB::table('users')
-                ->where('id', '=', Auth::user()->id)
-                ->first();
+            if(Auth::user()->nivel == 2) {
+                return DB::table('users')
+                    ->where('id', '=', Auth::user()->id)
+                    ->first();
+            }
         }
     }
 
     public static function get_users()
     {
-        return DB::table('users')
-            ->where('nivel', '=', '2')
-            ->get();
+        if(Auth::check()) {
+            if(Auth::user()->nivel == 1) {
+                return DB::table('users')
+                    ->where('nivel', '=', '2')
+                    ->get();
+            }
+        }
+
     }
 
     public static function get_admins()
     {
-        return DB::table('users')
-            ->where('nivel', '=', '1')
-            ->get();
+        if(Auth::check()) {
+            if(Auth::user()->nivel == 1) {
+                return DB::table('users')
+                    ->where('nivel', '=', '1')
+                    ->get();
+            }
+        }
+
     }
 
     public static function count_orders()
@@ -70,9 +82,14 @@ class User extends Authenticatable
 
     public static function delete_user($id)
     {
-        return DB::table('users')
-            ->where('id', '=', $id)
-            ->delete();
+        if(Auth::check()) {
+            if(Auth::user()->nivel == 1) {
+                return DB::table('users')
+                    ->where('id', '=', $id)
+                    ->delete();
+            }
+        }
+
     }
 
 }

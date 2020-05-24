@@ -18,7 +18,7 @@
     <div class="container" id="divAll">
         <table class="table table-responsive table-striped" id="tableUsers">
             <tr id="th">
-                <th class="text-danger"> ID usuário </th>
+                <th class="text-danger"> Usuário </th>
                 <th class="text-danger"> Nº pedido </th>
                 <th class="text-danger"> Pedido </th>
                 <th class="text-danger"> Preço </th>
@@ -28,7 +28,28 @@
             @foreach($query as $row)
 
                 <tr id="td">
-                    <td>{{ $row->order_user_id }}</td>
+                    <td>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalUser{{$row->order_user_id}}">
+                            Usuário
+                        </button>
+                        <div class="modal fade" id="modalUser{{$row->order_user_id}}" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="modal-body" style="text-align: left">
+                                            <strong class="col-md-12"> Nome: </strong> {{ $row->name }} <br>
+                                            <strong class="col-md-12"> Email: </strong> {{ $row->email }} <br>
+                                            <strong class="col-md-12"> Contato: </strong> {{ $row->telefone }} <br>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></td>
                     <td>{{ $row->num_pedido }}</td>
                     <td>{{ $row->order_name }}</td>
                     <td>R$ {{ number_format($row->order_price, '2', ',', '.') }}</td>

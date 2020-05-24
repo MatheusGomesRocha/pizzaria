@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="container" id="divAll">
-        <table class="table table-responsive table-striped " id="tableUsers">
+        <table class="table table-responsive table-striped " id="tableUsersUs">
             <tr id="th">
                 <th class="text-danger"> Nome</th>
                 <th class="text-danger"> Email</th>
@@ -67,9 +67,9 @@
                                             </select>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
+                                            <button type="submit" class="btn btn-primary">Editar</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar
                                             </button>
-                                            <button type="submit" class="btn btn-primary">Salvar mudanças</button>
                                         </div>
                                     </form>
                                 </div>
@@ -77,7 +77,30 @@
                         </div>
                     </td>
                     <td>
-                        <a class="btn btn-danger" href="delete_user/{{$row->id}}"><i class="nav-icon fas fa-trash"></i></a>
+                        <button id="btnEditUser" class="btn btn-danger" data-toggle="modal"
+                                data-target="#modalDelete{{$row->id}}"><i class="nav-icon fas fa-trash"></i></button>
+                        <div class="modal fade" id="modalDelete{{$row->id}}" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Usuário: {{ $row->name }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h2> Tem certeza que deseja excluir este usuário? </h2>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{{ asset("admin/delete_user/{$row->id}") }}" class="btn btn-danger">
+                                            Excluir </a>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
 
                 </tr>

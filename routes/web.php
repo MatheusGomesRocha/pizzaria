@@ -16,7 +16,7 @@ Route::fallback(function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cardapio', 'HomeController@cardapio')->name('cardapio');
-Route::get('/product_info/{id}', 'ProductController@product_info');
+Route::get('/product/id={id}', 'ProductController@product_info');
 
 /* ****** LOGIN ******* */
 Route::get('/login', 'UserController@login')->name('login');

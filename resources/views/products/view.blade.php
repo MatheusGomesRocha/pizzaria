@@ -27,9 +27,9 @@
 @section('content')
     <div class="container " id="divAll">
         <button id="btnAdd" class="btn btn-success" data-toggle="modal"
-                data-target="#modalExemplo"> + Adicionar Produtos
+                data-target="#modalCadastro"> + Adicionar Produtos
         </button>
-        <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog"
+        <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" id="modalForm">
@@ -218,8 +218,32 @@
                             <td class="text-danger"> #</td>
                         @endif
 
-                        <td><a href="/admin/delete_product/{{ $row->id }}" class="btn btn-danger"><i
-                                    class="fas fa-trash"></i> </a></td>
+                        <td>
+                            <button id="btnEditUser" class="btn btn-danger" data-toggle="modal"
+                                     data-target="#modalExemplo{{$row->id}}"><i class="nav-icon fas fa-trash"></i></button>
+                            <div class="modal fade" id="modalExemplo{{$row->id}}" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Produto: {{ $row->name }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h2> Tem certeza que deseja excluir este item? </h2>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{ asset("admin/delete_product/{$row->id}") }}" class="btn btn-danger">
+                                                Excluir </a>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
             @endforeach
         </table>

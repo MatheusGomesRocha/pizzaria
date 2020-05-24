@@ -157,7 +157,7 @@
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"
-                               href="{{ asset("product_info/{$row->id}") }}">
+                               href="{{ asset("product/id={$row->id}") }}">
                                 Pedir
                             </a>
                         </div>
@@ -181,7 +181,7 @@
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"
-                               href="{{ asset("product_info/{$row->id}") }}">
+                               href="{{ asset("product/id={$row->id}") }}">
                                 Pedir
                             </a>
                         </div>
@@ -205,7 +205,7 @@
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"
-                               href="{{ asset("product_info/{$row->id}") }}">
+                               href="{{ asset("product/id={$row->id}") }}">
                                 Pedir
                             </a>
                         </div>

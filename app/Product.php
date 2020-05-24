@@ -32,7 +32,7 @@ class Product extends Authenticatable
     public static function delete_product($id)
     {
         if (Auth::check()) {
-            if (Auth::user()->nivel == 2) {
+            if (Auth::user()->nivel == 1) {
                 return DB::table('products')
                     ->where('id', '=', $id)
                     ->delete();

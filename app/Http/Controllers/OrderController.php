@@ -168,10 +168,12 @@ class OrderController extends Controller
 
                     $id = Auth::user()->id;
                     $data = [
-                        'user_id' => $id,
+                        'adress_user_id' => $id,
                         'cep' => $request1->input('cep'),
                         'bairro' => $request1->input('bairroHidden'),
+                        'bairro' => $request1->input('bairro'),
                         'rua' => $request1->input('ruaHidden'),
+                        'rua' => $request1->input('rua'),
                         'numero' => $request1->input('number'),
                         'complemento' => $request1->input('complemento'),
                         'referencia' => $request1->input('referencia'),
@@ -608,7 +610,7 @@ class OrderController extends Controller
                 $query = Order::get_orders_admin();
 
 
-                return view('orders.pendent')->with('count', $count)->with('query', $query);
+                return view('orders.admin_view')->with('count', $count)->with('query', $query);
             } else {
                 return view('error.404');
             }
@@ -627,29 +629,20 @@ class OrderController extends Controller
             }
         }
 
-        public
-        function ingredients_all()   // INGREDIENTES VIEW
-        {
-            if (Auth::user()->nivel == 1) {
-                $count = User::count_orders();
-                $query = Order::get_ingredients();
-
-                return view('products.view_ingredient')->with('count', $count)->with('query', $query);
-            } else {
-                return view('error.404');
-            }
-        }
-
 
         private
         function validation1($data1)
         {
             $regras1 = [
                 'cep' => 'required',
+                'bairro' => 'required',
+                'rua' => 'required',
             ];
 
             $mensagens1 = [
                 'cep.required' => 'preencha o CEP',
+                'bairro.required' => 'preencha o bairro',
+                'rua.required' => 'preencha o bairro',
             ];
 
             return Validator::make($data1, $regras1, $mensagens1);
