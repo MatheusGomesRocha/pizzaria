@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #footer { /* Rodapé */
-    background-color: #121618 !important;
+    background-color: #343434 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 #navbarTemplate { /* Div pai */
-    background-color: #121618 !important;
+    background-color: #343434 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -62,7 +62,7 @@
 }
 
 #userDropdown { /* Dropdown do usuário */
-    background-color: #FAC564 !important;
+    background-color: #E1AA7D !important;
 }
 
 #myOrders, #logout, #myAccount { /* Links dentro do dropdown */
@@ -79,7 +79,7 @@
 }
 
 #home:hover, #about:hover, #local:hover, #staff:hover, #login:hover { /* Links home, sobre, localização e funcionários (ao passar mouse em cima */
-    color: #FAC564 !important;
+    color: #E1AA7D !important;
     transition: all 0.3s;
 }
 

@@ -18,12 +18,12 @@
 
 
 #infoRes {     /* DIV FILHA COM AS INFOS DO RESTURANTE */
-    background-color: #000;
+    background-color: #364156;
     padding: 20px;
 }
 
 #accounts {     /* DIV FILHA COM AS REDES SOCIAIS */
-    background-color: #FAC564;
+    background-color: #E1AA7D;
     padding: 20px;
 }
 
@@ -46,13 +46,11 @@
 #textRestaurant {   /* TEXTO SOBRE O RESTURANTE */
     color: #fff;
     padding: 15px;
-    visibility: hidden;
 }
 
 #title {    /* TÍTULO DO TEXTO SOBRE O RESTAURANTE */
     padding: 15px;
     color: #fff;
-    visibility: hidden;
 }
 
 
@@ -62,12 +60,13 @@
 /* DIV DE SERVIÇOS */
 
 #services {     /* DIV PAI SERVIÇOS */
-    background: #FAC564;
+    background-color: #6A2E35;
 }
 
 #servTitle {    /* TÍTULO DA DIV */
     visibility: hidden;
     padding: 50px;
+    color: #F5DFBB;
 }
 
 #servText {     /* TEXTO DA DIV */
@@ -75,7 +74,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
     text-align: center;
-    color: #7E5B18;
+    color: #F5DFBB;
 }
 
 #pizza, #chips, #drink {    /* DIV COM ÍCONE ANIMADO */
@@ -89,19 +88,21 @@
     width: 100px;
     height: 100px;
     border: 1px solid;
+    color: #F5DFBB;
 }
 
-#pizzaTitle, #chipsTitle, #drikTitle {      /* TÍTULOS */
+#pizzaTitle, #chipsTitle, #drinkTitle {      /* TÍTULOS */
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
     text-align: center;
+    color: #F5DFBB;
 }
 
 #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
     text-align: center;
     font-size: 20px;
     font-family: 'Roboto Condensed', sans-serif;
-    color: #7E5B18;
+    color: #F5DFBB;
 }
 
 .content1 {         /* CLASSE PARA DEIXAR TODOS HIDDEN */
@@ -109,70 +110,10 @@
 }
 
 
-
-
-
-/* ÁREA DO CARDÁPIO EM OUTRA PÁGINA */
-
-
-
-#cardapio {     /* DIV ONDE FICA O MENU DE COMPRA */
-    margin-top: 100px;
-}
-
-
-
-#divImgCardapio {       /* DIV DAS IMAGENS DAS PIZZAS VINDAS DO BD */
-    margin-top: 10px;
-}
-
-#imgCardapio {   /* IMAGEM DAS PIZZAS VINDO DO BD */
-    width: 250px;
-    height: 240px;
-    margin-left: -7px;
-}
-
-#cardapioText {      /* TEXTO SOBRE O PRODUTO VINDO DO BD */
-    margin-top: 10px;
-    background-color: rgba(0, 0, 0, 0.07);
-}
-
-#cardapioName {      /* NOME DO PRODUTO VINDO DO BD */
-    font-size: 24px;
-    text-transform: uppercase;
-}
-
-#cardapioDescription {       /* DESCRIÇÃO DO PRODUTO VINDO DO BD */
-    text-align: left;
-    color: #757576;
-}
-
-#cardapioPrice {         /* PREÇO DO PRODUTO VINDO DO BD */
-    color: #FAC564;
-    font-size: 20px;
-}
-
-#btnPedir {         /* BOTÃO DE FAZER PEDIDO */
-    margin-left: 10px;
-    color: #fff;
-    border: 1px solid #fff;
-    font-size: 18px;
-    width: 100px;
-}
-
-#btnPedir:hover {           /* AO PASSAR O MOUSE EM CIMA DO BOTÃO PEDIR */
-    background-color: #FAC564;
-    color: #000;
-}
-
-
-
-
-
 /* ÁREA DOS MAIS PEDIDOS COMO UM MINI-MENU */
 
 #allHome3 {     /* DIV PAI */
-    background: url("../img/black.jpg");
+    background-color: #364156;
     color: #fff;
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -188,7 +129,7 @@
     font-size: 26px;
     text-align: center;
     text-justify: auto;
-    color: #757576;
+    color: #fff;
 }
 
 #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
@@ -220,29 +161,28 @@
     margin-top: 20px;
     color: #fff;
     text-align: center;
-    color: #757576;
 }
 
 #priceProduct, #priceProduct1 {         /* PREÇO DO PRODUTO VINDO DO BD */
-    color: #FAC564;
+    color: #E1AA7D;
     margin-top: 20px;
     font-size: 20px;
 }
 
 #btnPizza, #btnBurger, #btnDrink, #btnCardapio {      /* BOTÕES DO MINI-MENU */
     padding: 10px;
-    color: #FAC564;
-    border: 1px solid #FAC564;
+    color: #E1AA7D;
+    border: 1px solid #E1AA7D;
     font-size: 18px;
 }
 
 #btnPizza {     /* MUDAR ISSO PARA JS PARA COMEÇAR COM O #BTNPIZZA COM ESSE STYLE */
-    background-color: #FAC564;
+    background-color: #E1AA7D;
     color: #000;
 }
 
 #btnPizza:hover, #btnBurger:hover, #btnDrink:hover, #btnCardapio:hover {        /* AO PASSAR O MOUSE EM CIMA DOS BOTÕES */
-    background-color: #FAC564;
+    background-color: #E1AA7D;
     color: #000;
 }
 
@@ -250,15 +190,28 @@
     margin-bottom: 200px;
 }
 
+#btnPedir {            /* BUTTON DE PEDIDO DENTRO DO FOREACH */
+    width: 80px;
+    color: #E1AA7D;
+    border: 1px solid #E1AA7D;
+    font-size: 18px;
+}
 
+#btnPedir:hover {
+    background-color: #E1AA7D;
+    color: #000;
+}
 
 
 /* HOME DO ADMIN */
 
 
-
-
 @media(min-width: 360px) and (max-width: 575.8px) {
+    #imgPromo {
+        margin-top: 50px;
+        height: 110px;
+    }
+
     #time {
         text-align: center;
     }
@@ -286,23 +239,19 @@
     }
 
     #pizzaTitle, #chipsTitle, #drinkTitle {
-        padding: 30px;
+        padding: 20px;
     }
 
     #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
-        padding: 30px;
+        padding: 10px;
     }
 
     #home3Title {
         text-align: center;
     }
 
-    #divImgCardapio, #cardapioText {
-        margin-top: 20px;
-    }
-
     #btnCardapio {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     #btns {
@@ -350,8 +299,8 @@
 
     #iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
         border: none;
-        color: #fff;
-        background-color: #000;
+        color: #F5DFBB;
+        background-color: #0E9594;
         transform: rotateY(360deg);
         transition: 0.7s;
     }
@@ -362,19 +311,6 @@
 
     #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
         padding: 70px;
-    }
-
-    #cardapioName, #cardapioDescription {      /* NOME DO PRODUTO VINDO DO BD */
-        padding: 20px;
-    }
-
-    #cardapioPrice {         /* PREÇO DO PRODUTO VINDO DO BD */
-        padding: 15px;
-    }
-
-    #cardapioText {
-        width: 280px;
-        height: 240px;
     }
 
     #btns {
@@ -406,6 +342,11 @@
 }
 
 @media(min-width: 1200px) {
+    #imgPromo {
+        margin-top: 100px;
+        height: 500px;
+    }
+
     #horarioTime {
         margin-left: 45px;
     }
@@ -420,8 +361,8 @@
 
     #iPizza:hover, #iChips:hover, #iDrink:hover {   /* AO PASSAR O MOUSE EM CIMA DO ÍCONE */
         border: none;
-        color: #fff;
-        background-color: #000;
+        color: #F5DFBB;
+        background-color: #AD2831;
         transform: rotateY(360deg);
         transition: 0.7s;
     }
@@ -432,19 +373,6 @@
 
     #pizzaText, #chipsText, #drinkText {        /* TEXTOS */
         padding: 70px;
-    }
-
-    #cardapioText {
-        width: 280px;
-        height: 240px;
-    }
-
-    #cardapioName, #cardapioDescription {      /* NOME DO PRODUTO VINDO DO BD */
-        padding: 20px;
-    }
-
-    #cardapioPrice {         /* PREÇO DO PRODUTO VINDO DO BD */
-        padding: 15px;
     }
 
     #btns {

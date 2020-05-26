@@ -22,23 +22,24 @@
 
     <div class="container-fluid" id="divCardapioAll">
         <div id="cardapio" class="row animated">
+            <h1 id="titleCardapio" class="col-md-12 col-12 d-flex justify-content-center"> Cardápio </h1>
             <div id="btnsCardapio">
-                <button class="btn" id="btnPizza" onclick="pizza()"> Pizza</button>
-                <button class="btn" id="btnBurger" onclick="burger()"> Burger</button>
-                <button class="btn" id="btnDrink" onclick="drink()"> Drink</button>
+                <button class="btn" id="btnPizzaCardapio" onclick="pizza()"> Pizza</button>
+                <button class="btn" id="btnBurgerCardapio" onclick="burger()"> Burger</button>
+                <button class="btn" id="btnDrinkCardapio" onclick="drink()"> Drink</button>
             </div>
 
-            <div class="col-md-12" id="divPaiCardapio">
+            <div class="col-md-12 col-12" id="divPaiCardapio">
                 @foreach($pizza as $row)
-                    <div class="col-md-3" id="divFilhaCardapio">
+                    <div class="col-md-3 col-12" id="divFilhaCardapio">
                         <div class="col-md-6 col-6" id="divImgCardapio" style="float: left">
                             <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
                         </div>
                         <div class="col-md-6 col-6" id="cardapioText" style="float: right">
-                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                            <div class="col-md-12">
-                            <span class="col-md-6" id="cardapioPrice"> R$
+                            <span class="col-md-12 col-12" id="cardapioName"> {{ $row->name }}</span>
+                            <p class="col-md-12 col-12" id="cardapioDescription">{{ $row->description }}</p>
+                            <div class="col-md-12 col-12">
+                            <span class="col-md-6 col-12" id="cardapioPrice"> R$
                                 @if($row->price_md)
                                     {{ $row->price_md }}
                                 @endif
@@ -51,7 +52,7 @@
                                     @endif
                                 @endif
                             </span>
-                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                <a class="btn col-md-6 col-12" id="btnPedir0" href="{{ asset("/product/id={$row->id}") }}">
                                     Pedir</a>
                             </div>
                         </div>
@@ -65,16 +66,16 @@
                         <div class="col-md-6 col-6" id="divImgCardapio1" style="float: left">
                             <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
                         </div>
-                        <div class="col-md-6 col-6" id="cardapioText">
-                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                            <div class="col-md-12">
-                            <span class="col-md-6" id="cardapioPrice"> R$
+                        <div class="col-md-6 col-6" id="cardapioText1">
+                            <span class="col-md-12 col-12" id="cardapioName1"> {{ $row->name }}</span>
+                            <p class="col-md-12 col-12" id="cardapioDescription1">{{ $row->description }}</p>
+                            <div class="col-md-12 col-12">
+                            <span class="col-md-6 col-12" id="cardapioPrice1"> R$
                                 @if($row->price)
                                     {{ $row->price }}
                                 @endif
                             </span>
-                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                <a class="btn col-md-6 col-12" id="btnPedir1" href="{{ asset("/product/id={$row->id}") }}">
                                     Pedir</a>
                             </div>
                         </div>
@@ -88,16 +89,16 @@
                         <div class="col-md-6 col-6" id="divImgCardapio2" style="float: left">
                             <img class="img-fluid" src="{{ url("storage/products/{$row->img}") }}" id="imgCardapio">
                         </div>
-                        <div class="col-md-6 col-6" id="cardapioText">
-                            <span class="col-md-12" id="cardapioName">{{ $row->type }} {{ $row->name }}</span>
-                            <p class="col-md-12" id="cardapioDescription">{{ $row->description }}</p>
-                            <div class="col-md-12">
-                            <span class="col-md-6" id="cardapioPrice"> R$
+                        <div class="col-md-6 col-6" id="cardapioText2">
+                            <span class="col-md-12 col-12" id="cardapioName2"> {{ $row->name }}</span>
+                            <p class="col-md-12 col-12" id="cardapioDescription2">{{ $row->description }}</p>
+                            <div class="col-md-12 col-12">
+                            <span class="col-md-6 col-12" id="cardapioPrice2"> R$
                                 @if($row->price)
                                     {{ $row->price }}
                                 @endif
                             </span>
-                                <a class="btn col-md-6" id="btnPedir" href="{{ asset("/product/id={$row->id}") }}">
+                                <a class="btn col-md-6 col-12" id="btnPedir2" href="{{ asset("/product/id={$row->id}") }}">
                                     Pedir</a>
                             </div>
                         </div>

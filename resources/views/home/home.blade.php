@@ -22,13 +22,13 @@
 @section('content')
     <div id="allHome">
         <div class="container-fluid" id="imgMark">
-            <img src="{{ asset('img/promoção1.jpg') }}">
+            <img id="imgPromo" class="img-fluid" src="{{ asset('img/promoção1.jpg') }}">
         </div>
 
         <div class="container-fluid">
             <div class="row" id="divResAcc">
                 <div class="col-md-8 col-12" id="infoRes">
-                    <div id="texts" class="d-flex justify-content-center animated" style="visibility: hidden;">
+                    <div id="texts" class="d-flex justify-content-center animated fadeInUp">
                         <div class="col-md-3 col-4" id="phone">
                             <i class="fas fa-phone" id="iPhone"></i>&nbsp;&nbsp;&nbsp;
                             <span> (11) 11111-1111 </span>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-12" id="accounts">
-                    <div class="d-flex justify-content-center animated" id="textSocial" style="visibility: hidden">
+                    <div class="d-flex justify-content-center animated fadeInUp" id="textSocial">
                         <div class="col-md-3 col-3" id="insta">
                             <a id="instagram">Intagram</a>
                         </div>
@@ -67,9 +67,9 @@
                 <img class="img-fluid" id="imgRestaurant" src="{{ asset('img/restaurante.jpg') }}">
             </div>
             <div class="col-md-6" id="divTextRestaurant">
-                <h3 id="title" class="d-flex justify-content-center col-md-12 animated">WELCOME TO PIZZA A
+                <h3 id="title" class="d-flex justify-content-center col-md-12 animated" style="visibility: hidden;">WELCOME TO PIZZA A
                     RESTAURANT</h3>
-                <span class="d-flex justify-content-center col-md-12 animated" id="textRestaurant">
+                <span class="d-flex justify-content-center col-md-12 animated" id="textRestaurant" style="visibility: hidden;">
                         On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
                 </span>
             </div>

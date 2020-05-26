@@ -1,32 +1,49 @@
-#divCardapioAll {
-    background: url("../img/black.jpg");
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-#cardapio {     /* DIV ONDE FICA O MENU DE COMPRA */
-    margin-top: 100px;
+#divCardapioAll {       /* BODY */
+    background-color: #364156;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-#btnsCardapio {
-    margin-left: 140px;
-    margin-top: 60px;
+#titleCardapio {
+    color: #fff;
 }
 
-#divPaiCardapio, #divPaiCardapio1, #divPaiCardapio2 {
+#btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+#btnPizzaCardapio {
+    background-color: #fff;
+    color: #000;
+}
+
+#btnPizzaCardapio:hover, #btnBurgerCardapio:hover, #btnDrinkCardapio:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+#divPaiCardapio, #divPaiCardapio1, #divPaiCardapio2 {       /* DIV FORA DO FOREACH */
     margin-top: 60px;
     margin-bottom: 500px;
 }
 
-#divPaiCardapio1, #divPaiCardapio2 {            /*DIV FORA DO FOREACH */
+#divPaiCardapio1, #divPaiCardapio2 {            /*DIV FORA DO FOREACH ESCONDIDA */
     display: none;
 }
 
 #divFilhaCardapio, #divFilhaCardapio1, #divFilhaCardapio2 {         /* DIV DENTRO DO FOREACH */
     display: inline-block;
-    margin-left: 150px;
     margin-top: 15px;
 }
 
-#divImgCardapio {       /* DIV DAS IMAGENS DAS PIZZAS VINDAS DO BD */
+#divImgCardapio, #divImgCardapio1, #divImgCardapio2 {       /* DIV DAS IMAGENS DAS PIZZAS VINDAS DO BD */
     margin-top: 10px;
 }
 
@@ -36,38 +53,161 @@
     margin-left: -7px;
 }
 
-#cardapioText {      /* TEXTO SOBRE O PRODUTO VINDO DO BD */
+#cardapioText, #cardapioText1, #cardapioText2 {      /* TEXTO SOBRE O PRODUTO VINDO DO BD */
     margin-top: 10px;
     float: right;
 }
 
-#cardapioName {      /* NOME DO PRODUTO VINDO DO BD */
+#cardapioName, #cardapioName1, #cardapioName2 {      /* NOME DO PRODUTO VINDO DO BD */
     font-size: 24px;
     text-transform: uppercase;
     color: #fff;
 }
 
-#cardapioDescription {       /* DESCRIÇÃO DO PRODUTO VINDO DO BD */
+#cardapioDescription, #cardapioDescription1, #cardapioDescription2 {       /* DESCRIÇÃO DO PRODUTO VINDO DO BD */
     text-align: left;
-    color: #757576;
+    color: #fff;
 }
 
-#cardapioPrice {         /* PREÇO DO PRODUTO VINDO DO BD */
-    color: #FAC564;
+#cardapioPrice, #cardapioPrice1, #cardapioPrice2 {         /* PREÇO DO PRODUTO VINDO DO BD */
+    color: #E1AA7D;
     font-size: 20px;
 }
 
-#btnPedir {         /* BOTÃO DE FAZER PEDIDO */
+#btnPedir0, #btnPedir1, #btnPedir2 {         /* BOTÃO DE FAZER PEDIDO */
     margin-left: 10px;
-    color: #fff;
-    border: 1px solid #fff;
+    color: #E1AA7D;
+    border: 1px solid #E1AA7D;
     font-size: 18px;
     width: 100px;
 }
 
-#btnPedir:hover {           /* AO PASSAR O MOUSE EM CIMA DO BOTÃO PEDIR */
-    background-color: #FAC564;
+#btnPedir0:hover, #btnPedir1:hover, #btnPedi2:hover {           /* AO PASSAR O MOUSE EM CIMA DO BOTÃO PEDIR */
+    background-color: #E1AA7D;
     color: #000;
 }
 
+@media(min-width: 360px) and (max-width: 575.8px) {
+    #titleCardapio {
+        margin-top: 120px;
+    }
+
+    #btnsCardapio {
+        margin-top: 100px;
+        margin-left: 20px;
+    }
+
+    #btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {
+        margin-left: 20px;
+        width: 80px;
+    }
+
+    #btnPedir0, #btnPedir1, #btnPedir2 {
+        margin-top: 10px !important;
+    }
+
+    #cardapioName, #cardapioName1, #cardapioName2 {
+        font-size: 22px;
+    }
+
+    #cardapioText, #cardapioText1, #cardapioText2 {
+        width: 280px;
+        height: 240px;
+    }
+
+    #btnPizza, #btnBurger, #btnDrink {      /* BOTÕES DO MINI-MENU */
+        margin-left: 30px;
+        width: 80px;
+    }
+
+    #imgPizza, #imgBurger, #imgDrink {     /* IMAGENS VINDAS DO BD */
+        margin-left: 75px;
+    }
+
+    #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
+        margin-top: -130px;
+    }
+
+
+}
+
+@media(min-width: 576px) and (max-width: 767.8px) {
+
+}
+
+@media(min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media(min-width: 998px) and (max-width: 1199.8px) {
+    #divPaiCardapio, #divPaiCardapio1, #divPaiCardapio2 {
+        margin-left: 150px;
+    }
+
+    #btnsCardapio {
+        margin-left: 140px;
+        margin-top: 60px;
+    }
+
+    #cardapioText, #cardapioText1, #cardapioText2 {
+        width: 280px;
+        height: 240px;
+    }
+
+    #cardapioName, #cardapioDescription {      /* NOME DO PRODUTO VINDO DO BD */
+        padding: 20px;
+    }
+
+    #cardapioPrice {         /* PREÇO DO PRODUTO VINDO DO BD */
+        padding: 15px;
+    }
+
+    #btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {      /* BOTÕES DO MINI-MENU */
+        margin-left: 25px;
+        width: 100px;
+        font-size: 20px;
+    }
+
+    #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
+        margin-left: 150px;
+    }
+
+}
+
+@media(min-width: 1200px) {
+    #btnsCardapio {
+        margin-left: 140px;
+        margin-top: 150px;
+    }
+
+    #cardapioText, #cardapioText1, #cardapioText2 {
+        width: 280px;
+        height: 240px;
+    }
+
+    #cardapioName, #cardapioName1, #cardapioName2, #cardapioDescription, #cardapioDescription1, #cardapioDescription2 {      /* NOME DO PRODUTO VINDO DO BD */
+        padding: 20px;
+    }
+
+    #cardapioPrice, #cardapioPrice1, #cardapioPrice2 {         /* PREÇO DO PRODUTO VINDO DO BD */
+        padding: 15px;
+    }
+
+    #btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {      /* BOTÕES DO MINI-MENU */
+        margin-left: 25px;
+        width: 100px;
+        font-size: 20px;
+    }
+
+
+    #divFilhaCardapio, #divfilhaCardapio1, #divFilhaCardapio2 {       /* DIV DENTRO DO FOREACH */
+        margin-left: 150px;
+        border: 1px solid #000;
+    }
+
+    #titleCardapio {
+        margin-top: 150px;
+
+    }
+}
 
