@@ -1,29 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
-#divAllProduct {
+#divAllProduct {            /* DIV PAI DE TODA A PÁGINA */
     margin-top: 100px;
-    margin-bottom: 100px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-#left {
+#left {             /* DIV NA ESQUERDA (IMG E INFO DO PRODUTO) */
     padding: 20px;
 }
 
-#right {
+#right {        /* DIV NA DIREITA (COMPRAR, ESCOLHER TAMANHO E PREÇO */
     padding: 20px;
 }
 
-#imgBD {
+#divImgInfo {       /* DIV PAI DA #LEFT E #RIGHT */
     margin-top: 40px;
-    width: 450px;
-    height: 450px;
 }
 
-#qtdDiv {
+#info {         /* TIPO E NOME DO PRODUTO */
+    padding: 15px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+}
+
+#infoDescription {      /* DESCRIÇÃO DO PRODUTO ABAIXO DA DIV #INFO */
+    font-size: 18px;
+    padding: 15px;
+}
+
+#textTamanho, #qtdSpan {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#qtdDiv {       /* DIV PARA MUDAR QUANTIDADE */
     display: inline-block;
 }
 
-#qtd {
+#qtd {      /* INPUT COM O VALOR DA QUANTIDADE DENTRO DA DIV #qtdDiv */
     width: 30px;
     text-align: center;
     background-color: transparent;
@@ -31,45 +46,40 @@
     font-size: 20px;
 }
 
-#qtdLess, #qtdPlus {
+#qtdLess, #qtdPlus {        /* SINAIS DE MENOS E MAIS PARA DIMINUIR OU AUMENTAR QUANTIDADE */
     font-size: 20px;
     font-weight: bold;
 }
 
-#info {
-    text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 24px;
-}
-
-#p, #m, #g, #meia, #inteira {
+#p, #m, #g {       /* INPUTS PARA ESCOLHER O TAMANHO (SE HOUVER) */
     display: none;
 }
 
-#form {
+#labelM {
+    background-color: #d7dadd;
+}
+
+#form {     /* DIV DO FORMULÁRIO */
     margin-top: 70px
 }
 
-#textPrice {
+#textPrice {        /* TEXTO QUE CONTÉM O PREÇO */
     border: none;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 24px;
     background-color: transparent;
 }
 
-#textPrice:disabled {
-}
-
-#textPrice::placeholder {
+#textPrice::placeholder {       /* PLACEHOLDER DO TEXTO QUE CONTEM O PREÇO */
     color: #000;
 }
 
-#priceDiv {
+#priceDiv {     /* DIV PAI DE TODAS AS DIVS DE PREÇO */
     margin-top: 40px;
 }
 
-#btnFinish {
-    background-color: #ac2331 !important;
+#btnFinish {        /* BUTTON PARA COMPRAR */
+    background-color: #F03A47 !important;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 26px;
     border: none;
@@ -77,6 +87,50 @@
     width: 100%;
 }
 
-#btnFinish:hover {
+#btnFinish:hover {      /* BUTTON PARA COMPRAR AO PASSAR MOUSE EM CIMA */
     background-color: #821d29 !important;
+}
+
+@media (min-width: 360px) and (max-width: 575.8px) {
+    #divAllProduct {            /* DIV PAI DE TODA A PÁGINA */
+        margin-bottom: 200px;
+    }
+
+    #qtdSpan {
+        margin-top: 50px !important;
+    }
+
+    #info {
+        text-align: center;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 997.8px) {
+
+}
+
+@media (min-width: 998px) and (max-width: 1199.8px) {
+    #imgBD {            /* IMG DENTRO DA DIV #LEFT */
+        width: 600px;
+        height: 600px;
+    }
+
+    #divAllProduct {            /* DIV PAI DE TODA A PÁGINA */
+        margin-bottom: 300px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #imgBD {            /* IMG DENTRO DA DIV #LEFT */
+        width: 600px;
+        height: 600px;
+    }
+
+    #divAllProduct {            /* DIV PAI DE TODA A PÁGINA */
+        margin-bottom: 300px;
+    }
 }

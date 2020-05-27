@@ -41,14 +41,14 @@
                             <div class="col-md-12 col-12">
                             <span class="col-md-6 col-12" id="cardapioPrice"> R$
                                 @if($row->price_md)
-                                    {{ $row->price_md }}
+                                    {{ number_format($row->price_md, '2', ',', '0') }}
                                 @endif
                                 @if($row->price_md == false)
                                     @if($row->price_sm)
-                                        {{ $row->price_sm }}
+                                        {{ number_format($row->price_sm, '2', ',', '0') }}
                                     @endif
-                                    @if($row->price_sm == false)
-                                        {{ $row->price_lg }}
+                                    @if($row->price_sm == false && $row->price_md == false)
+                                            {{ number_format($row->price_lg, '2', ',', '0') }}
                                     @endif
                                 @endif
                             </span>
@@ -72,7 +72,7 @@
                             <div class="col-md-12 col-12">
                             <span class="col-md-6 col-12" id="cardapioPrice1"> R$
                                 @if($row->price)
-                                    {{ $row->price }}
+                                    {{ number_format($row->price, '2', ',', '0') }}
                                 @endif
                             </span>
                                 <a class="btn col-md-6 col-12" id="btnPedir1" href="{{ asset("/product/id={$row->id}") }}">
@@ -95,7 +95,7 @@
                             <div class="col-md-12 col-12">
                             <span class="col-md-6 col-12" id="cardapioPrice2"> R$
                                 @if($row->price)
-                                    {{ $row->price }}
+                                    {{ number_format($row->price, '2', ',', '0') }}
                                 @endif
                             </span>
                                 <a class="btn col-md-6 col-12" id="btnPedir2" href="{{ asset("/product/id={$row->id}") }}">

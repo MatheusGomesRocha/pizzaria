@@ -93,7 +93,7 @@
 
     #countIcon { /* Número que veio da variável count (Posição diferente da que está na responsividade 998px */
         position: absolute;
-        left: 332px;
+        left: 330px;
         top: 8px;
     }
 
@@ -162,8 +162,8 @@
 
     #countIcon { /* Número que veio da variável count */
         position: absolute;
-        left: 2372px;
-        top: 18px;
+        left: 1715px;
+        top: 20px;
     }
 
     #logoMobile {

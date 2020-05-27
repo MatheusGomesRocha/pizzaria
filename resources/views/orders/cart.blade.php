@@ -23,8 +23,8 @@
             Carrinhos de compras
         </span>
             <span class="col-md-12" id="titleCart">
-            Seu carrinho de compras possui {{ $count }} pedidos pendentes
-        </span>
+                Seu carrinho de compras possui {{ $count }} pedidos pendentes
+            </span>
             <span class="col-md-12" id="text"> Confira seu pedido e altere a quantidade se necessário. </span>
             <small class="col-md-12"> Ao efetuar seu pedido, você concorda com a Notificação de Privacidade e as
                 Condições
@@ -47,7 +47,7 @@
                         <tr id="tbodyCart">
                             <td width="80"><img id="productImg" class="img-fluid"
                                                 src='{{ url("storage/products/{$row->img}") }}'></td>
-                            <td id="productNameCart"> {{ $row->type }} {{ $row->name }} </td>
+                            <td id="productNameCart"> {{ $row->type }} {{ $row->name }} - {{ $row->size }}</td>
                             <td id="productQtdCart"> {{ $row->quantidade }} </td>
                             <td> R$ {{ number_format($row->product_price, '2', ',', '0') }} </td>
                             <td>

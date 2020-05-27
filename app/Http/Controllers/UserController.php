@@ -116,13 +116,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validation1->errors())->withInput($request->all());
         }
 
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', Auth::user()->id)
-                ->update(['name' => $request->inputName]);
+                ->update(['name' => $request->input('inputName')]);
 
             session::flash('success', 'nome editado com sucesso');
             return redirect()->back();
@@ -137,13 +137,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validation2->errors())->withInput($request->all());
         }
 
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', Auth::user()->id)
-                ->update(['email' => $request->inputEmail]);
+                ->update(['email' => $request->input('inputEmail')]);
 
             session::flash('success', 'Email editado com sucesso');
             return redirect()->back();
@@ -158,13 +158,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validation3->errors())->withInput($request->all());
         }
 
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', Auth::user()->id)
-                ->update(['telefone' => $request->inputPhone]);
+                ->update(['telefone' => $request->input('inputPhone')]);
 
             session::flash('success', 'Telefone editado com sucesso');
             return redirect()->back();
@@ -179,13 +179,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validation4->errors())->withInput($request->all());
         }
 
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', Auth::user()->id)
-                ->update(['password' => hash::make($request->inputNewPass)]);
+                ->update(['password' => hash::make($request->input('inputNewPass'))]);
 
 
             session::flash('success', 'Senha editada com sucesso');
@@ -201,16 +201,24 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validation5->errors())->withInput($request->all());
         }
 
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
-            DB::table('users')
-                ->where('id', '=', Auth::user()->id)
-                ->update(['user' => $request->inputUser]);
+            $select = DB::table('users')
+                ->where('user', '=', $request->input('inputUser'));
 
-            session::flash('success', 'Usuário editado com sucesso');
-            return redirect()->back();
+            if ($select == 0) {
+                DB::table('users')
+                    ->where('id', '=', Auth::user()->id)
+                    ->update(['user' => $request->input('inputUser')]);
+
+                session::flash('success', 'Usuário editado com sucesso');
+                return redirect()->back();
+            } else {
+                session::flash('error', 'Já existe um usuário com esse user');
+                return redirect()->back();
+            }
         }
     }
 
@@ -253,13 +261,13 @@ class UserController extends Controller
 
     public function admin_edit_nivel(Request $request)      // EDITA O "NÍVEL" DE UM USUÁRIO PARA ADMIN
     {
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', $request->id)
-                ->update(['nivel' => $request->nivelUser]);
+                ->update(['nivel' => $request->input('nivelUser')]);
 
             session::flash('success', 'Usuário editado com sucesso');
             return redirect()->back();
@@ -268,13 +276,13 @@ class UserController extends Controller
 
     public function admin_edit_nivel_admin(Request $request)    // EDITAR O "NÍVEL" DO ADMIN PARA USUÁRIO COMUM
     {
-        if (!Hash::check($request->inputPass, Auth::user()->password)) {
+        if (!Hash::check($request->input('inputPass'), Auth::user()->password)) {
             session::flash('error', 'Senha atual incorreta');
             return redirect()->back();
         } else {
             DB::table('users')
                 ->where('id', '=', $request->id)
-                ->update(['nivel' => $request->nivelUser]);
+                ->update(['nivel' => $request->input('nivelUser')]);
 
             session::flash('success', 'Usuário editado com sucesso');
             return redirect()->back();

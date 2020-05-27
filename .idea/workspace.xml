@@ -3,9 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="7da6e57c-7953-43f7-ad86-bf57fd969aaa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/account.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/cardapio.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cardapio.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/cardapio.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/cardapio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/orders_user.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/orders_user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/product_info.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/product_info.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/template.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/template.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/cardapio.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/cardapio.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/account.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/orders.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,18 +170,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
-      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
-      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers" />
       <recent name="C:\wamp64\www\pizzaria\app\Http\Controllers\Admin" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public\products" />
       <recent name="C:\wamp64\www\pizzaria" />
       <recent name="C:\wamp64\www\pizzaria\storage\app\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\database\migrations" />
+      <recent name="C:\wamp64\www\pizzaria\app\Auth" />
+      <recent name="C:\wamp64\www\pizzaria\vendor\laravel\framework\src\Illuminate\Foundation\Auth\Access" />
     </key>
   </component>
   <component name="RunManager">
@@ -225,7 +237,7 @@
       <workItem from="1590324017194" duration="4428000" />
       <workItem from="1590507633822" duration="6017000" />
       <workItem from="1590533969126" duration="5680000" />
-      <workItem from="1590597777341" duration="1532000" />
+      <workItem from="1590597777341" duration="9619000" />
     </task>
     <servers />
   </component>

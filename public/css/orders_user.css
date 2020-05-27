@@ -4,6 +4,13 @@
     margin-top: 30px;
 }
 
+#titleMyOrders {
+    color: #c4161c;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 #contentTop {
     background-color: #F6F6F6;
     border: 1px solid #ccc;

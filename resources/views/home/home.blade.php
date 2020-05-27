@@ -133,7 +133,7 @@
                             <div class="col-md-6">{{ $row->description }}</div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="priceProduct">
-                            R$ {{ $row->price_md }}
+                            R$ {{ number_format($row->price_md, '2', ',', '0') }}
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"
@@ -157,7 +157,7 @@
                             <div class="col-md-6">{{ $row->description }}</div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="priceProduct1">
-                            R$ {{ $row->price }}
+                            R$ {{ number_format($row->price, '2', ',', '0') }}
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"
@@ -181,7 +181,7 @@
                             <div class="col-md-6">{{ $row->description }}</div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="priceProduct1">
-                            R$ {{ $row->price }}
+                            R$ {{ number_format($row->price, '2', ',', '0') }}
                         </div>
                         <div class="col-md-12 d-flex justify-content-center" id="btnProduct">
                             <a id="btnPedir" style="margin-top: 20px" class="btn"

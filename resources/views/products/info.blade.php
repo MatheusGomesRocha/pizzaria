@@ -26,33 +26,49 @@
 @extends('layout.template')
 
 @section('content')
+    <div class="container-fluid" id="body">
     <div class="container" id="divAllProduct">
         <div class="row">
             <div id="left" class="col-md-9">
-                <div class="row">
-                    <div class="col-md-12" id="imagem">
+                <div class="row" id="divImgInfo">
+                    <div class="col-md-8 col-12" id="imagem">
                         <img id="imgBD" class="img-fluid" src='{{ url("storage/products/{$products->img}") }}'>
                     </div>
-                </div>
-            </div>
-            <div id="right" class="col-md-3">
-                <div class="row">
-                    <div class="col-md-12" id="info">
-                        <span> {{ $products->type }}</span>
-                        <span> {{ $products->name }}</span>
+                    <div class="col-md-4 col-12">
+                        <div class="col-md-12" id="info">
+                            <span> {{ $products->type }}</span>
+                            <span> {{ $products->name }}</span>
+                        </div>
+                        <div class="col-md-12 col-12" id="infoDescription">
+                            <span> {{ $products->description }}</span>
+                        </div>
                     </div>
-                    <div class="col-md-12" id="form">
+                </div>
+
+            </div>
+            <div id="right" class="col-md-3 col-12">
+                <div class="row">
+                    <div class="col-md-12 col-12" id="form">
                         <form id="formCart" method="post" action="{{ route('insert_cart') }}">
                             {{ csrf_field() }}
                             @if(Auth::check())
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             @endif
                             <input type="hidden" name="product_id" value="{{ $products->id }}">
                             <input type="hidden" name="product_name" value="{{ $products->name }}">
                             <input type="hidden" name="type" value="{{ $products->type }}">
-                            <span class="col-md-12"> Escolha um tamanho </span>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="errors">
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <span class="col-md-12 col-12" id="textTamanho"> Escolha um tamanho </span>
                             <br>
-                            <div class="btn-group col-md-12" id="btn">
+                            <div class="btn-group col-md-12 col-12" id="btn">
                                 @if($products->sm)
                                     <label for="p" class="btn btn-default" id="labelP" data-toggle="tooltip"
                                            data-placement="top" title="(4 pedaços)"> P </label>
@@ -70,8 +86,8 @@
                                 @endif
                             </div>
 
-                            <span class="col-md-12"> Escolha a quantidade </span>
-                            <br>
+                            <hr>
+                            <span class="col-md-12" id="qtdSpan"> Escolha a quantidade </span>
                             <div class="col-md-12" id="qtdDiv">
                                 <button data-action="decrease" id="qtdLess" class="btn btn-info"> -</button>
                                 <input type="text" value="1" placeholder="1" id="qtd" disabled>
@@ -80,19 +96,22 @@
                             </div>
                             <div class="col-md-12" id="priceDiv">
                                 @if($products->price_md)
-                                    <input type="text" placeholder="R$ {{ $products->price_md }} + frete" name="textPrice"
+                                    <input type="text" placeholder="R$ {{ number_format($products->price_md, '2', ',', '0') }} + frete"
+                                           name="textPrice"
                                            id="textPrice" disabled>
                                     <input type="hidden" name="price" id="price" value="{{ $products->price_md }}">
                                 @elseif($products->price_sm)
-                                    <input type="text" placeholder="R$ {{ $products->price_sm }} + frete" name="textPrice"
+                                    <input type="text" placeholder="R$ {{ number_format($products->price_sm, '2', ',', '0') }} + frete"
+                                           name="textPrice"
                                            id="textPrice" disabled>
                                     <input type="hidden" name="price" id="price" value="{{ $products->price_sm }}">
                                 @elseif($products->price_lg)
-                                    <input type="text" placeholder="R$ {{ $products->price_lg }} + frete" name="textPrice"
+                                    <input type="text" placeholder="R$ {{ number_format($products->price_lg, '2', ',', '0') }} + frete"
+                                           name="textPrice"
                                            id="textPrice" disabled>
                                     <input type="hidden" name="price" id="price" value="{{ $products->price_lg }}">
                                 @elseif($products->price)
-                                    <input type="text" placeholder="R$ {{ $products->price }} + frete" name="textPrice"
+                                    <input type="text" placeholder="R$ {{ number_format($products->price, '2', ',', '0') }}} + frete" name="textPrice"
                                            id="textPrice" disabled>
                                     <input type="hidden" name="price" id="price" value="{{ $products->price }}">
                                 @endif
@@ -108,15 +127,21 @@
             </div>
         </div>
     </div>
-
+    </div>
     <script>
+        /* SCRIPT PARA QUANDO O USUÁRIO SELECIONAR UM TAMANHO */
+        /* BUTTON SELECIONADO IRÁ RECEBER UM BACKGROUND-COLOR PARA QUE SEJA DIFERENCIADO DOS OUTROS */
+        /* OS OUTROS BUTTON FICAM DA COR INICIAL */
+        /* O INPUT DE NAME "PRICE" IRÁ RECEBER O VALOR DO TAMANHO SELECIONADO */
+        /* O PLACEHOLDER DO INPUT DISABLED (QUE É O VALOR QUE É MOSTRADO PARA O USUÁRIO IRÁ RECEBER O VALOR DO TAMANHO SELECIONADO */
+
         $('#btn').click(function () {
             if ($('#p').prop('checked')) {
                 $('#labelP').css('background-color', '#d7dadd');
                 $('#labelM').css('background-color', '#f6f9fc');
                 $('#labelG').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_sm }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_sm }} + frete'})
+                $('#textPrice').attr({placeholder: 'R$ {{ number_format($products->price_sm, '2', ',', '0') }} + frete'})
             }
 
             if ($('#m').prop('checked')) {
@@ -124,7 +149,7 @@
                 $('#labelP').css('background-color', '#f6f9fc');
                 $('#labelG').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_md }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_md }} + frete'})
+                $('#textPrice').attr({placeholder: 'R$ {{ number_format($products->price_md, '2', ',', '0') }} + frete'})
             }
 
             if ($('#g').prop('checked')) {
@@ -132,7 +157,7 @@
                 $('#labelP').css('background-color', '#f6f9fc');
                 $('#labelM').css('background-color', '#f6f9fc');
                 $('#price').val({{ $products->price_lg }})
-                $('#textPrice').attr({placeholder: '{{ $products->price_lg }} + frete'})
+                $('#textPrice').attr({placeholder: 'R$ {{ number_format($products->price_lg, '2', ',', '0') }} + frete'})
             }
         });
     </script>

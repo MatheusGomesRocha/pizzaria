@@ -6,6 +6,12 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+#titleMyAccount {
+    color: #c4161c;
+    font-size: 28px;
+    font-weight: bold;
+}
+
 #accountUser, #accountName, #accountEmail, #accountPhone, #accountPass { /* Divs com conteúdo */
     border: 1px solid #d2d2d2;
     border-bottom: none;
@@ -78,6 +84,10 @@
     #accountAll {
         margin-top: 150px;
         margin-bottom: 350px;
+    }
+
+    #titleMyAccount {
+        margin-bottom: 35px;
     }
 
     #modalExemplo, #modalExemplo1, #modalExemplo2, #modalExemplo3, #modalExemplo4 {

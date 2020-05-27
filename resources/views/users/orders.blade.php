@@ -26,6 +26,7 @@
 
 @section('content')
     <div class="container row " id="wrapperOrders">
+        <span class="col-md-12" id="titleMyOrders"> Meus Pedidos </span>
         @forelse($query as $row)
             <div id="ordersUser" class="col-md-12 col-12">
                 <div id="contentTop" class="col-md-12 col-12">
@@ -80,12 +81,12 @@
                             </div>
                             @if($row->status == 'pendente')
                                 <div class="col-md-12" id="btnBuyDiv">
-                                    <a href="{{ route('finish_order') }}" id="btnBuyLink"
+                                    <a href="{{ route('cart') }}" id="btnBuyLink"
                                        class="btn btn-primary"> Finalizar compra </a>
                                 </div>
                             @elseif($row->status == 'confirmado')
                                 <div class="col-md-12" id="btnBuyDiv">
-                                    <a href="{{ asset("/product_info/{$row->product_id}") }}" id="btnBuyLink"
+                                    <a href="{{ asset("/product/id={$row->product_id}") }}" id="btnBuyLink"
                                        class="btn btn-primary"> Comprar novamente </a>
                                 </div>
                             @endif
@@ -142,7 +143,7 @@
                 </div>
             </div>
         @endforelse
-        {{ $query->links() }}
+        <div class="col-md-12 mt-4">{{ $query->links() }}</div>
     </div>
 @endsection
 </body>

@@ -26,6 +26,9 @@
 
 @section('content')
     <div class="container" id="accountAll">
+        <div class="row">
+            <span class="col-md-12 " id="titleMyAccount"> Minha Conta </span>
+        </div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="errors">

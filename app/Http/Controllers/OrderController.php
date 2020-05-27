@@ -58,7 +58,7 @@ class OrderController extends Controller
                 ->where('product_id', '=', $request->input('product_id'))
                 ->where('user_id', '=', $request->input('user_id'))
                 ->where('size', '=', $request->input('size'))
-                ->where('status', '=', 'Pendente')
+                ->where('status', '=', 'pendente')
                 ->count();
 
             if ($select == 0) {
@@ -75,11 +75,12 @@ class OrderController extends Controller
 
                 return redirect()->route('cart');
             } else {
+
                 $select1 = DB::table('orders')
                     ->where('product_id', '=', $request->input('product_id'))
                     ->where('user_id', '=', $request->input('user_id'))
                     ->where('size', '=', $request->input('size'))
-                    ->where('status', '=', 'Pendente')
+                    ->where('status', '=', 'pendente')
                     ->get();
                 foreach ($select1 as $row) {
                     $qnt = $row->quantidade + $request->qtd_hidden;
@@ -669,6 +670,7 @@ class OrderController extends Controller
 
             return Validator::make($data2, $regras2, $mensagens2);
         }
+
 
 
     }

@@ -5,10 +5,14 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-#titleCart {            /* Titulo (finalize seu pedido) */
+#titleCart, #titleCart1 {            /* Titulo (finalize seu pedido) */
     color: #c4161c;
     font-size: 28px;
     font-weight: bold;
+}
+
+#text {
+    margin-top: 20px;
 }
 
 #tableCart {
@@ -29,7 +33,6 @@
 
 #productNameCart, #productQtdCart {
     text-transform: uppercase;
-
 }
 
 #divPriceCart {
