@@ -54,54 +54,59 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="navbar-brand" id="logo">Logo</div>
-
+            <div class="navbar-brand" id="logoMobile">Logo</div>
             <a id="cartMobile" class="nav-link" href="{{ route('cart') }}">
                 <span id="countIcon"> {{ $count }}</span>
                 <img src="{{ asset('img/shopping-cart.png') }}">
             </a>
+            <div class="container">
+                <div class="navbar-brand" id="logo">Logo</div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
-                                class="sr-only">(página atual)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="local" href="#">Localização</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="about" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="staff" href="#">Funcionários</a>
-                    </li>
-                    <li class="nav-item" id="cartDesktop">
-                        <a class="nav-link" href="{{ route('cart') }}">
-                            <span id="countIcon"> {{ $count }}</span>
-                            <img src="{{ asset('img/shopping-cart.png') }}" id="imgCart">
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle" style="solid-color: #fff" id="dropdownAccount"></i>
-                        </a>
-                        <div class="dropdown-menu" id="userDropdown" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" id="myAccount" href="{{ route('account') }}">
-                                <i class="fas fa-user"></i>&nbsp;
-                                Sua conta</a>
-                            <a class="dropdown-item" id="myOrders" href="{{ route('orders') }}">
-                                <i class="fas fa-poll"></i>&nbsp;
-                                Seus Pedidos</a>
-                            <a class="dropdown-item" id="logout" href="{{ route('logout') }}">
-                                <i class="fas fa-power-off"> </i>&nbsp;
-                                Sair</a>
-                        </div>
-                    </li>
-                </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
+                                    class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="local" href="{{ route('cardapio') }}">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="local" href="#">Localização</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="about" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="staff" href="#">Funcionários</a>
+                        </li>
+                        <li class="nav-item" id="cartDesktop">
+                            <a class="nav-link" href="{{ route('cart') }}">
+                                <span id="countIcon"> {{ $count }}</span>
+                                <img src="{{ asset('img/shopping-cart.png') }}" id="imgCart">
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle" style="solid-color: #fff" id="dropdownAccount"></i>
+                            </a>
+                            <div class="dropdown-menu" id="userDropdown" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" id="myAccount" href="{{ route('account') }}">
+                                    <i class="fas fa-user"></i>&nbsp;
+                                    Sua conta</a>
+                                <a class="dropdown-item" id="myOrders" href="{{ route('orders') }}">
+                                    <i class="fas fa-poll"></i>&nbsp;
+                                    Seus Pedidos</a>
+                                <a class="dropdown-item" id="logout" href="{{ route('logout') }}">
+                                    <i class="fas fa-power-off"> </i>&nbsp;
+                                    Sair</a>
+                            </div>
+                        </li>
+                    </ul>
 
+                </div>
             </div>
         </nav>
     @endif
@@ -389,30 +394,32 @@
                 id="btnMobile">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="navbar-brand" id="logo">Logo</div>
-
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
-                            class="sr-only">(página atual)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="local" href="#">Localização</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="about" href="#">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="staff" href="#">Funcionários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
-                </li>
-            </ul>
-        </div>
+        <div class="navbar-brand" id="logoMobile">Logo</div>
+        <div class="container" id="insideTemplate">
+            <div class="navbar-brand" id="logo">Logo</div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home" href="{{ route('home') }}">Home <span
+                                class="sr-only">(página atual)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="local" href="{{ route('cardapio') }}">Cardápio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="local" href="#">Localização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="about" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="staff" href="#">Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="login" href="{{ route('login') }}">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 @endif

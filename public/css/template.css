@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 #footer { /* Rodapé */
-    background-color: #343434 !important;
+    background-color: #183059 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 #navbarTemplate { /* Div pai */
-    background-color: #343434 !important;
+    background-color: #183059 !important;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -62,7 +62,7 @@
 }
 
 #userDropdown { /* Dropdown do usuário */
-    background-color: #E1AA7D !important;
+    background-color: #276FBF !important;
 }
 
 #myOrders, #logout, #myAccount { /* Links dentro do dropdown */
@@ -70,7 +70,8 @@
 }
 
 #myOrders:hover, #logout:hover, #myAccount:hover { /* Links dentro do dropdown (ao passar o mouse por cima) */
-    background-color: #ca9b57 !important;
+    color: #fff !important;
+    background-color: transparent;
 }
 
 #home, #about, #local, #staff, #login { /* Links home, sobre, localização e funcionários */
@@ -79,7 +80,7 @@
 }
 
 #home:hover, #about:hover, #local:hover, #staff:hover, #login:hover { /* Links home, sobre, localização e funcionários (ao passar mouse em cima */
-    color: #E1AA7D !important;
+    color: #F03A47 !important;
     transition: all 0.3s;
 }
 
@@ -96,8 +97,8 @@
         top: 8px;
     }
 
-    #logoMobile {
-        display: block;
+    #logo {
+        display: none;
     }
 
     #btnMobile {
@@ -142,12 +143,17 @@
     #logoMobile { /* LOGO na versão mobile */
         display: none;
     }
+
 }
 
 @media(min-width: 1200px) {
     #navbarTemplate { /* Tamanho do Navbar */
         padding: 50px;
         height: 70px;
+    }
+
+    #cartMobile {
+        display: none;
     }
 
     .dropdown-menu { /* Div dentro do dropdown */
@@ -158,6 +164,14 @@
         position: absolute;
         left: 2372px;
         top: 18px;
+    }
+
+    #logoMobile {
+        display: none;
+    }
+
+    #navbarSupportedContent {
+        margin-left: 100px;
     }
 }
 
