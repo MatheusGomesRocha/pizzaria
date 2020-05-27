@@ -5,28 +5,28 @@ body {
 }
 
 #divCardapioAll {       /* BODY */
-    background-color: #364156;
+    background-color: #F6F4F3;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 #titleCardapio {
-    color: #fff;
 }
 
 #btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {
-    border: 1px solid #000;
-    background-color: #000;
-    color: #fff;
+    padding: 10px;
+    color: #F03A47;
+    border: 1px solid #F03A47;
+    font-size: 18px;
 }
 
 #btnPizzaCardapio {
-    background-color: #fff;
-    color: #000;
+    background-color: #F03A47;
+    color: #fff;
 }
 
 #btnPizzaCardapio:hover, #btnBurgerCardapio:hover, #btnDrinkCardapio:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #F03A47;
+    color: #fff;
 }
 
 #divPaiCardapio, #divPaiCardapio1, #divPaiCardapio2 {       /* DIV FORA DO FOREACH */
@@ -61,30 +61,28 @@ body {
 #cardapioName, #cardapioName1, #cardapioName2 {      /* NOME DO PRODUTO VINDO DO BD */
     font-size: 24px;
     text-transform: uppercase;
-    color: #fff;
 }
 
 #cardapioDescription, #cardapioDescription1, #cardapioDescription2 {       /* DESCRIÇÃO DO PRODUTO VINDO DO BD */
     text-align: left;
-    color: #fff;
 }
 
 #cardapioPrice, #cardapioPrice1, #cardapioPrice2 {         /* PREÇO DO PRODUTO VINDO DO BD */
-    color: #E1AA7D;
     font-size: 20px;
+    color: #F03A47;
 }
 
 #btnPedir0, #btnPedir1, #btnPedir2 {         /* BOTÃO DE FAZER PEDIDO */
     margin-left: 10px;
-    color: #E1AA7D;
-    border: 1px solid #E1AA7D;
+    color: #F03A47;
+    border: 1px solid;
     font-size: 18px;
     width: 100px;
 }
 
 #btnPedir0:hover, #btnPedir1:hover, #btnPedi2:hover {           /* AO PASSAR O MOUSE EM CIMA DO BOTÃO PEDIR */
-    background-color: #E1AA7D;
-    color: #000;
+    background-color: #F03A47;
+    color: #fff;
 }
 
 @media(min-width: 360px) and (max-width: 575.8px) {
@@ -94,7 +92,7 @@ body {
 
     #btnsCardapio {
         margin-top: 100px;
-        margin-left: 20px;
+        margin-left: 25px;
     }
 
     #btnPizzaCardapio, #btnBurgerCardapio, #btnDrinkCardapio {
@@ -171,12 +169,15 @@ body {
     #divFilhaPizza, #divfilhaBurger, #divFilhaDrink {       /* DIV DENTRO DO FOREACH */
         margin-left: 150px;
     }
-
 }
 
 @media(min-width: 1200px) {
+    #cardapio {
+        margin-left: 500px;
+    }
+
     #btnsCardapio {
-        margin-left: 140px;
+        margin-left: 50px;
         margin-top: 150px;
     }
 
@@ -199,15 +200,14 @@ body {
         font-size: 20px;
     }
 
-
     #divFilhaCardapio, #divfilhaCardapio1, #divFilhaCardapio2 {       /* DIV DENTRO DO FOREACH */
-        margin-left: 150px;
+        margin-left: 25px;
         border: 1px solid #000;
     }
 
     #titleCardapio {
         margin-top: 150px;
-
+        margin-left: -250px;
     }
 }
 
