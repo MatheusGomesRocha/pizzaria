@@ -206,7 +206,8 @@ class UserController extends Controller
             return redirect()->back();
         } else {
             $select = DB::table('users')
-                ->where('user', '=', $request->input('inputUser'));
+                ->where('user', '=', $request->input('inputUser'))
+                ->count();
 
             if ($select == 0) {
                 DB::table('users')

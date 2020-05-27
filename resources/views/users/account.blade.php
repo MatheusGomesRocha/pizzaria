@@ -81,19 +81,19 @@
                                         <form method="post" action="{{ asset('/edit_user_val') }}">
                                             {{ csrf_field() }}
                                             <div class="col-md-12" id="divUser">
-                                                <label for="inputPass" class="d-flex justify-content-start">
-                                                    <strong> Confirme sua
-                                                        senha: </strong>
-                                                </label>
-                                                <input id="inputPass" name="inputPass" class="form-control"
-                                                       type="password">
-
                                                 <label for="inputUser" class="d-flex justify-content-start">
                                                     <strong>Novo
                                                         usuário: </strong></label>
                                                 <input id="inputUser" name="inputUser" class="form-control"
                                                        type="text"
                                                        placeholder="{{ $user->user }}">
+
+                                                <label for="inputPass" class="d-flex justify-content-start">
+                                                    <strong> Confirme sua
+                                                        senha: </strong>
+                                                </label>
+                                                <input id="inputPass" name="inputPass" class="form-control"
+                                                       type="password">
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="submit" id="btnModalEdit" class="btn btn-success"
@@ -139,18 +139,18 @@
                                         <form method="post" action="{{ asset('/edit_name_val') }}">
                                             {{ csrf_field() }}
                                             <div class="col-md-12" id="divNome">
-                                                <label for="inputPass" class="d-flex justify-content-start">
-                                                    <strong> Digite sua
-                                                        senha: </strong>
-                                                </label>
-                                                <input id="inputPass" name="inputPass" class="form-control"
-                                                       type="password">
                                                 <label for="inputName" class="d-flex justify-content-start">
-                                                    <strong>Novo
-                                                        nome: </strong></label>
+                                                    <strong>Novo nome: </strong>
+                                                </label>
                                                 <input id="inputName" name="inputName" class="form-control"
                                                        type="text"
                                                        placeholder="{{ $user->name }}">
+
+                                                <label for="inputPass" class="d-flex justify-content-start">
+                                                    <strong> Digite sua senha: </strong>
+                                                </label>
+                                                <input id="inputPass" name="inputPass" class="form-control"
+                                                       type="password">
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="submit" id="btnModalEdit" class="btn btn-success"
@@ -196,17 +196,18 @@
                                         <form method="post" action="{{ asset('/edit_email_val') }}">
                                             {{ csrf_field() }}
                                             <div class="col-md-12" id="divEmail">
-                                                <label for="inputPass" class="d-flex justify-content-start">
-                                                    <strong> Confirme sua senha: </strong>
-                                                </label>
-                                                <input id="inputPass" name="inputPass" class="form-control"
-                                                       type="password">
                                                 <label for="inputEmail" class="d-flex justify-content-start">
                                                     <strong> Novo email: </strong>
                                                 </label>
                                                 <input id="inputEmail" name="inputEmail" class="form-control"
                                                        type="email"
                                                        placeholder="{{ $user->email }}">
+
+                                                <label for="inputPass" class="d-flex justify-content-start">
+                                                    <strong> Confirme sua senha: </strong>
+                                                </label>
+                                                <input id="inputPass" name="inputPass" class="form-control"
+                                                       type="password">
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="submit" class="btn btn-success" name="submit"
@@ -252,16 +253,17 @@
                                         <form method="post" action="{{ asset('/edit_phone_val') }}">
                                             {{ csrf_field() }}
                                             <div class="col-md-12" id="divPhone">
-                                                <label for="inputPass" class="d-flex justify-content-start">
-                                                    <strong> Digite sua senha: </strong>
-                                                </label>
-                                                <input id="inputPass" name="inputPass" class="form-control"
-                                                       type="password">
                                                 <label for="inputPhone" class="d-flex justify-content-start">
                                                     <strong> Novo número de contato: </strong>
                                                 </label>
                                                 <input id="inputPhone" name="inputPhone" class="form-control" type="tel"
                                                        placeholder="{{ $user->telefone }}">
+
+                                                <label for="inputPass" class="d-flex justify-content-start">
+                                                    <strong> Digite sua senha: </strong>
+                                                </label>
+                                                <input id="inputPass" name="inputPass" class="form-control"
+                                                       type="password">
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="submit" class="btn btn-success" name="submit"
