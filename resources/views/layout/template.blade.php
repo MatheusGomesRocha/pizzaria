@@ -7,7 +7,6 @@
     <title>Pizzaria - @yield('title')</title>
     <link href="{{asset('css/template.css')}}" rel="stylesheet">
     <link href="{{ asset('css/style.css')}}" rel="stylesheet"> <!-- HOME.HOME VIEW -->
-    <link href="{{asset('css/product_info.css')}}" rel="stylesheet"> <!-- PRODUCTS.INFO VIEW -->
 
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">

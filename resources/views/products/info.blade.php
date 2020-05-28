@@ -7,7 +7,7 @@
     <meta content="" name="description">
     <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-
+    <link href="{{asset('css/product_info.css')}}" rel="stylesheet"> <!-- PRODUCTS.INFO VIEW -->
     <link href="{{ asset('lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
