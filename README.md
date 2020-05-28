@@ -1,6 +1,6 @@
 Primeiro WebSite que faço que precisou um pouco mais de trabalho.
 
-Fiz tanto o back-end como front-end, porém, trabalhando mais no back, 
+Fiz tanto o back-end como front-end, porém, trabalhando mais no back-end, 
 pois é o meu foco, então se achar o front um pouco ruim, realmente sou péssimo nele.
 
     Utilize as seguintes tecnologias:,
