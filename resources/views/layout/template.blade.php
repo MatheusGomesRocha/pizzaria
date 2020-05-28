@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
 
 </head>
 <body>
@@ -53,13 +55,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="navbar-brand" id="logoMobile">Logo</div>
+            <div class="navbar-brand" id="logoMobile"><img src="{{ asset('img/logo.png') }}" id="imgLogoMobile"></div>
             <a id="cartMobile" class="nav-link" href="{{ route('cart') }}">
                 <span id="countIcon"> {{ $count }}</span>
                 <img src="{{ asset('img/shopping-cart.png') }}">
             </a>
             <div class="container">
-                <div class="navbar-brand" id="logo">Logo</div>
+                <div class="navbar-brand" id="logo"><img src="{{ asset('img/logo.png') }}" id="imgLogo"></div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
@@ -393,9 +395,9 @@
                 id="btnMobile">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-brand" id="logoMobile">Logo</div>
+        <div class="navbar-brand" id="logoMobile"><img src="{{ asset('img/logo.png') }}" id="imgLogoMobile"></div>
         <div class="container" id="insideTemplate">
-            <div class="navbar-brand" id="logo">Logo</div>
+            <div class="navbar-brand" id="logo"><img src="{{ asset('img/logo.png') }}" id="imgLogo"></div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -406,7 +408,7 @@
                         <a class="nav-link" id="local" href="{{ route('cardapio') }}">Cardápio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="local" href="#">Localização</a>
+                        <a class="nav-link" id="local" href="#map">Localização</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="about" href="#">Sobre</a>
@@ -455,6 +457,22 @@
             @endif
         @endif
     </div>
+    <div id="map" class="map" style=" height: 400px;
+        width: 100%;"></div>
+    <script type="text/javascript">
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([-38.570, -3.71970]),
+                zoom: 18
+            })
+        });
+    </script>
 </footer>
 
 

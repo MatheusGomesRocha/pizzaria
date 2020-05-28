@@ -3,6 +3,7 @@
 #footer { /* Rodapé */
     background-color: #183059 !important;
     font-family: 'Roboto Condensed', sans-serif;
+    color: #fff;
 }
 
 #navbarTemplate { /* Div pai */
@@ -109,6 +110,11 @@
         border: none;
         outline: 0;
     }
+
+    #imgLogoMobile {
+        width: 40px; height: 40px;
+        transform: scale(1.1);
+    }
 }
 
 @media (min-width: 998px) and (max-width: 1198px) {
@@ -172,6 +178,10 @@
 
     #navbarSupportedContent {
         margin-left: 100px;
+    }
+
+    #imgLogo {
+        width: 100px; height: 100px;
     }
 }
 

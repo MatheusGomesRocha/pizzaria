@@ -17,8 +17,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
-
-
 @section('content')
     <div id="allHome">
         <div class="container-fluid" id="imgMark">
@@ -51,6 +49,7 @@
         </div>
         <hr>
     </div>
+
 
     <!-- ÁREA DE SERVIÇOS -->
 
