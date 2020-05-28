@@ -52,3 +52,7 @@ Esse site não é tão a fundo mas tem as seguintes funcionalidades:
             Editar o nível de usuários comuns e admins
             Ver gráficos de vendas (Não adicionei essa funcionalidade ainda)
             
+
+    PS: Os arquivos no diretórios /arquivos_auth terão que ser movidos para o seguinte diretório:
+        /vendor/laravel/framework/src/illuminate/Foundation/Auth
+   
